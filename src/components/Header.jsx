@@ -4,6 +4,7 @@ import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline'
 import Image from "next/image";
 import IONCLogo from "@/images/logo.png"
 
+
 const navigation = [
     {name: '首頁', href: '/#'},
     {name: '集訓課表', href: '/courses'},

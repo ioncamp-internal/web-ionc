@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import ioncTS from "@/images/ionc-re.png";
 import Background from "@/components/Background";
+import Head from "next/head";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -11,6 +12,9 @@ export default function Home() {
     return (
         <>
             <Header/>
+            <Head>
+                <title>2023 IONC清大暑期程式競賽集訓營</title>
+            </Head>
                 <main className="flex min-h-screen flex-col items-center justify-between p-20" style={{backgroundColor:"#070B14" }}>
                     <Background/>
                     <Image
