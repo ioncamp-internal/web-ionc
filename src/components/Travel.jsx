@@ -2,7 +2,7 @@ import {PaperClipIcon} from '@heroicons/react/20/solid'
 
 export default function Example() {
     return (
-        <>
+        <div className="z-50">
             <div className="text-center z-10" style={{marginTop: "-15px"}}>
                 <h1 className="text-6xl font-bold" style={{color: "#FFF"}}>交通資訊</h1>
             </div>
@@ -107,6 +107,6 @@ export default function Example() {
                 </tbody>
             </table>
 
-        </>
+        </div>
     )
 }
