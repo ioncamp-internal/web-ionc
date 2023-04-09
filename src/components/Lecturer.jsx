@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaTrophy } from 'react-icons/fa';
+import Image from "next/image";
 
 export default function Lecturer({ name,id, experiences, avatarUrl }) {
     const showAvatar = !!avatarUrl;
@@ -18,7 +19,7 @@ export default function Lecturer({ name,id, experiences, avatarUrl }) {
                 </div>
                 {showAvatar && (
                     <div className="w-1/3">
-                        <img className="w-full rounded-full" src={avatarUrl} alt="Avatar" />
+                        <Image className="w-full rounded-full" src={avatarUrl} alt="Avatar" />
                     </div>
                 )}
             </div>
