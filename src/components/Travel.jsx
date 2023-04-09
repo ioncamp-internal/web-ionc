@@ -4,7 +4,7 @@ export default function Example() {
     return (
         <div className="z-50">
             <div className="text-center z-10" style={{marginTop: "-15px"}}>
-                <h1 className="text-6xl font-bold" style={{color: "#FFF"}}>交通資訊</h1>
+                <h1 className="text-5xl font-bold" style={{color: "#FFF"}}>交通資訊</h1>
             </div>
             <div>
                 <h3 className="mt-5 mb-2 text-base font-semibold leading-6 text-white text-center"

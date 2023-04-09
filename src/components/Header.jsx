@@ -3,12 +3,12 @@ import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-    { name: '最新消息', href: '#' },
-    { name: '集訓課表', href: '#' },
-    { name: '師資團隊', href: '#' },
+    { name: '首頁', href: '/#' },
+    { name: '集訓課表', href: '/courses' },
+    { name: '師資團隊', href: '/lecturers' },
     { name: '注意事項', href: '/notices' }, //notices
-    { name: '交通資訊', href: '#' },
-    { name: '贊助單位', href: '#' },
+    { name: '交通資訊', href: '/travel' },
+    { name: '贊助單位', href: '/sponsers' },
 ]
 
 export default function Example() {
