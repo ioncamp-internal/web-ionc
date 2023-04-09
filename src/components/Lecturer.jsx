@@ -19,7 +19,7 @@ export default function Lecturer({ name,id, experiences, avatarUrl }) {
                 </div>
                 {showAvatar && (
                     <div className="w-1/3">
-                        <Image className="w-full rounded-full" src={avatarUrl} alt="Avatar" />
+                        <Image className="w-60 rounded-full" src={avatarUrl} alt="Avatar" />
                     </div>
                 )}
             </div>
