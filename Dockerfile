@@ -20,6 +20,7 @@ RUN \
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
+COPY --from=deps /app/package-lock.json ./package-lock.json
 COPY . .
 
 # Next.js collects completely anonymous telemetry data about general usage.
@@ -27,10 +28,10 @@ COPY . .
 # Uncomment the following line in case you want to disable telemetry during the build.
 # ENV NEXT_TELEMETRY_DISABLED 1
 
-RUN yarn build
+# RUN yarn build
 
 # If using npm comment out above and use below instead
-# RUN npm run build
+RUN npm run build
 
 # Production image, copy all the files and run next
 FROM base AS runner
