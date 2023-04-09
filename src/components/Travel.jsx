@@ -7,7 +7,7 @@ export default function Example() {
                 <h1 className="text-6xl font-bold" style={{color: "#FFF"}}>交通資訊</h1>
             </div>
             <div>
-                <h3 className="mt-5 mb-2 text-base font-semibold leading-6 text-white"
+                <h3 className="mt-5 mb-2 text-base font-semibold leading-6 text-white text-center"
                     style={{color: "#8DD6F7"}}>國立清華大學校本部地址：新竹市光復路二段 101 號</h3>
             </div>
             <table className="table-auto w-full mt-3 text-center leader-6 text-white">
