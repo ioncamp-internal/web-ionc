@@ -1,14 +1,16 @@
-import { useState } from 'react'
-import { Dialog } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import {useState} from 'react'
+import {Dialog} from '@headlessui/react'
+import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline'
+import Image from "next/image";
+import IONCLogo from "@/images/logo.png"
 
 const navigation = [
-    { name: '首頁', href: '/#' },
-    { name: '集訓課表', href: '/courses' },
-    { name: '師資團隊', href: '/lecturers' },
-    { name: '注意事項', href: '/notices' }, //notices
-    { name: '交通資訊', href: '/travel' },
-    { name: '贊助單位', href: '/sponsers' },
+    {name: '首頁', href: '/#'},
+    {name: '集訓課表', href: '/courses'},
+    {name: '師資團隊', href: '/lecturers'},
+    {name: '注意事項', href: '/notices'}, //notices
+    {name: '交通資訊', href: '/travel'},
+    {name: '贊助單位', href: '/sponsers'},
 ]
 
 export default function Example() {
@@ -20,7 +22,7 @@ export default function Example() {
                 <div className="flex lg:flex-1">
                     <a href="#" className="-m-1.5 p-1.5">
                         <span className="sr-only">Your Company</span>
-                        <img className="h-8 w-auto" src="../images/logo.png" alt="" />
+                        <Image className="h-8 w-auto" src={IONCLogo} width={600} height={450} alt=""/>
 
                     </a>
                 </div>
@@ -31,7 +33,7 @@ export default function Example() {
                         onClick={() => setMobileMenuOpen(true)}
                     >
                         <span className="sr-only">Open main menu</span>
-                        <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+                        <Bars3Icon className="h-6 w-6" aria-hidden="true"/>
                     </button>
                 </div>
                 <div className="hidden lg:flex lg:gap-x-12">
@@ -49,8 +51,9 @@ export default function Example() {
                 </div>
             </nav>
             <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
-                <div className="fixed inset-0 z-40" />
-                <Dialog.Panel className="fixed inset-y-0 right-0 z-40 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
+                <div className="fixed inset-0 z-40"/>
+                <Dialog.Panel
+                    className="fixed inset-y-0 right-0 z-40 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
                     <div className="flex items-center justify-between">
                         <a href="#" className="-m-1.5 p-1.5">
                             <span className="sr-only">Your Company</span>
@@ -66,7 +69,7 @@ export default function Example() {
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             <span className="sr-only">Close menu</span>
-                            <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                            <XMarkIcon className="h-6 w-6" aria-hidden="true"/>
                         </button>
                     </div>
                     <div className="mt-6 flow-root">
