@@ -51,8 +51,17 @@ const lecturers = [
     },
     {
         name: "楊景遇",
+        id: "喜歡熬夜、各種茶拿鐵、睡覺",
+        experiences: ['2022 ICPC Gold', 'TOI 1!','學科能力競賽決賽 二等獎'],
+    },
+    {
+        name: "葉宥辰",
+        experiences: ['2022 ICPC Asia Taoyuan Regional🥇Golden Award','TOI 1!'],
+    },
+    {
+        name: "黃頂軒",
         // id: "grorge",
-        experiences: ['ICPC Asia Taipei Regional🥈Sliver Award', '北市資訊能力競賽 三等獎'],
+        experiences: ['2022 ICPC Asia Taoyuan Regional🥈Sliver Award'],
     },
 ];
 export default function Home() {
