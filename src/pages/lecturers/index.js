@@ -39,7 +39,7 @@ const lecturers = [
         avatarUrl: HNO2,
         experiences: [
             "2021 ICPC Asia Taipei Regional🥇Golden Award",
-            "110 全國大專電腦軟體設計競賽🥈第四名",
+            // "110 全國大專電腦軟體設計競賽🥈第四名",
             "2020 ICPC Asia Taipei-Hsinchu Regional🥇Golden Award",
             "2018 ~ 2020 TOI 1!",
             "108 全國資訊學科能力競賽🥈二等獎",
