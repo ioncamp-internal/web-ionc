@@ -5,6 +5,7 @@ import Footer from '../../components/Footer'
 import Background from "@/components/Background";
 import Lecturer from "@/components/Lecturer";
 import HNO2 from "@/images/hno2.jpg";
+
 const inter = Inter({subsets: ['latin']})
 const lecturers = [
     {
@@ -47,16 +48,15 @@ const lecturers = [
     {
         name: "曹瀚文",
         id: "grorge",
-        experiences: ['ICPC Asia Taipei Regional🥈Sliver Award', '北市資訊能力競賽 三等獎'],
+        experiences: ['新竹資訊之芽 講師', 'ICPC Asia Taipei Regional🥈Sliver Award', '北市資訊能力競賽 三等獎'],
     },
     {
         name: "楊景遇",
-        id: "喜歡熬夜、各種茶拿鐵、睡覺",
-        experiences: ['2022 ICPC Gold', 'TOI 1!','學科能力競賽決賽 二等獎'],
+        experiences: ['2022 ICPC Gold', 'TOI 1!', '學科能力競賽決賽 二等獎'],
     },
     {
         name: "葉宥辰",
-        experiences: ['2022 ICPC Asia Taoyuan Regional🥇Golden Award','TOI 1!'],
+        experiences: ['2022 ICPC Asia Taoyuan Regional🥇Golden Award', 'TOI 1!'],
     },
     {
         name: "黃頂軒",
@@ -68,14 +68,16 @@ export default function Home() {
     return (
         <>
             <Header/>
-            <main className="flex min-h-screen flex-col items-center justify-between p-20" style={{backgroundColor:"#070B14" }}>
+            <main className="flex min-h-screen flex-col items-center justify-between p-20"
+                  style={{backgroundColor: "#070B14"}}>
                 <Background/>
-                <div className="text-center z-10" style={{marginTop:"-15px"}}>
-                    <h1 className="text-5xl font-bold"style={{color:"#FFF"}}>師資陣容</h1>
+                <div className="text-center z-10" style={{marginTop: "-15px"}}>
+                    <h1 className="text-5xl font-bold" style={{color: "#FFF"}}>師資陣容</h1>
                 </div>
                 <div className="z-50 w-4/5">
                     {lecturers.map((lecturer) => (
-                        <Lecturer name={lecturer.name} id={lecturer.id} experiences={lecturer.experiences} avatarUrl={lecturer.avatarUrl} />
+                        <Lecturer name={lecturer.name} id={lecturer.id} experiences={lecturer.experiences}
+                                  avatarUrl={lecturer.avatarUrl}/>
                     ))}
                 </div>
             </main>
