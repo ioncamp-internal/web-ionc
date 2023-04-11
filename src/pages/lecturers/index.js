@@ -5,6 +5,7 @@ import Footer from '../../components/Footer'
 import Background from "@/components/Background";
 import Lecturer from "@/components/Lecturer";
 import HNO2 from "@/images/hno2.jpg";
+import RAT from "@/images/rat.JPG";
 
 const inter = Inter({subsets: ['latin']})
 const lecturers = [
@@ -60,8 +61,22 @@ const lecturers = [
     },
     {
         name: "黃頂軒",
-        // id: "grorge",
+        avatarUrl: RAT,
         experiences: ['2022 ICPC Asia Taoyuan Regional🥈Sliver Award'],
+    },
+    {
+        name: "林敬珣",
+        experiences: [
+            'TOI 1!',
+            '北市資訊能力競賽 三等獎'
+        ],
+    },
+    {
+        name: "謝師誠",
+        experiences: [
+            '110 竹市學科能力競賽 佳作',
+            'CPE 大學程式能力檢定7/7'
+        ],
     },
 ];
 export default function Home() {
