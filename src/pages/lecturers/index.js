@@ -47,6 +47,13 @@ const lecturers = [
         ],
     },
     {
+        name: "范釗維",
+        experiences: [
+            "2020 APIO 🥉 銅牌",
+            "2020 ~ 2022 ICPC Taiwan Regional 🥈 Silver Award",
+        ],
+    },
+    {
         name: "曹瀚文",
         id: "grorge",
         experiences: ['新竹資訊之芽 講師', 'ICPC Asia Taipei Regional🥈Sliver Award', '北市資訊能力競賽 三等獎'],
