@@ -37,7 +37,7 @@ const lecturers = [
     {
         name: "郭軒語",
         id: "HNO2",
-        avatarUrl: HNO2,
+        // avatarUrl: HNO2,
         experiences: [
             "2021 ICPC World Finalist",
             // "110 全國大專電腦軟體設計競賽🥈第四名",
@@ -61,7 +61,7 @@ const lecturers = [
     },
     {
         name: "黃頂軒",
-        avatarUrl: RAT,
+        // avatarUrl: RAT,
         experiences: ['2022 ICPC Asia Taoyuan Regional🥈Sliver Award'],
     },
     {
