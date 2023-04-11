@@ -5,7 +5,7 @@ import Footer from '../../components/Footer'
 import Background from "@/components/Background";
 import Lecturer from "@/components/Lecturer";
 import HNO2 from "@/images/hno2.jpg";
-import RAT from "@/images/rat.JPG";
+import RAT from "@/images/rat.jpg";
 
 const inter = Inter({subsets: ['latin']})
 const lecturers = [
