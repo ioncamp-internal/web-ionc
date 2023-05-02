@@ -12,7 +12,7 @@ export default function Home() {
     return (
         <>
             <Header/>
-            <main className="flex min-h-screen flex-col items-center justify-between p-20"
+            <main className="flex min-h-screen flex-col items-center justify-between p-3 md:p-20"
                   style={{backgroundColor: "#070B14"}}>
                 <Background/>
                 <Image
@@ -33,7 +33,6 @@ export default function Home() {
                         讓 IONCamp 透過連續五天密集且扎實的培訓課程，帶領你突破目前的困境吧！
                     </p>
                 </div>
-                <div></div>
             </main>
             <Footer/>
         </>

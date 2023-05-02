@@ -20,8 +20,8 @@ export default function Home() {
                         style={{color: "#8DD6F7"}}>
                         *尚待尋找中*<br/>若有合作意願歡迎來信聯繫！
                     </h3>
-                    <a className="z-10 text-3xl mt-5 mb-2 font-semibold text-white text-center"
-                       href="mailto:nthu.ioncamp@gmail.com"style={{color: "#8DD6F7"}}>
+                    <a className="z-10 text-3xl mt-5 mb-2 font-semibold text-white text-center inline"
+                       href="mailto:nthu.ioncamp@gmail.com" style={{color: "#8DD6F7"}}>
                         nthu.ioncamp@gmail.com
                     </a>
                 </div>
