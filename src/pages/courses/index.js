@@ -4,16 +4,18 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Background from "@/components/Background";
 import coursesImage from "@/images/courses1.png";
+
 const inter = Inter({subsets: ['latin']})
 
 export default function Home() {
     return (
         <>
             <Header/>
-            <main className="flex min-h-screen flex-col items-center justify-between p-20" style={{backgroundColor:"#070B14" }}>
+            <main className="flex min-h-screen flex-col items-center justify-start px-4 py-10 sm:p-20"
+                  style={{backgroundColor: "#070B14"}}>
                 <Background/>
-                <div className="text-center z-10" style={{marginTop:"-15px"}}>
-                    <h1 className="text-5xl font-bold"style={{color:"#FFF"}}>營隊課表</h1>
+                <div className="text-center z-10" style={{marginTop: "-15px"}}>
+                    <h1 className="text-5xl font-bold" style={{color: "#FFF"}}>營隊課表</h1>
                 </div>
                 <div>
                     <h3 className="mt-5 mb-2 text-base font-semibold leading-6 text-white text-center"
@@ -23,7 +25,8 @@ export default function Home() {
                     src={coursesImage}
                     alt=""
                     className="mt-5 z-50 rounded-lg"
-                    width={800}
+                    width={3539}
+                    height={1755}
                 />
             </main>
             <Footer/>

@@ -10,7 +10,7 @@ export default function Home() {
     return (
         <>
             <Header/>
-            <main className="flex min-h-screen flex-col items-center p-20" style={{backgroundColor:"#070B14" }}>
+            <main className="flex min-h-screen flex-col items-center px-4 py-10 md:p-20" style={{backgroundColor:"#070B14" }}>
                 <Background/>
                 <div className="text-center z-10" style={{marginTop:"-15px"}}>
                     <h1 className="text-5xl font-bold" style={{color:"#FFF"}}>贊助單位</h1>

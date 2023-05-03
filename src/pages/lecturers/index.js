@@ -86,10 +86,10 @@ export default function Home() {
     return (
         <>
             <Header/>
-            <main className="flex min-h-screen flex-col items-center justify-between p-20"
+            <main className="flex min-h-screen flex-col items-center justify-between px-4 py-10 md:p-20"
                   style={{backgroundColor: "#070B14"}}>
                 <Background/>
-                <div className="text-center z-10" style={{marginTop: "-15px"}}>
+                <div className="text-center z-10">
                     <h1 className="text-5xl font-bold" style={{color: "#FFF"}}>師資陣容</h1>
                 </div>
                 <div className="z-50 w-4/5">
