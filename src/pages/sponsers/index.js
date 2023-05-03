@@ -4,6 +4,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Background from "@/components/Background";
 import coursesImage from "@/images/courses1.png";
+import Link from "next/link";
 const inter = Inter({subsets: ['latin']})
 
 export default function Home() {
@@ -24,10 +25,10 @@ export default function Home() {
                         style={{color: "#8DD6F7"}}>
                         若有合作意願歡迎來信聯繫！
                     </h3>
-                    <a className="z-10 text-3xl mt-5 mb-2 font-semibold text-white text-center inline"
+                    <Link className="z-10 text-3xl mt-5 mb-2 font-semibold text-white text-center inline"
                        href="mailto:nthu.ioncamp@gmail.com" style={{color: "#8DD6F7"}}>
                         nthu.ioncamp@gmail.com
-                    </a>
+                    </Link>
                 </div>
 
             </main>
