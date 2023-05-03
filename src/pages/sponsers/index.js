@@ -13,12 +13,16 @@ export default function Home() {
             <main className="flex min-h-screen flex-col items-center p-20" style={{backgroundColor:"#070B14" }}>
                 <Background/>
                 <div className="text-center z-10" style={{marginTop:"-15px"}}>
-                    <h1 className="text-5xl font-bold"style={{color:"#FFF"}}>贊助單位</h1>
+                    <h1 className="text-5xl font-bold" style={{color:"#FFF"}}>贊助單位</h1>
                 </div>
-                <div className="z-50">
+                <div className="z-50 flex flex-col items-center">
+                    <h3 className="z-50 text-3xl mt-5 mb-2 font-semibold italic text-white text-center"
+                        style={{color: "#8DD6F7"}}>
+                        頁面建置中
+                    </h3>
                     <h3 className="z-50 text-3xl mt-5 mb-2 font-semibold text-white text-center"
                         style={{color: "#8DD6F7"}}>
-                        *尚待尋找中*<br/>若有合作意願歡迎來信聯繫！
+                        若有合作意願歡迎來信聯繫！
                     </h3>
                     <a className="z-10 text-3xl mt-5 mb-2 font-semibold text-white text-center inline"
                        href="mailto:nthu.ioncamp@gmail.com" style={{color: "#8DD6F7"}}>
