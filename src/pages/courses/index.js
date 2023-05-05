@@ -3,7 +3,7 @@ import {Inter} from 'next/font/google'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Background from "@/components/Background";
-import coursesImage from "@/images/courses1.png";
+import IONCcourse from "@/images/IONCcourse.png";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -22,7 +22,7 @@ export default function Home() {
                         style={{color: "#8DD6F7"}}>*部分課程同時段將分為基礎與進階兩班同時授課</h3>
                 </div>
                 <Image
-                    src={coursesImage}
+                    src={IONCcourse}
                     alt=""
                     className="mt-5 z-50 rounded-lg"
                     width={3539}

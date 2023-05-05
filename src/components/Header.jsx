@@ -46,13 +46,15 @@ export default function Example() {
                 </div>
                 <div className="hidden lg:flex lg:gap-x-12">
                     {navigation.map((item) => (
-                        <Link prefetch key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-white">
+                        <Link key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-white">
                             {item.name}
                         </Link>
                     ))}
                 </div>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <Link href="https://forms.gle/fhWfs6fiFqe8s6Ey7" className="text-sm font-semibold leading-6 text-white border border-white rounded shadow p-1" target={"_blank"}>
+                    <Link href="https://forms.gle/fhWfs6fiFqe8s6Ey7"
+                          className="text-sm font-semibold leading-6 text-white border border-white rounded shadow p-1"
+                          target={"_blank"}>
                         {/*報名尚未開始哦！*/}
                         立即報名
                         {/*<span aria-hidden="true">&rarr;</span>*/}
@@ -87,7 +89,6 @@ export default function Example() {
                             <div className="space-y-2 py-6">
                                 {navigation.map((item) => (
                                     <Link
-                                        prefetch
                                         key={item.name}
                                         href={item.href}
                                         className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800"
