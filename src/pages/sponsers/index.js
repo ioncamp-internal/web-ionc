@@ -6,7 +6,7 @@ import Background from "@/components/Background";
 import coursesImage from "@/images/courses1.png";
 import Link from "next/link";
 import sudoLogo from "@/images/sudo.jpg"
-import tongyizenjuan from "@/images/統一證卷2.png"
+import tongyizenjuan from "@/images/統一證卷.png"
 import YTPLogo from "@/images/YTP.jpg"
 import one04Logo from "@/images/104.png"
 import {GlobeAsiaAustraliaIcon} from "@heroicons/react/24/outline";
@@ -23,13 +23,13 @@ const people = [
             年累積至今的實績，目前正積極擴編中！我們會持續發展頂尖的區塊鏈工程與相關研究，以既有的產品路線為根基，同時探索新的應用機會，掌握時機快速切入市場，成為新領域的領頭羊。
             我們努力營造扁平開放的工作文化，舒適高效率的工作環境與活潑的工作氣氛，並且重視每一位夥伴的成長。若你對挑戰未知感到興奮，也認同我們的文化與願景，期待您一同加入我們的行列！`,
     },
-    // {
-    //     name: '統一證卷',
-    //     role: 'Senior Designer',
-    //     imageUrl: tongyizenjuan,
-    //     link: '#',
-    //     bio: '',
-    // },
+    {
+        name: '統一證卷',
+        role: 'Senior Designer',
+        imageUrl: tongyizenjuan,
+        link: '#',
+        bio: '',
+    },
     {
         name: 'YTP 少年圖靈計畫（精誠集團）',
         role: 'Senior Designer',
@@ -60,7 +60,7 @@ export default function Home() {
                         <div className="mx-auto max-w-7xl px-6 lg:px-8 gap-y-20">
                             <ul
                                 role="list"
-                                className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-2 lg:max-w-4xl lg:gap-x-8 xl:max-w-none"
+                                className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 lg:max-w-4xl lg:gap-x-8 xl:max-w-none"
                             >
                                 {people.map((person) => (
                                     <li key={person.name} className="flex flex-col gap-6 xl:flex-row">
