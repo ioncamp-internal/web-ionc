@@ -36,7 +36,7 @@ const people = [
         name: 'YTP 少年圖靈計畫（精誠集團）',
         role: 'Senior Designer',
         imageUrl: YTPLogo,
-        link: '️https://www.tw-ytp.org/',
+        link: 'https://www.tw-ytp.org/',
         bio: '「YTP少年圖靈計畫」是精誠集團培養軟體人才的公益計畫，提供國/高中同學透過程式競賽、專題實做以及海外參訪機會，精進自己的程式能力並且與各方程式好手交流！提供台中以南同學交通補助費用，競賽獎金以及免費點心，報名參加「YTP少年圖靈計畫」就是今年暑假最重要的事啦！！立即報名！',
     },
     {
