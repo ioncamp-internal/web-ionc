@@ -16,5 +16,5 @@ jobs:
           port: ${{ vars.PORT }}
           script: |
             cd /home/hsuan/web-ionc
-            git pull https://${{ secrets.GITHUB_TOKEN }}:@github.com/${{ github.repository }}.git
+            git pull "https://${{ secrets.GITHUB_TOKEN }}:@github.com/${{ github.repository }}.git"
             bash ./update.sh
