@@ -10,11 +10,11 @@ const lecturers = [
         id: "PolarisChiba",
         experiences: [
             "NTHU Competitive Programming Lecture Teaching Assistant",
-            "2021 ICPC Asia Taipei Regional🥈Sliver Award",
-            "2020 ICPC Asia Taipei-Hsinchu Regional🥈Sliver Award",
+            "2021 ICPC Asia Taipei Regional 🥈 Sliver Award",
+            "2020 ICPC Asia Taipei-Hsinchu Regional 🥈 Sliver Award",
             "TOI 1!",
-            "全國高中資訊能力競賽🥈二等獎",
-            "北市資訊能力競賽🥈二等獎",
+            "全國高中資訊能力競賽 🥈 二等獎",
+            "北市資訊能力競賽 🥈 二等獎",
         ],
     },
     {
@@ -22,9 +22,8 @@ const lecturers = [
         experiences: [
             "2023 IONCamp 講師",
             "2023 資訊之芽竹區算法班 講師",
-            "2023 ICPC Asia Taoyuan Regional  金牌",
+            "2023 ICPC Asia Taoyuan Regional 🥇 金牌",
             "2020 APIO 🥉 銅牌",
-            "2020 ~ 2022 ICPC Taiwan Regional 🥈 Silver Award",
         ],
     },
     {
@@ -34,13 +33,13 @@ const lecturers = [
     },
     {
         name: "周宜勳",
-        experiences: ['2023 ICPC Asia Taoyuan Regional🥈Sliver Award',
+        experiences: ['2023 ICPC Asia Taoyuan Regional 🥈 Sliver Award',
         '2021~2023 TOI 1!',
         '111全國資訊學科能力競賽 二等獎'],
     },
     {
         name: "葉宥辰",
-        experiences: ['2022 ICPC Asia Taoyuan Regional🥇Golden Award', 
+        experiences: ['2022 ICPC Asia Taoyuan Regional 🥇 Golden Award', 
             '2023 ICPC Asia Taoyuan RegionalSliver Award', 
             'TOI 1!'
         ],
@@ -49,14 +48,14 @@ const lecturers = [
         name: "黃頂軒",
         // avatarUrl: RAT,
         experiences: [
-            '2022 ICPC Asia Taoyuan Regional🥈Sliver Award',
-            '2023 ICPC Asia Taoyuan Regional🥈Sliver Award'
+            '2022 ICPC Asia Taoyuan Regional 🥈 Sliver Award',
+            '2023 ICPC Asia Taoyuan Regional 🥈 Sliver Award'
         ],
     },
     {
         name: "林敬珣",
         experiences: [
-            '2023 ICPC Asia Taoyuan Regional 🥈Sliver Award',
+            '2023 ICPC Asia Taoyuan Regional 🥈 Sliver Award',
             'TOI 1!',
             '北市資訊能力競賽 三等獎'
         ],
@@ -64,15 +63,15 @@ const lecturers = [
     {
         name: "謝師誠",
         experiences: [
-            '2023 ICPC Asia Taoyuan Regional🥉Bronze Award',
+            '2023 ICPC Asia Taoyuan Regional 🥉 Bronze Award',
             '110 竹市學科能力競賽 佳作',
-            'CPE 大學程式能力檢定7/7'
+            'CPE 大學程式能力檢定 7/7'
         ],
     },
     {
         name: "李其樺",
         experiences: [
-            '2023 ICPC Asia Taoyuan Regional🥉Bronze Award',
+            '2023 ICPC Asia Taoyuan Regional 🥉 Bronze Award',
         ],
     },
     {
