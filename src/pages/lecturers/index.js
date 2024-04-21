@@ -29,19 +29,19 @@ const lecturers = [
     },
     {
         name: "蔣昀成",
-        experiences: ['2022 ICPC Asia Taoyuan Regional🥈Sliver Award',
-        '2023 ICPC Asia Taoyuan Regional🥈Sliver Award'],
+        experiences: ['2022 ICPC Asia Taoyuan Regional 🥈 Sliver Award',
+        '2023 ICPC Asia Taoyuan Regional 🥈 Sliver Award'],
     },
     {
         name: "周宜勳",
         experiences: ['2023 ICPC Asia Taoyuan Regional 🥈 Sliver Award',
         '2021~2023 TOI 1!',
-        '111全國資訊學科能力競賽 二等獎'],
+        '111 全國資訊學科能力競賽 二等獎'],
     },
     {
         name: "葉宥辰",
         experiences: ['2022 ICPC Asia Taoyuan Regional 🥇 Golden Award', 
-            '2023 ICPC Asia Taoyuan RegionalSliver Award', 
+            '2023 ICPC Asia Taoyuan Regional 🥈 Sliver Award', 
             'TOI 1!'
         ],
     },
