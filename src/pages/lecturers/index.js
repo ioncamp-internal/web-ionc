@@ -19,6 +19,7 @@ const lecturers = [
     },
     {
         name: "范釗維",
+        id: "SorahISA",
         experiences: [
             "2023 IONCamp 講師",
             "2023 資訊之芽竹區算法班 講師",
