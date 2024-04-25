@@ -24,7 +24,7 @@ export default function Example() {
             <Head>
                 {/* favicon */}
                 <link rel="icon" href="/favicon.ico"/>
-                <title>2023 IONC清大暑期程式競賽集訓營</title>
+                <title>2024 IONC清大暑期程式競賽集訓營</title>
             </Head>
             <nav className="z-50 mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div className="flex lg:flex-1">
@@ -52,12 +52,12 @@ export default function Example() {
                     ))}
                 </div>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <Link href="https://forms.gle/fhWfs6fiFqe8s6Ey7"
+                    <Link href=""
                           className="text-sm font-semibold leading-6 text-white border border-white rounded shadow p-1"
                           target={"_blank"}>
-                        {/*報名尚未開始哦！*/}
-                        立即報名
-                        {/*<span aria-hidden="true">&rarr;</span>*/}
+                        報名尚未開始哦！
+                        {/* 立即報名 */}
+                        <span aria-hidden="true">&rarr;</span>
                     </Link>
                 </div>
             </nav>
