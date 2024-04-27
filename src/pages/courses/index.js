@@ -68,7 +68,7 @@ export default function Home() {
                             <h3 class="text-3xl font-bold text-white m-5 border-b">進階資料結構</h3>
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">先備知識</p>
                             <ul class="text-white ml-5 px-4 list-disc mb-4">
-                                <li class="mb-1">樹狀數組(Binary Indexed Tree)</li>
+                                <li class="mb-1">樹狀數組 (Binary Indexed Tree)</li>
                                 <li class="mb-1">基本線段樹 + 懶人標記</li>
                                 <li class="mb-1">基礎圖論知識</li>
                             </ul>
