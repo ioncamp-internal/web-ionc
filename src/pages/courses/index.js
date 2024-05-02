@@ -35,11 +35,20 @@ export default function Home() {
                             <h3 class="text-3xl font-bold text-white m-5 border-b">基本技巧</h3>
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">先備知識</p>
                             <ul class="text-white ml-5 px-4 list-disc mb-4">
-                                <li class="mb-1">待定</li>
+                                <li class="mb-1">C++ 語法</li>
+                                <li class="mb-1">C++ 語法練習題單 1: <a href="https://vjudge.net/article/3610">https://vjudge.net/article/3610</a></li>
+                                <li class="mb-1">C++ 語法練習題單 2: <a href="https://codeforces.com/contestInvitation/4fbbb17a50631203c8c6a34861f7bf5a0bd0c71f">https://codeforces.com/contestInvitation/4fbbb17a50631203c8c6a34861f7bf5a0bd0c71f</a></li>
                             </ul>
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">課程大綱</p>
                             <ul class="text-white ml-5 px-4 list-disc">
-                                <li class="mb-1">待定</li>
+                                <li class="mb-1">遞迴</li>
+                                <li class="mb-1">基本分治法</li>
+                                <li class="mb-1">二分搜尋法</li>
+                                <li class="mb-1">三分搜尋法</li>
+                                <li class="mb-1">倍增法</li>
+                                <li class="mb-1">基本枚舉技巧</li>
+                                <li class="mb-1">雙指針</li>
+                                <li class="mb-1">常見排序法</li>
                             </ul>
                         </div>
                     </div>
@@ -128,11 +137,17 @@ export default function Home() {
                             <h3 class="text-3xl font-bold text-white m-5 border-b">基礎圖論</h3>
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">先備知識</p>
                             <ul class="text-white ml-5 px-4 list-disc mb-4">
-                                <li class="mb-1">待定</li>
+                                <li class="mb-1">基礎 STL</li>
                             </ul>
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">課程大綱</p>
                             <ul class="text-white ml-5 px-4 list-disc">
-                                <li class="mb-1">待定</li>
+                                <li class="mb-1">圖論介紹</li>
+                                <li class="mb-1">存圖方法</li>
+                                <li class="mb-1">圖的遍歷</li>
+                                <li class="mb-1">最短路徑</li>
+                                <li class="mb-1">二分圖</li>
+                                <li class="mb-1">Tree</li>
+                                <li class="mb-1">拓撲排序</li>
                             </ul>
                         </div>
                     </div>
@@ -142,11 +157,15 @@ export default function Home() {
                             <h3 class="text-3xl font-bold text-white m-5 border-b">進階圖論</h3>
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">先備知識</p>
                             <ul class="text-white ml-5 px-4 list-disc mb-4">
-                                <li class="mb-1">待定</li>
+                                <li class="mb-1">基礎圖論</li>
                             </ul>
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">課程大綱</p>
                             <ul class="text-white ml-5 px-4 list-disc">
-                                <li class="mb-1">待定</li>
+                                <li class="mb-1">連通分量</li>
+                                <li class="mb-1">圓方樹</li>
+                                <li class="mb-1">最近共同祖先</li>
+                                <li class="mb-1">樹序列化</li>
+                                <li class="mb-1">輕重鏈剖分</li>
                             </ul>
                         </div>
                     </div>
@@ -196,11 +215,15 @@ export default function Home() {
                             <h3 class="text-3xl font-bold text-white m-5 border-b">其他解題技巧</h3>
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">先備知識</p>
                             <ul class="text-white ml-5 px-4 list-disc mb-4">
-                                <li class="mb-1">待定</li>
+                                <li class="mb-1">暴力枚舉</li>
                             </ul>
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">課程大綱</p>
                             <ul class="text-white ml-5 px-4 list-disc">
-                                <li class="mb-1">待定</li>
+                                <li class="mb-1">折半枚舉</li>
+                                <li class="mb-1">啟發式合併</li>
+                                <li class="mb-1">均攤分析</li>
+                                <li class="mb-1">bitset 優化</li>
+                                <li class="mb-1">根號算法</li>
                             </ul>
                         </div>
                     </div>
