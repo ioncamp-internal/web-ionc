@@ -36,8 +36,8 @@ export default function Home() {
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">先備知識</p>
                             <ul class="text-white ml-5 px-4 list-disc mb-4">
                                 <li class="mb-1">C++ 語法</li>
-                                <li class="mb-1">C++ 語法練習題單 1: <a href="https://vjudge.net/article/3610">https://vjudge.net/article/3610</a></li>
-                                <li class="mb-1">C++ 語法練習題單 2: <a href="https://codeforces.com/contestInvitation/4fbbb17a50631203c8c6a34861f7bf5a0bd0c71f">https://codeforces.com/contestInvitation/4fbbb17a50631203c8c6a34861f7bf5a0bd0c71f</a></li>
+                                <li class="mb-1">C++ 語法練習題單 1: <br></br><a href="https://vjudge.net/article/3610" class="border-b">題單連結</a></li>
+                                <li class="mb-1">C++ 語法練習題單 2: <br></br><a href="https://codeforces.com/contestInvitation/4fbbb17a50631203c8c6a34861f7bf5a0bd0c71f" class="border-b">題單連結</a></li>
                             </ul>
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">課程大綱</p>
                             <ul class="text-white ml-5 px-4 list-disc">
