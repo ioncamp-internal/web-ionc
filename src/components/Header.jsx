@@ -52,7 +52,7 @@ export default function Example() {
                     ))}
                 </div>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <Link href="https://forms.gle/6V6DMen9AzNy2vP8A"
+                    <Link href="https://forms.gle/xouF2KcsD4ukauGU8"
                           className="text-sm font-semibold leading-6 text-white border border-white rounded shadow p-1"
                           target={"_blank"}>
                         {/* 報名尚未開始哦！ */}
