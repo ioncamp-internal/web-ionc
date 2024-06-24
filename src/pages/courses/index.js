@@ -133,7 +133,13 @@ export default function Home() {
                             </ul>
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">課程大綱</p>
                             <ul class="text-white ml-5 px-4 list-disc">
-                                <li class="mb-1">待定</li>
+                                <li class="mb-1">單調隊列優化</li>
+                                <li class="mb-1">斜率優化</li>
+                                <li class="mb-1">四邊形優化</li>
+                                <li class="mb-1">線段樹優化</li>
+                                <li class="mb-1">Slope Trick</li>
+                                <li class="mb-1">Aliens 優化</li>
+                                <li class="mb-1">還有更多！</li>
                             </ul>
                         </div>
                     </div>
@@ -200,7 +206,7 @@ export default function Home() {
                             <h3 class="text-3xl font-bold text-white m-5 border-b">數論</h3>
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">先備知識</p>
                             <ul class="text-white ml-5 px-4 list-disc mb-4">
-                                <li class="mb-1">待定</li>
+                                <li class="mb-1">國高中數學知識</li>
                             </ul>
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">課程大綱</p>
                             <ul class="text-white ml-5 px-4 list-disc">
