@@ -9,11 +9,11 @@ import Head from "next/head";
 
 const navigation = [
     {name: '首頁', href: '/#'},
-    {name: '集訓課表', href: '/courses'},
+    // {name: '集訓課表', href: '/courses'},
     {name: '師資團隊', href: '/lecturers'},
     {name: '注意事項', href: '/notices'}, //notices
     {name: '交通資訊', href: '/travel'},
-    {name: '贊助單位', href: '/sponsers'},
+    // {name: '贊助單位', href: '/sponsers'},
 ]
 
 export default function Example() {
@@ -24,7 +24,7 @@ export default function Example() {
             <Head>
                 {/* favicon */}
                 <link rel="icon" href="/favicon.ico"/>
-                <title>2024 IONC清大暑期程式競賽集訓營</title>
+                <title>2025 IONC清大暑期程式競賽集訓營</title>
             </Head>
             <nav className="z-50 mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div className="flex lg:flex-1">
@@ -52,13 +52,13 @@ export default function Example() {
                     ))}
                 </div>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <Link href="https://forms.gle/xouF2KcsD4ukauGU8"
+                    報名尚未開始哦！
+                    {/* <Link href="https://forms.gle/xouF2KcsD4ukauGU8"
                           className="text-sm font-semibold leading-6 text-white border border-white rounded shadow p-1"
                           target={"_blank"}>
-                        {/* 報名尚未開始哦！ */}
                         立即報名
                         <span aria-hidden="true">&rarr;</span>
-                    </Link>
+                    </Link> */}
                 </div>
             </nav>
             <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
