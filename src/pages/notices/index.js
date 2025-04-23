@@ -16,8 +16,8 @@ export default function Home() {
             <main className="flex min-h-screen flex-col items-center justify-between px-4 py-10 md:p-20"
                   style={{backgroundColor: "#070B14"}}>
                 <Background/>
-                <div className="text-center z-10">
-                    <h1 className="text-5xl font-bold" style={{color: "#FFF"}}>注意事項</h1>
+                <div className="text-left z-10 w-full">
+                    <h1 className="text-5xl font-bold text-center" style={{color: "#FFF"}}>注意事項</h1>
                     <ul className="px-6 text-2xl font-medium my-5 leading-10" style={{color: "#8DD6F7"}}>
                         <li>1. 本次營隊不提供參加證明，請確認可接受後再報名。</li>
                         <li>2. 請攜帶自己的睡袋、盥洗用具以及四天份的衣物，如有其他需求也可自行攜帶。</li>
@@ -30,6 +30,5 @@ export default function Home() {
             </main>
             <Footer/>
         </>
-
     )
 }
