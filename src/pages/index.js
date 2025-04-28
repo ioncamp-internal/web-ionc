@@ -25,7 +25,7 @@ export default function Home() {
                     priority
                     unoptimized
                 />
-                <div className="text-center z-10" style={{marginTop: "-15px"}}>
+                <div className="text-center z-10">
                     <h1 className="text-6xl font-bold" style={{color: "#FFF"}}>2025 IONCamp</h1>
                     <div className="text-4xl font-semibold my-5" style={{color: "#FFF"}}>清大暑期程式競賽集訓營</div>
                     <p className="px-6 text-2xl font-medium my-5 leading-10" style={{color: "#8DD6F7"}}>
@@ -33,9 +33,10 @@ export default function Home() {
                         讓 IONCamp 透過連續五天密集且扎實的培訓課程，帶領你突破目前的困境吧！
                     </p>
                 </div>
+                <div></div>
+                <div></div>
             </main>
             <Footer/>
         </>
-
     )
 }
