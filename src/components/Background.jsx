@@ -1,20 +1,29 @@
 import backgroundImage from "@/images/background2.png";
 import Image from "next/image";
+import Meteor from "@/components/Meteor";
 
 export default function Background() {
     return (
-        <Image
-            className="absolute top-28 translate-y-[-18%] z-0"
-            // className="absolute left-7 top-14 translate-x-[-55%] translate-y-[-20%] -scale-x-100 sm:left-1/2 sm:translate-x-[-98%] sm:translate-y-[-6%] lg:translate-x-[-106%] xl:translate-x-[-122%]"
-            src={backgroundImage}
-            alt=""
-            width={1000}
-            height={1200}
-            priority
-            unoptimized
-            oncontextmenu="return false;"
-            onselectstart="return false;"
-
-        />
+        <div className="absolute inset-0 w-full h-full pointer-events-none z-0 text-center top-28">
+            <Image
+                src={backgroundImage}
+                alt=""
+                width={1000}
+                height={1200}
+                priority
+                unoptimized
+                onContextMenu={() => false}
+                onSelectStart={() => false}
+                className="inline-block"
+            />
+            {[...Array(30)].map((_, i) => (
+                <Meteor
+                    key={i}
+                    duration={2 + Math.random() * 2}
+                    size={2 + Math.random() * 2}
+                    className="z-10"
+                />
+            ))}
+        </div>
     )
 }

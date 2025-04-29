@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Example() {
     return (
-        <div className="z-50">
+        <div className="z-50 flex flex-col p-4">
             <div className="text-center z-10" style={{marginTop: "-15px"}}>
                 <h1 className="text-5xl font-bold" style={{color: "#FFF"}}>交通資訊</h1>
             </div>
