@@ -9,7 +9,7 @@ const lecturers = [
         name: "范釗維",
         id: "SorahISA",
         experiences: [
-            "晉級 2025 ICPC World Final",
+            "晉級 2025 ICPC World Finals",
             "APIO 2020 🥉 銅牌",
             "2023、2024 IONCamp 講師",
         ],
@@ -18,7 +18,7 @@ const lecturers = [
         name: "歐育淇",
         id: "ub33",
         experiences: [
-            "晉級 2025 ICPC World Final",
+            "晉級 2025 ICPC World Finals",
             "全國學科能力競賽資訊科二等獎",
             "TOI 1!",
         ],
@@ -52,7 +52,7 @@ const lecturers = [
         name: "李昕威",
         id: "PolarisChiba",
         experiences: [
-            "2022 ICPC World Final Participant",
+            "2022 ICPC World Finals Participant",
             "2022 ICPC Asia Taoyuan Regional 🥇 Gold Award",
             "2021 ICPC Asia Taipei Regional 🥈 Sliver Award",
             "2020 ICPC Asia Taipei-Hsinchu Regional 🥈 Sliver Award",
