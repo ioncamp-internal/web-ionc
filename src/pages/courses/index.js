@@ -22,39 +22,29 @@ export default function Home() {
                         style={{color: "#8DD6F7"}}>*部分課程同時段將分為基礎與進階兩班同時授課</h3>
                 </div>
                 <div class="flex flex-wrap">
-                    <Image
+                    {/* <Image
                         src={IONCcourse}
                         alt=""
                         className="mt-5 z-50 rounded-lg"
                         width={3539}
                         height={1755}
-                    />
+                    /> */}
 
                     <div class="w-full md:w-1/2 mb-8">
                         <div class="flex flex-col h-full border border-l-8 border-blue-400 shadow rounded-lg mt-8 mx-3 px-2">
                             <h3 class="text-3xl font-bold text-white m-5 border-b">基本技巧</h3>
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">先備知識</p>
                             <ul class="text-white ml-5 px-4 list-disc mb-4">
-                                <li class="mb-1">C++ 語法</li>
-                                <li class="mb-1">C++ 語法練習題單 1: 
-                                    <br></br>
-                                    <a href="https://vjudge.net/article/3610" class="border-b">題單連結</a>
-                                </li>
-                                <li class="mb-1">C++ 語法練習題單 2: 
-                                    <br></br>
-                                    <a href="https://codeforces.com/contestInvitation/4fbbb17a50631203c8c6a34861f7bf5a0bd0c71f" class="border-b">題單連結</a>
-                                </li>
+                                <li class="mb-1">基本 C++ 語法（<a href="https://vjudge.net/article/3610" class="border-b">題單連結</a>）</li>
                             </ul>
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">課程大綱</p>
                             <ul class="text-white ml-5 px-4 list-disc">
+                                <li class="mb-1">進階 C++ 語法</li>
+                                <li class="mb-1">暴力對拍</li>
                                 <li class="mb-1">遞迴</li>
-                                <li class="mb-1">基本分治法</li>
                                 <li class="mb-1">二分搜尋法</li>
-                                <li class="mb-1">三分搜尋法</li>
-                                <li class="mb-1">倍增法</li>
-                                <li class="mb-1">基本枚舉技巧</li>
-                                <li class="mb-1">雙指針</li>
                                 <li class="mb-1">常見排序法</li>
+                                <li class="mb-1">基本枚舉技巧</li>
                             </ul>
                         </div>
                     </div>
@@ -64,16 +54,16 @@ export default function Home() {
                             <h3 class="text-3xl font-bold text-white m-5 border-b">基礎資料結構</h3>
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">先備知識</p>
                             <ul class="text-white ml-5 px-4 list-disc mb-4">
-                                <li class="mb-1">基本 C++ 語法</li>
                                 <li class="mb-1">基本遞迴概念</li>
                             </ul>
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">課程大綱</p>
                             <ul class="text-white ml-5 px-4 list-disc">
-                                <li class="mb-1">常用 STL</li>
-                                <li class="mb-1">並查集</li>
                                 <li class="mb-1">前綴和／差分序列</li>
-                                <li class="mb-1">線段樹</li>
+                                <li class="mb-1">標準函式庫</li>
+                                <li class="mb-1">並查集</li>
+                                <li class="mb-1">稀疏表</li>
                                 <li class="mb-1">樹狀數組 (Binary Indexed Tree)</li>
+                                <li class="mb-1">線段樹</li>
                             </ul>
                         </div>
                     </div>
@@ -90,11 +80,9 @@ export default function Home() {
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">課程大綱</p>
                             <ul class="text-white ml-5 px-4 list-disc">
                                 <li class="mb-1">線段樹進階操作</li>
-                                <li class="mb-1">持久化</li>
-                                <li class="mb-1">均攤分析 (Amortized Analysis)</li>
-                                <li class="mb-1">吉如一線段樹 (Segment Tree Beats)</li>
                                 <li class="mb-1">Treap</li>
-                                <li class="mb-1">Euler Tour Tree</li>
+                                <li class="mb-1">持久化</li>
+                                <li class="mb-1">吉如一線段樹 (Segment Tree Beats)</li>
                             </ul>
                         </div>
                     </div>
@@ -104,42 +92,17 @@ export default function Home() {
                             <h3 class="text-3xl font-bold text-white m-5 border-b">基礎動態規劃</h3>
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">先備知識</p>
                             <ul class="text-white ml-5 px-4 list-disc mb-4">
-                                <li class="mb-1">基本 C++ 語法</li>
+                                <li class="mb-1">遞迴</li>
                             </ul>
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">課程大綱</p>
                             <ul class="text-white ml-5 px-4 list-disc">
-                                <li class="mb-1">DP 介紹</li>
-                                <li class="mb-1">Frog</li>
-                                <li class="mb-1">LIS（最長遞增子序列）</li>
-                                <li class="mb-1">選數字</li>
-                                <li class="mb-1">Vacation</li>
-                                <li class="mb-1">LCS（最長相同子序列）</li>
+                                <li class="mb-1">Longest Increasing SubSequence</li>
+                                <li class="mb-1">Longest Common SubSequence</li>
                                 <li class="mb-1">背包問題</li>
+                                <li class="mb-1">區間 DP</li>
+                                <li class="mb-1">Digit DP</li>
                                 <li class="mb-1">旅行推銷員問題</li>
-                                <li class="mb-1">Slimes</li>
-                                <li class="mb-1">其他經典例題</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="w-full md:w-1/2 mb-8">
-                        <div class="flex flex-col h-full border border-l-8 border-blue-400 shadow rounded-lg mt-8 mx-3 px-2">
-                            <h3 class="text-3xl font-bold text-white m-5 border-b">進階動態規劃</h3>
-                            <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">先備知識</p>
-                            <ul class="text-white ml-5 px-4 list-disc mb-4">
-                                <li class="mb-1">基礎動態規劃</li>
-                                <li class="mb-1">單調隊列、線段樹</li>
-                                <li class="mb-1">矩陣乘法</li>
-                            </ul>
-                            <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">課程大綱</p>
-                            <ul class="text-white ml-5 px-4 list-disc">
-                                <li class="mb-1">單調隊列優化</li>
-                                <li class="mb-1">斜率優化</li>
-                                <li class="mb-1">四邊形優化</li>
-                                <li class="mb-1">線段樹優化</li>
-                                <li class="mb-1">Slope Trick</li>
-                                <li class="mb-1">Aliens 優化</li>
-                                <li class="mb-1">還有更多！</li>
+                                <li class="mb-1">SOS DP</li>
                             </ul>
                         </div>
                     </div>
@@ -156,9 +119,10 @@ export default function Home() {
                                 <li class="mb-1">圖論介紹</li>
                                 <li class="mb-1">存圖方法</li>
                                 <li class="mb-1">圖的遍歷</li>
+                                <li class="mb-1">Breadth-First Search</li>
+                                <li class="mb-1">Depth-First Search</li>
                                 <li class="mb-1">最短路徑</li>
                                 <li class="mb-1">二分圖</li>
-                                <li class="mb-1">Tree</li>
                                 <li class="mb-1">拓撲排序</li>
                             </ul>
                         </div>
@@ -169,34 +133,15 @@ export default function Home() {
                             <h3 class="text-3xl font-bold text-white m-5 border-b">進階圖論</h3>
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">先備知識</p>
                             <ul class="text-white ml-5 px-4 list-disc mb-4">
-                                <li class="mb-1">基礎圖論</li>
+                                <li class="mb-1">基礎圖論所有知識內容</li>
                             </ul>
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">課程大綱</p>
                             <ul class="text-white ml-5 px-4 list-disc">
                                 <li class="mb-1">連通分量</li>
-                                <li class="mb-1">圓方樹</li>
                                 <li class="mb-1">最近共同祖先</li>
                                 <li class="mb-1">樹序列化</li>
                                 <li class="mb-1">輕重鏈剖分</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="w-full md:w-1/2 mb-8">
-                        <div class="flex flex-col h-full border border-l-8 border-blue-400 shadow rounded-lg mt-8 mx-3 px-2">
-                            <h3 class="text-3xl font-bold text-white m-5 border-b">Greedy</h3>
-                            <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">先備知識</p>
-                            <ul class="text-white ml-5 px-4 list-disc mb-4">
-                                <li class="mb-1">基礎資料結構</li>
-                            </ul>
-                            <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">課程大綱</p>
-                            <ul class="text-white ml-5 px-4 list-disc">
-                                <li class="mb-1">正確性證明＆構造反例</li>
-                                <li class="mb-1">最佳選擇問題</li>
-                                <li class="mb-1">排程問題</li>
-                                <li class="mb-1">霍夫曼編碼</li>
-                                <li class="mb-1">貪心 x 資料結構</li>
-                                <li class="mb-1">更多貪心類題</li>
+                                <li class="mb-1">重心剖分</li>
                             </ul>
                         </div>
                     </div>
@@ -211,13 +156,8 @@ export default function Home() {
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">課程大綱</p>
                             <ul class="text-white ml-5 px-4 list-disc">
                                 <li class="mb-1">判斷質數</li>
-                                <li class="mb-1">最大公因數</li>
                                 <li class="mb-1">模運算</li>
-                                <li class="mb-1">歐拉函數</li>
-                                <li class="mb-1">中國剩餘定理</li>
-                                <li class="mb-1">基礎賽局</li>
-                                <li class="mb-1">Nim Game</li>
-                                <li class="mb-1">Grundy Value</li>
+                                <li class="mb-1">還有更多...（等待報名學員調查後釋出）</li>
                             </ul>
                         </div>
                     </div>
@@ -235,6 +175,7 @@ export default function Home() {
                                 <li class="mb-1">啟發式合併</li>
                                 <li class="mb-1">均攤分析</li>
                                 <li class="mb-1">bitset 優化</li>
+                                <li class="mb-1">Hash</li>
                                 <li class="mb-1">根號算法</li>
                             </ul>
                         </div>
