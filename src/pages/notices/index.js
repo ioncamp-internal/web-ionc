@@ -19,11 +19,10 @@ export default function Home() {
                 <div className="text-left z-10">
                     <h1 className="text-5xl font-bold text-center" style={{color: "#FFF"}}>注意事項</h1>
                     <ul className="px-6 text-2xl font-medium my-5 leading-10" style={{color: "#8DD6F7"}}>
-                        <li>1. 本次營隊不提供參加證明，請確認可接受後再報名。</li>
-                        <li>2. 請攜帶自己的睡袋、盥洗用具以及四天份的衣物，如有其他需求也可自行攜帶。</li>
-                        <li>3. 請攜帶健保卡，如有任何特殊狀況或疾病請告知，並攜帶相關藥品。</li>
-                        <li>4. 請攜帶口罩，帶著一顆快樂的心一同參加活動。</li>
-                        <li>5. 如有任何問題，請私訊我們的 FB 粉專。</li>
+                        <li>1. 請攜帶自己的睡袋、盥洗用具以及四天份的衣物，如有其他需求也可自行攜帶。</li>
+                        <li>2. 請攜帶健保卡，如有任何特殊狀況或疾病請告知，並攜帶相關藥品。</li>
+                        <li>3. 請攜帶口罩，帶著一顆快樂的心一同參加活動。</li>
+                        <li>4. 如有任何問題，請私訊我們的 FB 粉專。</li>
                     </ul>
                 </div>
                 <div></div>
