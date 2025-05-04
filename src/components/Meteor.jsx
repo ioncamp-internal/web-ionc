@@ -3,9 +3,9 @@ import React from "react";
 export default function Meteor(props) {
   const duration = props.duration || 1.2;
   const size = props.size || 2;
-  const left = Math.random() * 100;
-  const top = Math.random() * 100;
-  const delay = Math.random() * 1.2;
+  const left = props.left ?? Math.random() * 100;
+  const top = props.top ?? Math.random() * 100;
+  const delay = props.delay ?? Math.random() * 1.2;
 
   return (
     <span
@@ -17,7 +17,6 @@ export default function Meteor(props) {
         top: `${top}%`,
         animationDuration: `${duration}s`,
         animationDelay: `${delay}s`,
-      
       }}
     />
   );

@@ -1,8 +1,22 @@
 import backgroundImage from "@/images/background2.png";
 import Image from "next/image";
 import Meteor from "@/components/Meteor";
+import { useMemo } from "react";
 
 export default function Background() {
+    // Meteor 參數只初始化一次
+    const meteors = useMemo(
+        () =>
+            [...Array(30)].map(() => ({
+                duration: 2 + Math.random() * 2,
+                size: 2 + Math.random() * 2,
+                left: Math.random() * 100,
+                top: Math.random() * 100,
+                delay: Math.random() * 1.2,
+            })),
+        []
+    );
+
     return (
         <div className="absolute inset-0 w-full h-full pointer-events-none z-0 text-center top-28">
             <Image
@@ -16,14 +30,17 @@ export default function Background() {
                 onSelectStart={() => false}
                 className="inline-block"
             />
-            {[...Array(30)].map((_, i) => (
+            {meteors.map((m, i) => (
                 <Meteor
                     key={i}
-                    duration={2 + Math.random() * 2}
-                    size={2 + Math.random() * 2}
+                    duration={m.duration}
+                    size={m.size}
+                    left={m.left}
+                    top={m.top}
+                    delay={m.delay}
                     className="z-10"
                 />
             ))}
         </div>
-    )
+    );
 }
