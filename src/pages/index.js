@@ -37,23 +37,27 @@ const pageContents = [
     ),
     // 第二頁
     (
-        <div className="w-full max-w-4xl">
-            <h2 className="text-4xl font-bold text-white mb-8">誰適合我們營隊</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="w-full max-w-2xl">
+            <h2 className="text-4xl font-bold text-white mb-8">誰適合這個營隊</h2>
+            <div className="flex flex-col gap-8">
                 <div className="bg-gray-800 p-6 rounded-lg">
-                    <h3 className="text-2xl font-semibold text-white mb-4">競程入門者</h3>
-                    <p className="text-gray-300">適合剛開始學習競程的學生，我們會從基礎開始教起。</p>
+                    <h3 className="text-2xl font-semibold text-white mb-4">競程新手</h3>
+                    已有 <span className="font-bold" style={{color: "#8DD6F7"}}>C++ 語法基礎</span>，想踏入競程世界的學生
                 </div>
                 <div className="bg-gray-800 p-6 rounded-lg">
-                    <h3 className="text-2xl font-semibold text-white mb-4">APCS 考生</h3>
-                    <p className="text-gray-300">準備參加 APCS 考試的學生，我們提供專業的考試準備課程。</p>
+                    <h3 className="text-2xl font-semibold text-white mb-4">想進一步提升實力的人</h3>
+                    希望精進演算法實力、學習進階競程技巧。
+                </div>
+                <div className="bg-gray-800 p-6 rounded-lg">
+                    <h3 className="text-2xl font-semibold text-white mb-4">渴望學習經驗者</h3>
+                    想從講師身上學習<span className="font-bold " style={{color: "#8DD6F7"}}>實用經驗</span>與<span className="font-bold " style={{color: "#8DD6F7"}}>學習心法</span>。
                 </div>
             </div>
         </div>
     ),
     // 第三頁
     (
-        <div className="w-full max-w-4xl">
+        <div className="w-full max-w-2xl">
             <h2 className="text-4xl font-bold text-white mb-8">營隊特色</h2>
             <div className="flex flex-col gap-8">
                 <div className="bg-gray-800 p-6 rounded-lg">
@@ -67,6 +71,26 @@ const pageContents = [
                 <div className="bg-gray-800 p-6 rounded-lg">
                     <h3 className="text-2xl font-semibold text-white mb-4">同儕相伴</h3>
                     <p className="text-gray-300">認識其他對競程有興趣的同學，一起學習、一起成長。</p>
+                </div>
+            </div>
+        </div>
+    ),
+    // 第四頁
+    (
+        <div className="w-full max-w-2xl">
+            <h2 className="text-4xl font-bold text-white mb-8">Q&A</h2>
+            <div className="flex flex-col gap-8">
+                <div className="bg-gray-800 p-6 rounded-lg">
+                    <h3 className="text-2xl font-semibold text-white mb-4">營隊有提供住宿嗎？</h3>
+                    <p className="text-gray-300">我們會安排在清大校內住宿，請在報名表單中了解更多資訊。</p>
+                </div>
+                <div className="bg-gray-800 p-6 rounded-lg">
+                    <h3 className="text-2xl font-semibold text-white mb-4">營隊會有參加證明嗎？</h3>
+                    <p className="text-gray-300">因應教育部規定，營隊將不會提供參加證明，請確認可接受此規定後再報名。</p>
+                </div>
+                <div className="bg-gray-800 p-6 rounded-lg">
+                    <h3 className="text-2xl font-semibold text-white mb-4">還有更多問題？</h3>
+                    <p className="text-gray-300">點擊 <a href='https://www.facebook.com/nthuioncamp/' style={{color: "#8DD6F7"}}>這裡</a>，讓我們小編為你解惑！</p>
                 </div>
             </div>
         </div>
