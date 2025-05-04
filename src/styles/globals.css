@@ -28,3 +28,8 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+
+.border {
+  border-color: rgb(141, 214, 247);
+}
