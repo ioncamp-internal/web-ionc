@@ -47,7 +47,7 @@ const pageContents = [
             <div className="flex flex-col gap-5 md:gap-7">
                 <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
                     <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">競程新手</h3>
-                    已有 <span className="font-bold" style={{color: "#8DD6F7"}}>C++ 語法基礎</span>，想踏入競程世界的學生
+                    已有 <span className="font-bold" style={{color: "#8DD6F7"}}>C++ 語法基礎</span>，想踏入競程世界的學生。
                 </div>
                 <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
                     <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">想進一步提升實力的人</h3>
