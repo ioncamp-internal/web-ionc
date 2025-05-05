@@ -12,7 +12,6 @@ const inter = Inter({subsets: ['latin']})
 const FOOTER_HEIGHT = 64; // 假設footer高度為64px，可根據實際調整
 
 const pageContents = [
-    // 第一頁
     (
         <>
             <Image
@@ -30,12 +29,17 @@ const pageContents = [
                 <div className="text-xl md:text-3xl font-semibold my-5" style={{color: "#FFF"}}>清大暑期程式競賽集訓營</div>
                 <p className="px-6 text-base md:text-xl font-medium my-5 leading-7 md:leading-9" style={{color: "#8DD6F7"}}>
                     對於初學程式設計感到迷惘嗎？或是在挑戰 APCS 或大大小小的程式設計比賽感到挫折呢？<br/>
-                    讓 IONCamp 透過連續五天密集且扎實的培訓課程，帶領你突破目前的困境吧！
+                    讓 IONCamp 透過連續五天密集且扎實的課程，帶領你突破目前的困境吧！
                 </p>
+                <a 
+                    href="#" // 這裡之後可以替換為實際的報名表單連結
+                    className="mt-12 md:mt-16 px-8 py-3 text-lg font-semibold text-white bg-transparent border-2 border-[#8DD6F7] rounded-lg hover:bg-[#8DD6F7] hover:text-[#070B14] transition-all duration-200"
+                >
+                    立即報名
+                </a>
             </div>
         </>
     ),
-    // 第二頁
     (
         <div className="w-full max-w-2xl">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-5 md:mb-7">誰適合這個營隊</h2>
@@ -55,42 +59,40 @@ const pageContents = [
             </div>
         </div>
     ),
-    // 第三頁
-    (
-        <div className="w-full max-w-2xl">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-5 md:mb-7">營隊特色</h2>
-            <div className="flex flex-col gap-5 md:gap-7">
-                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">專業師資</h3>
-                    <p className="text-gray-300">由競賽經驗豐富的學長姐們親自授課。</p>
-                </div>
-                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">實戰演練</h3>
-                    <p className="text-gray-300">五天的練習賽，讓你感受競賽氛圍。</p>
-                </div>
-                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">同儕相伴</h3>
-                    <p className="text-gray-300">認識其他對競程有興趣的同學，一起學習、一起成長。</p>
-                </div>
-            </div>
-        </div>
-    ),
-    // 第四頁
+    // (
+    //     <div className="w-full max-w-2xl">
+    //         <h2 className="text-2xl md:text-3xl font-bold text-white mb-5 md:mb-7">營隊特色</h2>
+    //         <div className="flex flex-col gap-5 md:gap-7">
+    //             <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
+    //                 <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">專業師資</h3>
+    //                 <p className="text-gray-300">由競賽經驗豐富的學長姐們親自授課。</p>
+    //             </div>
+    //             <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
+    //                 <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">實戰演練</h3>
+    //                 <p className="text-gray-300">五天的練習賽，讓你感受競賽氛圍。</p>
+    //             </div>
+    //             <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
+    //                 <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">同儕相伴</h3>
+    //                 <p className="text-gray-300">認識其他對競程有興趣的同學，一起學習、一起成長。</p>
+    //             </div>
+    //         </div>
+    //     </div>
+    // ),
     (
         <div className="w-full max-w-2xl">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-5 md:mb-7">Q&A</h2>
             <div className="flex flex-col gap-5 md:gap-7">
                 <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">營隊有提供住宿嗎？</h3>
-                    <p className="text-gray-300">我們會安排在清大校內住宿，請在報名表單中了解更多資訊。</p>
+                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">有提供住宿嗎？</h3>
+                    <p className="text-gray-300">我們會安排在清大校內住宿，需要住宿請在報名表單註明。</p>
                 </div>
                 <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">營隊會有參加證明嗎？</h3>
+                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">有營隊參加證明嗎？</h3>
                     <p className="text-gray-300">因應教育部規定，營隊將不會提供參加證明，請確認可接受此規定後再報名。</p>
                 </div>
                 <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">還有更多問題？</h3>
-                    <p className="text-gray-300">點擊 <a href='https://www.facebook.com/nthuioncamp/' style={{color: "#8DD6F7"}}>這裡</a>，讓我們小編為你解惑！</p>
+                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">需要自備筆電嗎？</h3>
+                    <p className="text-gray-300">營隊課程不會需要用到筆電，但建議同學們可以自備筆電，以便練習題目。</p>
                 </div>
             </div>
         </div>
@@ -163,8 +165,12 @@ export default function Home() {
                     >
                         {content}
                         {idx !== pageContents.length - 1 && idx === currentPage && (
-                            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center select-none">
-                                <svg className="w-8 h-8 text-white animate-bounce" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                            <div 
+                                className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 select-none cursor-pointer"
+                                onClick={() => setCurrentPage(prev => prev + 1)}
+                            >
+                                <span className="text-white text-base md:text-lg">向下滑動</span>
+                                <svg className="w-10 h-10 md:w-12 md:h-12 text-white animate-bounce" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                                 </svg>
                             </div>
