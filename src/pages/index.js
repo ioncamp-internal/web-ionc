@@ -10,6 +10,7 @@ import { useEffect, useRef, useState } from 'react';
 const inter = Inter({subsets: ['latin']})
 
 const FOOTER_HEIGHT = 64; // 假設footer高度為64px，可根據實際調整
+const REGISTRATION_LINK = "https://forms.gle/234567890"; // 報名表單連結
 
 const pageContents = [
     (
@@ -32,7 +33,7 @@ const pageContents = [
                     讓 IONCamp 透過連續五天密集且扎實的課程，帶領你突破目前的困境吧！
                 </p>
                 <a 
-                    href="#" // 這裡之後可以替換為實際的報名表單連結
+                    href={REGISTRATION_LINK} // 這裡之後可以替換為實際的報名表單連結
                     className="mt-12 md:mt-16 px-8 py-3 text-lg font-semibold text-white bg-transparent border-2 border-[#8DD6F7] rounded-lg hover:bg-[#8DD6F7] hover:text-[#070B14] transition-all duration-200"
                 >
                     立即報名
@@ -94,6 +95,30 @@ const pageContents = [
                     <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">需要自備筆電嗎？</h3>
                     <p className="text-gray-300">營隊課程不會需要用到筆電，但建議同學們可以自備筆電，以便練習題目。</p>
                 </div>
+            </div>
+        </div>
+    ),
+    (
+        <div className="w-full max-w-2xl">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-5 md:mb-7">立即報名！</h2>
+            <div className="flex flex-col gap-5 md:gap-7">
+                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
+                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">報名費用</h3>
+                    <span className="font-bold" style={{color: "#8DD6F7"}}>7000元</span>
+                </div>
+                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
+                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">報名時程</h3>
+                    <ul className="list-disc list-inside">
+                        <li>報名期限：05/10~06/10</li>
+                        <li>公布錄取名單：06/15</li>
+                    </ul>
+                </div>
+                <a 
+                href={REGISTRATION_LINK} // 這裡之後可以替換為實際的報名表單連結
+                className="mt-16 md:mt-20 px-8 py-3 text-lg font-semibold text-white bg-transparent border-2 border-[#8DD6F7] rounded-lg hover:bg-[#8DD6F7] hover:text-[#070B14] transition-all duration-200"
+            >
+                立即報名
+            </a>
             </div>
         </div>
     )
