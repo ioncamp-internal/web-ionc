@@ -26,9 +26,9 @@ const pageContents = [
                 unoptimized
             />
             <div className="text-center z-10">
-                <h1 className="text-6xl font-bold" style={{color: "#FFF"}}>2025 IONCamp</h1>
-                <div className="text-4xl font-semibold my-5" style={{color: "#FFF"}}>清大暑期程式競賽集訓營</div>
-                <p className="px-6 text-2xl font-medium my-5 leading-10" style={{color: "#8DD6F7"}}>
+                <h1 className="text-3xl md:text-5xl font-bold" style={{color: "#FFF"}}>2025 IONCamp</h1>
+                <div className="text-xl md:text-3xl font-semibold my-5" style={{color: "#FFF"}}>清大暑期程式競賽集訓營</div>
+                <p className="px-6 text-base md:text-xl font-medium my-5 leading-7 md:leading-9" style={{color: "#8DD6F7"}}>
                     對於初學程式設計感到迷惘嗎？或是在挑戰 APCS 或大大小小的程式設計比賽感到挫折呢？<br/>
                     讓 IONCamp 透過連續五天密集且扎實的培訓課程，帶領你突破目前的困境吧！
                 </p>
@@ -38,18 +38,18 @@ const pageContents = [
     // 第二頁
     (
         <div className="w-full max-w-2xl">
-            <h2 className="text-4xl font-bold text-white mb-8">誰適合這個營隊</h2>
-            <div className="flex flex-col gap-8">
-                <div className="bg-gray-800 p-6 rounded-lg">
-                    <h3 className="text-2xl font-semibold text-white mb-4">競程新手</h3>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-5 md:mb-7">誰適合這個營隊</h2>
+            <div className="flex flex-col gap-5 md:gap-7">
+                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
+                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">競程新手</h3>
                     已有 <span className="font-bold" style={{color: "#8DD6F7"}}>C++ 語法基礎</span>，想踏入競程世界的學生
                 </div>
-                <div className="bg-gray-800 p-6 rounded-lg">
-                    <h3 className="text-2xl font-semibold text-white mb-4">想進一步提升實力的人</h3>
+                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
+                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">想進一步提升實力的人</h3>
                     希望精進演算法實力、學習進階競程技巧。
                 </div>
-                <div className="bg-gray-800 p-6 rounded-lg">
-                    <h3 className="text-2xl font-semibold text-white mb-4">渴望學習經驗者</h3>
+                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
+                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">渴望學習經驗者</h3>
                     想從講師身上學習<span className="font-bold " style={{color: "#8DD6F7"}}>實用經驗</span>與<span className="font-bold " style={{color: "#8DD6F7"}}>學習心法</span>。
                 </div>
             </div>
@@ -58,18 +58,18 @@ const pageContents = [
     // 第三頁
     (
         <div className="w-full max-w-2xl">
-            <h2 className="text-4xl font-bold text-white mb-8">營隊特色</h2>
-            <div className="flex flex-col gap-8">
-                <div className="bg-gray-800 p-6 rounded-lg">
-                    <h3 className="text-2xl font-semibold text-white mb-4">專業師資</h3>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-5 md:mb-7">營隊特色</h2>
+            <div className="flex flex-col gap-5 md:gap-7">
+                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
+                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">專業師資</h3>
                     <p className="text-gray-300">由競賽經驗豐富的學長姐們親自授課。</p>
                 </div>
-                <div className="bg-gray-800 p-6 rounded-lg">
-                    <h3 className="text-2xl font-semibold text-white mb-4">實戰演練</h3>
+                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
+                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">實戰演練</h3>
                     <p className="text-gray-300">五天的練習賽，讓你感受競賽氛圍。</p>
                 </div>
-                <div className="bg-gray-800 p-6 rounded-lg">
-                    <h3 className="text-2xl font-semibold text-white mb-4">同儕相伴</h3>
+                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
+                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">同儕相伴</h3>
                     <p className="text-gray-300">認識其他對競程有興趣的同學，一起學習、一起成長。</p>
                 </div>
             </div>
@@ -78,18 +78,18 @@ const pageContents = [
     // 第四頁
     (
         <div className="w-full max-w-2xl">
-            <h2 className="text-4xl font-bold text-white mb-8">Q&A</h2>
-            <div className="flex flex-col gap-8">
-                <div className="bg-gray-800 p-6 rounded-lg">
-                    <h3 className="text-2xl font-semibold text-white mb-4">營隊有提供住宿嗎？</h3>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-5 md:mb-7">Q&A</h2>
+            <div className="flex flex-col gap-5 md:gap-7">
+                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
+                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">營隊有提供住宿嗎？</h3>
                     <p className="text-gray-300">我們會安排在清大校內住宿，請在報名表單中了解更多資訊。</p>
                 </div>
-                <div className="bg-gray-800 p-6 rounded-lg">
-                    <h3 className="text-2xl font-semibold text-white mb-4">營隊會有參加證明嗎？</h3>
+                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
+                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">營隊會有參加證明嗎？</h3>
                     <p className="text-gray-300">因應教育部規定，營隊將不會提供參加證明，請確認可接受此規定後再報名。</p>
                 </div>
-                <div className="bg-gray-800 p-6 rounded-lg">
-                    <h3 className="text-2xl font-semibold text-white mb-4">還有更多問題？</h3>
+                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
+                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">還有更多問題？</h3>
                     <p className="text-gray-300">點擊 <a href='https://www.facebook.com/nthuioncamp/' style={{color: "#8DD6F7"}}>這裡</a>，讓我們小編為你解惑！</p>
                 </div>
             </div>
