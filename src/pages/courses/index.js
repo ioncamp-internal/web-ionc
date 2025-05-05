@@ -75,7 +75,6 @@ export default function Home() {
                             <ul class="text-white ml-5 px-4 list-disc mb-4">
                                 <li class="mb-1">樹狀數組 (Binary Indexed Tree)</li>
                                 <li class="mb-1">基本線段樹 + 懶人標記</li>
-                                <li class="mb-1">基礎圖論知識</li>
                             </ul>
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">課程大綱</p>
                             <ul class="text-white ml-5 px-4 list-disc">
@@ -89,10 +88,10 @@ export default function Home() {
 
                     <div class="w-full md:w-1/2 mb-8">
                         <div class="flex flex-col h-full border border-l-8 border-blue-400 shadow rounded-lg mt-8 mx-3 px-2">
-                            <h3 class="text-3xl font-bold text-white m-5 border-b">基礎動態規劃</h3>
+                            <h3 class="text-3xl font-bold text-white m-5 border-b">動態規劃</h3>
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">先備知識</p>
                             <ul class="text-white ml-5 px-4 list-disc mb-4">
-                                <li class="mb-1">遞迴</li>
+                                <li class="mb-1">基本遞迴概念</li>
                             </ul>
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">課程大綱</p>
                             <ul class="text-white ml-5 px-4 list-disc">
@@ -118,11 +117,11 @@ export default function Home() {
                             <ul class="text-white ml-5 px-4 list-disc">
                                 <li class="mb-1">圖論介紹</li>
                                 <li class="mb-1">存圖方法</li>
-                                <li class="mb-1">圖的遍歷</li>
                                 <li class="mb-1">Breadth-First Search</li>
                                 <li class="mb-1">Depth-First Search</li>
                                 <li class="mb-1">最短路徑</li>
-                                <li class="mb-1">二分圖</li>
+                                <li class="mb-1">Disjoint Set Union</li>
+                                <li class="mb-1">最小生成樹</li>
                                 <li class="mb-1">拓撲排序</li>
                             </ul>
                         </div>
@@ -177,6 +176,27 @@ export default function Home() {
                                 <li class="mb-1">bitset 優化</li>
                                 <li class="mb-1">Hash</li>
                                 <li class="mb-1">根號算法</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="w-full md:w-1/2 mb-8">
+                        <div class="flex flex-col h-full border border-l-8 border-blue-400 shadow rounded-lg mt-8 mx-3 px-2">
+                            <h3 class="text-3xl font-bold text-white m-5 border-b">常數優化</h3>
+                            <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">先備知識</p>
+                            <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">課程大綱</p>
+                            <ul class="text-white ml-5 px-4 list-disc">
+                                <li class="mb-1">寫常數小的 Code</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="w-full md:w-1/2 mb-8">
+                        <div class="flex flex-col h-full border border-l-8 border-blue-400 shadow rounded-lg mt-8 mx-3 px-2">
+                            <h3 class="text-3xl font-bold text-white m-5 border-b">經驗分享</h3>
+                            <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">課前準備</p>
+                            <ul class="text-white ml-5 px-4 list-disc mb-4">
+                                <li class="mb-1">思考想詢問講師的問題</li>
                             </ul>
                         </div>
                     </div>
