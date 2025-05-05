@@ -11,7 +11,7 @@ const navigation = [
     {name: '首頁', href: '/#'},
     {name: '集訓課表', href: '/courses'},
     {name: '師資團隊', href: '/lecturers'},
-    {name: '注意事項', href: '/notices'}, //notices
+    // {name: '注意事項', href: '/notices'}, //notices
     {name: '交通資訊', href: '/travel'},
     // {name: '贊助單位', href: '/sponsers'},
 ]
