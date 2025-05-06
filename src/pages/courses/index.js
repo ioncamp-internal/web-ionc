@@ -22,13 +22,13 @@ export default function Home() {
                         style={{color: "#8DD6F7"}}>*部分課程同時段將分為基礎與進階兩班同時授課</h3>
                 </div>
                 <div class="flex flex-wrap">
-                    {/* <Image
+                    <Image
                         src={IONCcourse}
                         alt=""
                         className="mt-5 z-50 rounded-lg"
                         width={3539}
                         height={1755}
-                    /> */}
+                    />
 
                     <div class="w-full md:w-1/2 mb-8">
                         <div class="flex flex-col h-full border border-l-8 border-blue-400 shadow rounded-lg mt-8 mx-3 px-2">
