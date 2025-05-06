@@ -10,7 +10,7 @@ import { useEffect, useRef, useState } from 'react';
 const inter = Inter({subsets: ['latin']})
 
 const FOOTER_HEIGHT = 64; // 假設footer高度為64px，可根據實際調整
-const REGISTRATION_LINK = "https://forms.gle/234567890"; // 報名表單連結
+const REGISTRATION_LINK = "#"; // 報名表單連結
 
 const pageContents = [
     (
@@ -36,7 +36,7 @@ const pageContents = [
                     href={REGISTRATION_LINK} // 這裡之後可以替換為實際的報名表單連結
                     className="mt-12 md:mt-16 px-8 py-3 text-lg font-semibold text-white bg-transparent border-2 border-[#8DD6F7] rounded-lg hover:bg-[#8DD6F7] hover:text-[#070B14] transition-all duration-200"
                 >
-                    立即報名
+                    尚未開始報名 QQ
                 </a>
             </div>
         </>
@@ -100,7 +100,7 @@ const pageContents = [
     ),
     (
         <div className="w-full max-w-2xl">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-5 md:mb-7">立即報名！</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-5 md:mb-7">報名資訊</h2>
             <div className="flex flex-col gap-5 md:gap-7">
                 <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
                     <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">報名費用</h3>
@@ -117,7 +117,7 @@ const pageContents = [
                 href={REGISTRATION_LINK} // 這裡之後可以替換為實際的報名表單連結
                 className="mt-16 md:mt-20 px-8 py-3 text-lg font-semibold text-white bg-transparent border-2 border-[#8DD6F7] rounded-lg hover:bg-[#8DD6F7] hover:text-[#070B14] transition-all duration-200"
             >
-                立即報名
+                尚未開始報名 QQ
             </a>
             </div>
         </div>
