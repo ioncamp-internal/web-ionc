@@ -189,7 +189,7 @@ export default function Home() {
     }, [currentPage]);
 
     return (
-        <div className="h-screen w-screen flex flex-col overflow-hidden relative">
+        <div className="h-screen w-screen flex flex-col overflow-hidden relative bg-[#070B14]">
             <Background/>
             <Header/>
             <main className="flex-grow relative" style={{paddingBottom: `${FOOTER_HEIGHT}px`}}>
@@ -200,7 +200,8 @@ export default function Home() {
                         style={{
                             transform: `translateY(${(idx - currentPage) * 100}%)`,
                             opacity: idx === currentPage ? 1 : 0,
-                            pointerEvents: idx === currentPage ? 'auto' : 'none'
+                            pointerEvents: idx === currentPage ? 'auto' : 'none',
+                            color: '#FFFFFF'
                         }}
                     >
                         {content}
