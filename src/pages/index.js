@@ -166,9 +166,9 @@ export default function Home() {
         // 如果滑動距離大於50像素才觸發翻頁
         if (Math.abs(diff) > 50) {
             isScrolling.current = true;
-            if (diff < 0 && currentPage < pageCount - 1) {
+            if (diff > 0 && currentPage < pageCount - 1) {
                 setCurrentPage(prev => prev + 1);
-            } else if (diff > 0 && currentPage > 0) {
+            } else if (diff < 0 && currentPage > 0) {
                 setCurrentPage(prev => prev - 1);
             }
             setTimeout(() => {
