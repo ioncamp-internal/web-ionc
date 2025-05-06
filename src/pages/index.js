@@ -127,6 +127,7 @@ const pageContents = [
 export default function Home() {
     const [currentPage, setCurrentPage] = useState(0);
     const isScrolling = useRef(false);
+    const touchStartY = useRef(0);
     const pageCount = pageContents.length;
 
     // 禁止body滾動
@@ -151,26 +152,40 @@ export default function Home() {
         }, 1000);
     };
 
-    useEffect(() => {
-        window.addEventListener('wheel', handleWheel);
-        return () => window.removeEventListener('wheel', handleWheel);
-    }, [currentPage]);
+    // 處理觸控開始事件
+    const handleTouchStart = (e) => {
+        touchStartY.current = e.touches[0].clientY;
+    };
 
-    useEffect(() => {
-        const handleKeyDown = (e) => {
-            if (isScrolling.current) return;
+    // 處理觸控結束事件
+    const handleTouchEnd = (e) => {
+        if (isScrolling.current) return;
+        const touchEndY = e.changedTouches[0].clientY;
+        const diff = touchStartY.current - touchEndY;
+
+        // 如果滑動距離大於50像素才觸發翻頁
+        if (Math.abs(diff) > 50) {
             isScrolling.current = true;
-            if ((e.key === 'ArrowDown' || e.key === 'PageDown') && currentPage < pageCount - 1) {
+            if (diff < 0 && currentPage < pageCount - 1) {
                 setCurrentPage(prev => prev + 1);
-            } else if ((e.key === 'ArrowUp' || e.key === 'PageUp') && currentPage > 0) {
+            } else if (diff > 0 && currentPage > 0) {
                 setCurrentPage(prev => prev - 1);
             }
             setTimeout(() => {
                 isScrolling.current = false;
             }, 1000);
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('wheel', handleWheel);
+        window.addEventListener('touchstart', handleTouchStart);
+        window.addEventListener('touchend', handleTouchEnd);
+        return () => {
+            window.removeEventListener('wheel', handleWheel);
+            window.removeEventListener('touchstart', handleTouchStart);
+            window.removeEventListener('touchend', handleTouchEnd);
         };
-        window.addEventListener('keydown', handleKeyDown);
-        return () => window.removeEventListener('keydown', handleKeyDown);
     }, [currentPage]);
 
     return (
