@@ -73,7 +73,13 @@ export default function Example() {
                 </p>
                 <div className="flex justify-center space-x-6">
                     {navigation.map((item) => (
-                        <Link key={item.name} href={item.href} className="text-gray-400 hover:text-gray-500">
+                        <Link 
+                            key={item.name} 
+                            href={item.href} 
+                            className="text-gray-400 hover:text-gray-500"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <span className="sr-only">{item.name}</span>
                             <item.icon className="h-5 w-5" aria-hidden="true" />
                         </Link>
