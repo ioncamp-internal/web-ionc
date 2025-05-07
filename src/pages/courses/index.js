@@ -77,9 +77,9 @@ export default function Home() {
                             <ul class="text-white ml-5 px-4 list-disc">
                                 <li class="mb-1">前綴和／差分序列</li>
                                 <li class="mb-1">標準函式庫</li>
-                                <li class="mb-1">並查集</li>
+                                <li class="mb-1">Disjoint Set Union</li>
                                 <li class="mb-1">稀疏表</li>
-                                <li class="mb-1">樹狀數組 (Binary Indexed Tree)</li>
+                                <li class="mb-1">Binary Indexed Tree</li>
                                 <li class="mb-1">線段樹</li>
                             </ul>
                         </div>
@@ -90,7 +90,7 @@ export default function Home() {
                             <h3 class="text-3xl font-bold text-white m-5 border-b">進階資料結構</h3>
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">先備知識</p>
                             <ul class="text-white ml-5 px-4 list-disc mb-4">
-                                <li class="mb-1">樹狀數組 (Binary Indexed Tree)</li>
+                                <li class="mb-1">Binary Indexed Tree</li>
                                 <li class="mb-1">基本線段樹 + 懶人標記</li>
                             </ul>
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">課程大綱</p>
@@ -137,7 +137,6 @@ export default function Home() {
                                 <li class="mb-1">Breadth-First Search</li>
                                 <li class="mb-1">Depth-First Search</li>
                                 <li class="mb-1">最短路徑</li>
-                                <li class="mb-1">Disjoint Set Union</li>
                                 <li class="mb-1">最小生成樹</li>
                                 <li class="mb-1">拓撲排序</li>
                             </ul>
