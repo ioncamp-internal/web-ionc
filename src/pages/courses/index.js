@@ -4,10 +4,27 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Background from "@/components/Background";
 import IONCcourse from "@/images/IONCcourse.png";
+import IONCcourse_small from "@/images/IONCcourse_small.png";
+import { useEffect, useState } from 'react';
 
 const inter = Inter({subsets: ['latin']})
 
 export default function Home() {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkIfMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        
+        checkIfMobile();
+        window.addEventListener('resize', checkIfMobile);
+        
+        return () => {
+            window.removeEventListener('resize', checkIfMobile);
+        };
+    }, []);
+
     return (
         <>
             <Header/>
@@ -23,11 +40,11 @@ export default function Home() {
                 </div>
                 <div class="flex flex-wrap">
                     <Image
-                        src={IONCcourse}
-                        alt=""
+                        src={isMobile ? IONCcourse_small : IONCcourse}
+                        alt="課程表"
                         className="mt-5 z-50 rounded-lg"
-                        width={3539}
-                        height={1755}
+                        width={isMobile ? 1000 : 3539}
+                        height={isMobile ? 495 : 1755}
                     />
 
                     <div class="w-full md:w-1/2 mb-8">
