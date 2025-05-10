@@ -55,9 +55,9 @@ export default function Home() {
             <main className="flex min-h-screen flex-col items-center px-4 py-10 md:p-20"
                   style={{backgroundColor: "#070B14"}}>
                 <Background/>
-                {/* <div className="text-center z-10" style={{marginTop: "-15px"}}>
+                <div className="text-center z-10" style={{marginTop: "-15px"}}>
                     <h1 className="text-5xl font-bold" style={{color: "#FFF"}}>贊助單位</h1>
-                </div> */}
+                </div>
                 <div className="z-50 flex flex-col items-center">
                     <div className="bg-white py-20 my-24 sm:my-32 rounded-3xl">
                         <div className="mx-auto max-w-7xl px-6 lg:px-8 gap-y-20">
@@ -70,7 +70,7 @@ export default function Home() {
                                         <Image className="aspect-square w-52 flex-none rounded-2xl object-cover"
                                                src={person.imageUrl} alt="" width={400} height={400}/>
                                         <div className="flex-auto">
-                                            <h3 className="text-lg font-semibold leading-8 tracking-tight text-gray-900">{person.name}</h3>
+                                            <h3 className="text-2xl font-semibold leading-8 tracking-tight text-gray-900">{person.name}</h3>
                                             <div className={"flex"}>
                                                 <Link href={person.link} target={"_blank"}>
                                                     <GlobeAsiaAustraliaIcon className={"h-6 w-6 text-gray-400"}/>

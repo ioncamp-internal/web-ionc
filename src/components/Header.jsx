@@ -13,7 +13,7 @@ const navigation = [
     {name: '師資團隊', href: '/lecturers'},
     // {name: '注意事項', href: '/notices'}, //notices
     {name: '交通資訊', href: '/travel'},
-    // {name: '贊助單位', href: '/sponsers'},
+    {name: '贊助單位', href: '/sponsers'},
 ]
 
 export default function Example() {
