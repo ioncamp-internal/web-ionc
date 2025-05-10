@@ -199,7 +199,6 @@ export default function Home() {
                     <div class="w-full md:w-1/2 mb-8">
                         <div class="flex flex-col h-full border border-l-8 border-blue-400 shadow rounded-lg mt-8 mx-3 px-2">
                             <h3 class="text-3xl font-bold text-white m-5 border-b">常數優化</h3>
-                            <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">先備知識</p>
                             <p class="text-xl text-white ml-5 mr-5 mb-2 font-bold">課程大綱</p>
                             <ul class="text-white ml-5 px-4 list-disc">
                                 <li class="mb-1">寫常數小的 Code</li>
