@@ -10,7 +10,7 @@ import { useEffect, useRef, useState } from 'react';
 const inter = Inter({subsets: ['latin']})
 
 const FOOTER_HEIGHT = 64; // 假設footer高度為64px，可根據實際調整
-const REGISTRATION_LINK = "#"; // 報名表單連結
+const REGISTRATION_LINK = "https://forms.gle/HDcLnJJU7TZHs5R88"; // 報名表單連結
 
 const pageContents = [
     (
@@ -36,7 +36,7 @@ const pageContents = [
                     href={REGISTRATION_LINK} // 這裡之後可以替換為實際的報名表單連結
                     className="mt-12 md:mt-16 px-8 py-3 text-lg font-semibold text-white bg-transparent border-2 border-[#8DD6F7] rounded-lg hover:bg-[#8DD6F7] hover:text-[#070B14] transition-all duration-200"
                 >
-                    尚未開始報名 QQ
+                    點擊立刻報名
                 </a>
             </div>
         </>
@@ -117,7 +117,7 @@ const pageContents = [
                 href={REGISTRATION_LINK} // 這裡之後可以替換為實際的報名表單連結
                 className="mt-16 md:mt-20 px-8 py-3 text-lg font-semibold text-white bg-transparent border-2 border-[#8DD6F7] rounded-lg hover:bg-[#8DD6F7] hover:text-[#070B14] transition-all duration-200"
             >
-                尚未開始報名 QQ
+                點擊立刻報名
             </a>
             </div>
         </div>

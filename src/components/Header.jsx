@@ -52,13 +52,12 @@ export default function Example() {
                     ))}
                 </div>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    報名尚未開始哦！
-                    {/* <Link href="https://forms.gle/xouF2KcsD4ukauGU8"
+                    <Link href="https://forms.gle/HDcLnJJU7TZHs5R88"
                           className="text-sm font-semibold leading-6 text-white border border-white rounded shadow p-1"
                           target={"_blank"}>
                         立即報名
                         <span aria-hidden="true">&rarr;</span>
-                    </Link> */}
+                    </Link>
                 </div>
             </nav>
             <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
