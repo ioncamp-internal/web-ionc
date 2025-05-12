@@ -7,7 +7,7 @@ import coursesImage from "@/images/courses1.png";
 import Link from "next/link";
 import sudoLogo from "@/images/sudo.jpg"
 import tongyizenjuan from "@/images/統一證卷.png"
-import YTPLogo from "@/images/YTP.jpg"
+import YTPLogo from "@/images/logo_ytp_w.png"
 import one04Logo from "@/images/104.png"
 import {GlobeAsiaAustraliaIcon} from "@heroicons/react/24/outline";
 
@@ -37,7 +37,7 @@ const people = [
         role: 'Senior Designer',
         imageUrl: YTPLogo,
         link: 'https://www.tw-ytp.org/',
-        bio: '「YTP少年圖靈計畫」是精誠集團培養軟體人才的公益計畫，提供國/高中同學透過程式競賽、專題實做以及海外參訪機會，精進自己的程式能力並且與各方程式好手交流！提供台中以南同學交通補助費用，競賽獎金以及免費點心，報名參加「YTP少年圖靈計畫」就是今年暑假最重要的事啦！！立即報名！',
+        bio: '「YTP少年圖靈計畫」是精誠集團培養軟體人才的公益計畫，提供國/高中同學透過程式競賽、專題實做以及海外參訪機會，精進自己的程式能力並且與各方程式好手交流！提供台中以南同學交通補助費用，競賽獎金以及免費點心，報名參加「YTP少年圖靈計畫」就是今年暑假最重要的事啦！！立即報名！ <a href="https://www.tw-ytp.org/" class="text-[#8DD6F7] hover:underline" target="_blank" rel="noopener noreferrer">https://www.tw-ytp.org/</a>',
     },
     // {
     //     name: '104 人力銀行',
@@ -56,27 +56,34 @@ export default function Home() {
                   style={{backgroundColor: "#070B14"}}>
                 <Background/>
                 <div className="text-center z-10" style={{marginTop: "-15px"}}>
-                    <h1 className="text-5xl font-bold" style={{color: "#FFF"}}>贊助單位</h1>
+                    <h1 className="text-5xl text-center font-bold" style={{color: "#FFF"}}>贊助單位</h1>
                 </div>
                 <div className="z-50 flex flex-col items-center">
-                    <div className="bg-white py-20 my-24 sm:my-32 rounded-3xl">
-                        <div className="mx-auto max-w-7xl px-6 lg:px-8 gap-y-20">
+                    <div className="bg-gray-800 py-12 my-24 sm:my-32 rounded-3xl">
+                        <div className="mx-auto max-w-5xl px-6 lg:px-8 gap-y-20">
                             <ul
                                 role="list"
-                                className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 lg:max-w-4xl lg:gap-x-8 xl:max-w-none"
+                                className="mx-auto grid max-w-xl grid-cols-1 gap-x-6 gap-y-20 lg:max-w-2xl lg:gap-x-8 xl:max-w-none"
                             >
                                 {people.map((person) => (
-                                    <li key={person.name} className="flex flex-col gap-6 xl:flex-row">
-                                        <Image className="aspect-square w-52 flex-none rounded-2xl object-cover"
-                                               src={person.imageUrl} alt="" width={400} height={400}/>
+                                    <li key={person.name} className="flex flex-col items-center lg:items-start gap-6 lg:flex-row">
+                                        <div className="flex items-center justify-center lg:self-center">
+                                            <Image className="w-40 sm:w-52 flex-none rounded-2xl object-contain"
+                                                   src={person.imageUrl} alt="" width={400} height={400}/>
+                                        </div>
                                         <div className="flex-auto">
-                                            <h3 className="text-2xl font-semibold leading-8 tracking-tight text-gray-900">{person.name}</h3>
-                                            <div className={"flex"}>
-                                                <Link href={person.link} target={"_blank"}>
-                                                    <GlobeAsiaAustraliaIcon className={"h-6 w-6 text-gray-400"}/>
+                                            <div className="flex flex-col sm:flex-row items-center gap-4">
+                                                <h3 className="text-2xl sm:text-3xl font-semibold leading-8 tracking-tight text-white text-center sm:text-left">{person.name}</h3>
+                                                <Link 
+                                                    href={person.link} 
+                                                    target="_blank" 
+                                                    rel="noopener noreferrer"
+                                                    className="px-4 py-2 text-sm font-semibold text-white bg-transparent border-2 border-[#8DD6F7] rounded-lg hover:bg-[#8DD6F7] hover:text-[#070B14] transition-all duration-200"
+                                                >
+                                                    官網連結
                                                 </Link>
                                             </div>
-                                            <p className="mt-6 text-base leading-7 text-gray-600">{person.bio}</p>
+                                            <div className="mt-6 text-base leading-7 text-gray-200" dangerouslySetInnerHTML={{ __html: person.bio }} />
                                         </div>
                                     </li>
                                 ))}
@@ -84,12 +91,11 @@ export default function Home() {
                         </div>
                     </div>
 
-
-                    <h3 className="z-50 text-3xl mt-5 mb-2 font-semibold text-white text-center"
+                    <h3 className="z-50 text-2xl md:text-3xl mt-5 mb-2 font-semibold text-center"
                         style={{color: "#8DD6F7"}}>
                         若有合作意願歡迎來信聯繫！
                     </h3>
-                    <Link className="z-10 text-3xl mt-5 mb-2 font-semibold text-white text-center inline"
+                    <Link className="z-10 text-xl md:text-2xl mt-5 mb-2 font-semibold text-center inline"
                           href="mailto:nthu.ioncamp@gmail.com" style={{color: "#8DD6F7"}}>
                         nthu.ioncamp@gmail.com
                     </Link>
