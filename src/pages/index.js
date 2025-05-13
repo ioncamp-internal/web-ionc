@@ -131,12 +131,24 @@ export default function Home() {
     // 處理滾動事件
     const handleWheel = (e) => {
         if (isScrolling.current) return;
+        
+        // 防止連續觸發
         isScrolling.current = true;
+        
+        // 增加最小滾動閾值
+        const scrollThreshold = 50;
+        if (Math.abs(e.deltaY) < scrollThreshold) {
+            isScrolling.current = false;
+            return;
+        }
+
         if (e.deltaY > 0 && currentPage < pageCount - 1) {
             setCurrentPage(prev => prev + 1);
         } else if (e.deltaY < 0 && currentPage > 0) {
             setCurrentPage(prev => prev - 1);
         }
+        
+        // 增加防抖時間
         setTimeout(() => {
             isScrolling.current = false;
         }, 1000);
@@ -144,6 +156,7 @@ export default function Home() {
 
     // 處理觸控開始事件
     const handleTouchStart = (e) => {
+        if (isScrolling.current) return;
         touchStartY.current = e.touches[0].clientY;
     };
 
@@ -153,18 +166,23 @@ export default function Home() {
         const touchEndY = e.changedTouches[0].clientY;
         const diff = touchStartY.current - touchEndY;
 
-        // 如果滑動距離大於50像素才觸發翻頁
-        if (Math.abs(diff) > 50) {
-            isScrolling.current = true;
-            if (diff > 0 && currentPage < pageCount - 1) {
-                setCurrentPage(prev => prev + 1);
-            } else if (diff < 0 && currentPage > 0) {
-                setCurrentPage(prev => prev - 1);
-            }
-            setTimeout(() => {
-                isScrolling.current = false;
-            }, 1000);
+        // 增加最小滑動閾值
+        const touchThreshold = 50;
+        if (Math.abs(diff) < touchThreshold) {
+            return;
         }
+
+        isScrolling.current = true;
+        if (diff > 0 && currentPage < pageCount - 1) {
+            setCurrentPage(prev => prev + 1);
+        } else if (diff < 0 && currentPage > 0) {
+            setCurrentPage(prev => prev - 1);
+        }
+        
+        // 增加防抖時間
+        setTimeout(() => {
+            isScrolling.current = false;
+        }, 1000);
     };
 
     useEffect(() => {
