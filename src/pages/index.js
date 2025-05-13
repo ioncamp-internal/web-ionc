@@ -48,53 +48,34 @@ const pageContents = [
             <div className="flex flex-col gap-5 md:gap-7">
                 <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
                     <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">競程新手</h3>
-                    已有 <span className="font-bold" style={{color: "#8DD6F7"}}>C++ 語法基礎</span>，想踏入競程世界的學生。
+                    <p className="text-white">不管你是國中生、高中生還是大學生，只要你具備 <span className="font-bold" style={{color: "#8DD6F7"}}>C++ 語法基礎</span>，想踏入競程世界，就適合我們的營隊！</p>
                 </div>
                 <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
                     <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">想進一步提升實力的人</h3>
-                    希望精進演算法實力、學習進階競程技巧。
+                    <p className="text-white">希望透過密集的課程，精進演算法實力、學習進階競程技巧。</p>
                 </div>
                 <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
                     <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">渴望學習經驗者</h3>
-                    想從講師身上學習<span className="font-bold " style={{color: "#8DD6F7"}}>實用經驗</span>與<span className="font-bold " style={{color: "#8DD6F7"}}>學習心法</span>。
+                    <p className="text-white">想從講師身上學習<span className="font-bold " style={{color: "#8DD6F7"}}>實用經驗</span>與<span className="font-bold " style={{color: "#8DD6F7"}}>學習心法</span>。</p>
                 </div>
             </div>
         </div>
     ),
-    // (
-    //     <div className="w-full max-w-2xl">
-    //         <h2 className="text-2xl md:text-3xl font-bold text-white mb-5 md:mb-7">營隊特色</h2>
-    //         <div className="flex flex-col gap-5 md:gap-7">
-    //             <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-    //                 <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">專業師資</h3>
-    //                 <p className="text-gray-300">由競賽經驗豐富的學長姐們親自授課。</p>
-    //             </div>
-    //             <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-    //                 <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">實戰演練</h3>
-    //                 <p className="text-gray-300">五天的練習賽，讓你感受競賽氛圍。</p>
-    //             </div>
-    //             <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-    //                 <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">同儕相伴</h3>
-    //                 <p className="text-gray-300">認識其他對競程有興趣的同學，一起學習、一起成長。</p>
-    //             </div>
-    //         </div>
-    //     </div>
-    // ),
     (
         <div className="w-full max-w-2xl">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-5 md:mb-7">Q&A</h2>
             <div className="flex flex-col gap-5 md:gap-7">
                 <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
                     <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">有提供住宿嗎？</h3>
-                    <p className="text-gray-300">我們會安排在清大校內住宿，需要住宿請在報名表單註明。</p>
+                    <p className="text-white">我們會安排在清大校內住宿，需要住宿請在報名表單註明。</p>
                 </div>
                 <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
                     <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">有營隊參加證明嗎？</h3>
-                    <p className="text-gray-300">因應教育部規定，營隊將不會提供參加證明，請確認可接受此規定後再報名。</p>
+                    <p className="text-white">因應教育部規定，營隊將不會提供參加證明，請確認可接受此規定後再報名。</p>
                 </div>
                 <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
                     <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">需要自備筆電嗎？</h3>
-                    <p className="text-gray-300">營隊課程不會需要用到筆電，但建議同學們可以自備筆電，以便練習題目。</p>
+                    <p className="text-white">營隊課程不會需要用到筆電，但建議同學們可以自備筆電，以便練習題目。</p>
                 </div>
             </div>
         </div>
