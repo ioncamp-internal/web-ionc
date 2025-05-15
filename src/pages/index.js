@@ -51,12 +51,12 @@ const pageContents = [
                     <p className="text-white">不管你是國中生、高中生還是大學生，只要你具備 <span className="font-bold" style={{color: "#8DD6F7"}}>C++ 語法基礎</span>，想踏入競程世界，就適合我們的營隊！</p>
                 </div>
                 <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">想進一步提升實力的人</h3>
-                    <p className="text-white">希望透過密集的課程，精進演算法實力、學習進階競程技巧。</p>
+                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">想在各大競賽中嶄露頭角</h3>
+                    <p className="text-white">我們的課程涵蓋許多競程領域的重要範圍，對 APCS、各大競賽、資訊奧林匹亞都有很大的幫助。</p>
                 </div>
                 <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">渴望學習經驗者</h3>
-                    <p className="text-white">想從講師身上學習<span className="font-bold " style={{color: "#8DD6F7"}}>實用經驗</span>與<span className="font-bold " style={{color: "#8DD6F7"}}>學習心法</span>。</p>
+                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">想進一步提升實力</h3>
+                    <p className="text-white">希望透過密集的課程，精進演算法實力、學習進階競程技巧，並從講師身上學習<span className="font-bold " style={{color: "#8DD6F7"}}>實用經驗</span>與<span className="font-bold " style={{color: "#8DD6F7"}}>學習心法</span>。</p>
                 </div>
             </div>
         </div>
