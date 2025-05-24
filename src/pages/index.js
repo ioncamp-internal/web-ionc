@@ -26,16 +26,16 @@ const pageContents = [
                 unoptimized
             />
             <div className="text-center z-10">
-                <h1 className="text-3xl md:text-5xl font-bold" style={{color: "#FFF"}}>2025 IONCamp</h1>
-                <div className="text-xl md:text-3xl font-semibold my-5" style={{color: "#FFF"}}>清大暑期程式競賽集訓營</div>
-                <p className="px-6 text-base md:text-xl font-medium my-5 leading-7 md:leading-9" style={{color: "#8DD6F7"}}>
+                <h1 className="text-2xl md:text-5xl font-bold" style={{color: "#FFF"}}>2025 IONCamp</h1>
+                <div className="text-lg md:text-3xl font-semibold my-4 md:my-5" style={{color: "#FFF"}}>清大暑期程式競賽集訓營</div>
+                <p className="px-4 md:px-6 text-sm md:text-xl font-medium my-4 md:my-5 leading-6 md:leading-9" style={{color: "#8DD6F7"}}>
                     對於初學程式設計感到迷惘嗎？或是在挑戰 APCS 或大大小小的程式設計比賽感到挫折呢？<br/>
                     讓 IONCamp 透過連續五天密集且扎實的課程，帶領你突破目前的困境吧！
                 </p>
                 <a 
                     href={REGISTRATION_LINK}
                     target="_blank" rel="noopener noreferrer"
-                    className="mt-12 md:mt-16 px-8 py-3 text-lg font-semibold text-white bg-transparent border-2 border-[#8DD6F7] rounded-lg hover:bg-[#8DD6F7] hover:text-[#070B14] transition-all duration-200"
+                    className="mt-8 md:mt-16 px-6 md:px-8 py-2 md:py-3 text-base md:text-lg font-semibold text-white bg-transparent border-2 border-[#8DD6F7] rounded-lg hover:bg-[#8DD6F7] hover:text-[#070B14] transition-all duration-200"
                 >
                     點擊立刻報名
                 </a>
@@ -44,59 +44,59 @@ const pageContents = [
     ),
     (
         <div className="w-full max-w-2xl">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-5 md:mb-7">誰適合這個營隊</h2>
-            <div className="flex flex-col gap-5 md:gap-7">
+            <h2 className="text-xl md:text-3xl font-bold text-white mb-4 md:mb-7">誰適合這個營隊</h2>
+            <div className="flex flex-col gap-4 md:gap-7">
                 <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">競程新手</h3>
-                    <p className="text-white">不管你是國中生、高中生還是大學生，只要你具備 <span className="font-bold" style={{color: "#8DD6F7"}}>C++ 語法基礎</span>，想踏入競程世界，就適合我們的營隊！</p>
+                    <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">競程新手</h3>
+                    <p className="text-sm md:text-base text-white">不管你是國中生、高中生還是大學生，只要你具備 <span className="font-bold" style={{color: "#8DD6F7"}}>C++ 語法基礎</span>，想踏入競程世界，就適合我們的營隊！</p>
                 </div>
                 <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">想在各大競賽中嶄露頭角</h3>
-                    <p className="text-white">我們的課程涵蓋許多競程領域的重要範圍，對 APCS、各大競賽、資訊奧林匹亞都有很大的幫助。</p>
+                    <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">想在各大競賽中嶄露頭角</h3>
+                    <p className="text-sm md:text-base text-white">我們的課程涵蓋許多競程領域的重要範圍，對 APCS、各大競賽、資訊奧林匹亞都有很大的幫助。</p>
                 </div>
                 <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">想進一步提升實力</h3>
-                    <p className="text-white">希望透過密集的課程，精進演算法實力、學習進階競程技巧，並從講師身上學習<span className="font-bold " style={{color: "#8DD6F7"}}>實用經驗</span>與<span className="font-bold " style={{color: "#8DD6F7"}}>學習心法</span>。</p>
-                </div>
-            </div>
-        </div>
-    ),
-    (
-        <div className="w-full max-w-2xl">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-5 md:mb-7">Q&A</h2>
-            <div className="flex flex-col gap-5 md:gap-7">
-                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">有提供住宿嗎？</h3>
-                    <p className="text-white">我們會安排在清大校內住宿，需要住宿請在報名表單註明。</p>
-                </div>
-                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">有營隊參加證明嗎？</h3>
-                    <p className="text-white">因應教育部規定，營隊將不會提供參加證明，請確認可接受此規定後再報名。</p>
-                </div>
-                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">需要自備筆電嗎？</h3>
-                    <p className="text-white">營隊課程不會需要用到筆電，但建議同學們可以自備筆電，以便練習題目。</p>
+                    <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">想進一步提升實力</h3>
+                    <p className="text-sm md:text-base text-white">希望透過密集的課程，精進演算法實力、學習進階競程技巧，並從講師身上學習<span className="font-bold " style={{color: "#8DD6F7"}}>實用經驗</span>與<span className="font-bold " style={{color: "#8DD6F7"}}>學習心法</span>。</p>
                 </div>
             </div>
         </div>
     ),
     (
         <div className="w-full max-w-2xl">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-5 md:mb-7">報名資訊</h2>
-            <div className="flex flex-col gap-5 md:gap-7">
+            <h2 className="text-xl md:text-3xl font-bold text-white mb-4 md:mb-7">Q&A</h2>
+            <div className="flex flex-col gap-4 md:gap-7">
                 <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">報名費用</h3>
-                    <span className="font-bold" style={{color: "#8DD6F7"}}>7000元</span>
+                    <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">有提供住宿嗎？</h3>
+                    <p className="text-sm md:text-base text-white">我們會安排在清大校內住宿，需要住宿請在報名表單註明。</p>
                 </div>
                 <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">報名時程</h3>
+                    <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">有營隊參加證明嗎？</h3>
+                    <p className="text-sm md:text-base text-white">因應教育部規定，營隊將不會提供參加證明，請確認可接受此規定後再報名。</p>
+                </div>
+                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
+                    <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">需要自備筆電嗎？</h3>
+                    <p className="text-sm md:text-base text-white">營隊課程不會需要用到筆電，但建議同學們可以自備筆電，以便練習題目。</p>
+                </div>
+            </div>
+        </div>
+    ),
+    (
+        <div className="w-full max-w-2xl">
+            <h2 className="text-xl md:text-3xl font-bold text-white mb-4 md:mb-7">報名資訊</h2>
+            <div className="flex flex-col gap-4 md:gap-7">
+                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
+                    <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">報名費用</h3>
+                    <span className="text-sm md:text-base font-bold" style={{color: "#8DD6F7"}}>7000元</span>
+                </div>
+                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
+                    <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">報名時程</h3>
                     <ul className="list-disc list-inside">
                         <li>報名期限：即日起~06/10 23:59</li>
                         <li>公布錄取名單：06/15</li>
                     </ul>
                 </div>
                 <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-lg md:text-xl font-semibold text-white mb-2 md:mb-3">中低收補助申請</h3>
+                    <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">中低收補助申請</h3>
                     <ul className="list-disc list-inside">
                         <li>感謝 SYSTEX精誠資訊 的慷慨贊助，提供今年 IONCamp 三位全額補助的名額！</li>
                         <li>請在 06/10 23:59 前填寫 <a href="https://forms.gle/JXH62eWjUXr7JosQ6" style={{color: "#8DD6F7"}} target="_blank" rel="noopener noreferrer">本表單（點我）</a>，會同錄取報名表單一同公布資格。</li>
@@ -105,7 +105,7 @@ const pageContents = [
                 <a 
                 href={REGISTRATION_LINK}
                 target="_blank" rel="noopener noreferrer"
-                className="mt-1 md:mt-1 px-8 py-3 text-lg font-semibold text-white bg-transparent border-2 border-[#8DD6F7] rounded-lg hover:bg-[#8DD6F7] hover:text-[#070B14] transition-all duration-200"
+                className="mt-1 md:mt-1 px-6 md:px-8 py-2 md:py-3 text-base md:text-lg font-semibold text-white bg-transparent border-2 border-[#8DD6F7] rounded-lg hover:bg-[#8DD6F7] hover:text-[#070B14] transition-all duration-200"
             >
                 點擊立刻報名
             </a>
