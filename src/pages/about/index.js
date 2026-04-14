@@ -37,7 +37,7 @@ export default function Home() {
                     unoptimized
                 />
                 <div className="text-center" style={{marginTop:"-15px"}}>
-                    <h1 className="text-6xl font-bold"style={{color:"#FFF"}}>2025 IONCamp</h1>
+                    <h1 className="text-6xl font-bold"style={{color:"#FFF"}}>2026 IONCamp</h1>
                     <div className="text-4xl font-semibold my-5"style={{color:"#FFF"}}>清大暑期程式競賽集訓營</div>
                     <p className="px-6 text-2xl font-medium my-5 leading-10"style={{color:"#8DD6F7"}}>
                         對於初學程式設計感到迷惘嗎？或是在挑戰 APCS 及大大小小的程式設計比賽中感到挫折呢？<br/>

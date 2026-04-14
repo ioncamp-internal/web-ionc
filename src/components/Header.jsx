@@ -24,7 +24,7 @@ export default function Example() {
             <Head>
                 {/* favicon */}
                 <link rel="icon" href="/favicon.ico"/>
-                <title>2025 IONC清大暑期程式競賽集訓營 </title>
+                <title>2026 IONC清大暑期程式競賽集訓營 </title>
             </Head>
             <nav className="z-50 mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div className="flex lg:flex-1">

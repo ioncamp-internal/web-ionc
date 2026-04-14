@@ -69,7 +69,7 @@ export default function Example() {
         <footer className="bg-gray-900">
             <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between lg:px-8">
                 <p className="text-xs leading-5 text-gray-500">
-                    &copy; 2025 ION Camp. All rights reserved.
+                    &copy; 2026 ION Camp. All rights reserved.
                 </p>
                 <div className="flex justify-center space-x-6">
                     {navigation.map((item) => (
