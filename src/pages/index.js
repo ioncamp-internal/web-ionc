@@ -26,7 +26,7 @@ const pageContents = [
                 unoptimized
             />
             <div className="text-center z-10">
-                <h1 className="text-2xl md:text-5xl font-bold" style={{color: "#FFF"}}>2026 IONCamp</h1>
+                <h1 className="text-2xl md:text-5xl font-bold" style={{color: "#FFF"}}>2025 IONCamp</h1>
                 <div className="text-lg md:text-3xl font-semibold my-4 md:my-5" style={{color: "#FFF"}}>清大暑期程式競賽集訓營</div>
                 <p className="px-4 md:px-6 text-sm md:text-xl font-medium my-4 md:my-5 leading-6 md:leading-9" style={{color: "#8DD6F7"}}>
                     對於初學程式設計感到迷惘嗎？或是在挑戰 APCS 或大大小小的程式設計比賽感到挫折呢？<br/>
