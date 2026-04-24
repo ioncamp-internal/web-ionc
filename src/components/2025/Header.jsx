@@ -2,18 +2,18 @@ import {useState} from 'react'
 import {Dialog} from '@headlessui/react'
 import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline'
 import Image from "next/image";
-import IONCLogo from "@/images/logo.png"
+import IONCLogo from "@/images/2025/logo.png"
 import Link from "next/link";
 import Head from "next/head";
 
 
 const navigation = [
-    {name: '首頁', href: '/#'},
-    {name: '集訓課表', href: '/courses'},
-    {name: '師資團隊', href: '/lecturers'},
-    // {name: '注意事項', href: '/notices'}, //notices
-    {name: '交通資訊', href: '/travel'},
-    {name: '贊助單位', href: '/sponsers'},
+    {name: '首頁', href: '/2025/#'},
+    {name: '集訓課表', href: '/2025/courses'},
+    {name: '師資團隊', href: '/2025/lecturers'},
+    // {name: '注意事項', href: '/2025/notices'}, //notices
+    {name: '交通資訊', href: '/2025/travel'},
+    {name: '贊助單位', href: '/2025/sponsers'},
 ]
 
 export default function Example() {

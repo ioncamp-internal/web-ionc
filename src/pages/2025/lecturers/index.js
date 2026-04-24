@@ -1,8 +1,8 @@
 import {Inter} from 'next/font/google'
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
-import Background from "@/components/Background";
-import Lecturer from "@/components/Lecturer";
+import Header from '@/components/2025/Header'
+import Footer from '@/components/2025/Footer'
+import Background from "@/components/2025/Background";
+import Lecturer from "@/components/2025/Lecturer";
 
 const lecturers = [
     {

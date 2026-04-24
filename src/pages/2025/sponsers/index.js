@@ -1,14 +1,14 @@
 import Image from 'next/image'
 import {Inter} from 'next/font/google'
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
-import Background from "@/components/Background";
-import coursesImage from "@/images/courses1.png";
+import Header from '@/components/2025/Header'
+import Footer from '@/components/2025/Footer'
+import Background from "@/components/2025/Background";
+import coursesImage from "@/images/2025/courses1.png";
 import Link from "next/link";
-import sudoLogo from "@/images/sudo.jpg"
-import tongyizenjuan from "@/images/統一證卷.png"
-import YTPLogo from "@/images/logo_ytp_w.png"
-import one04Logo from "@/images/104.png"
+import sudoLogo from "@/images/2025/sudo.jpg"
+import tongyizenjuan from "@/images/2025/統一證卷.png"
+import YTPLogo from "@/images/2025/logo_ytp_w.png"
+import one04Logo from "@/images/2025/104.png"
 import {GlobeAsiaAustraliaIcon} from "@heroicons/react/24/outline";
 
 const inter = Inter({subsets: ['latin']})

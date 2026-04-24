@@ -1,11 +1,11 @@
 import Image from 'next/image'
 import {Inter} from 'next/font/google'
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
+import Header from '@/components/2025/Header'
+import Footer from '@/components/2025/Footer'
 
-import backgroundImage from "@/images/background2.png";
-import ioncTS from "@/images/ionc-re.png";
-import Background from "@/components/Background";
+import backgroundImage from "@/images/2025/background2.png";
+import ioncTS from "@/images/2025/ionc-re.png";
+import Background from "@/components/2025/Background";
 
 const inter = Inter({subsets: ['latin']})
 

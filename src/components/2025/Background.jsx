@@ -1,6 +1,6 @@
-import backgroundImage from "@/images/background2.png";
+import backgroundImage from "@/images/2025/background2.png";
 import Image from "next/image";
-import Meteor from "@/components/Meteor";
+import Meteor from "@/components/2025/Meteor";
 import { useMemo } from "react";
 
 export default function Background() {

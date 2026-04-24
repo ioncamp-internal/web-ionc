@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import {Inter} from 'next/font/google'
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
-import Background from "@/components/Background";
-import IONCcourse from "@/images/IONCcourse.png";
-import IONCcourse_small from "@/images/IONCcourse_small.png";
+import Header from '@/components/2025/Header'
+import Footer from '@/components/2025/Footer'
+import Background from "@/components/2025/Background";
+import IONCcourse from "@/images/2025/IONCcourse.png";
+import IONCcourse_small from "@/images/2025/IONCcourse_small.png";
 import { useEffect, useState } from 'react';
 
 const inter = Inter({subsets: ['latin']})
