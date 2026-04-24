@@ -10,7 +10,7 @@ import { useEffect, useRef, useState } from 'react';
 const inter = Inter({subsets: ['latin']})
 
 const FOOTER_HEIGHT = 64; // 假設footer高度為64px，可根據實際調整
-const REGISTRATION_LINK = "https://forms.gle/HDcLnJJU7TZHs5R88"; // 報名表單連結
+const REGISTRATION_LINK = "/2026/register"; // 報名表單連結
 
 const pageContents = [
     (
@@ -34,7 +34,7 @@ const pageContents = [
                 </p>
                 <a 
                     href={REGISTRATION_LINK}
-                    target="_blank" rel="noopener noreferrer"
+                    rel="noopener noreferrer"
                     className="mt-8 md:mt-16 px-6 md:px-8 py-2 md:py-3 text-base md:text-lg font-semibold text-white bg-transparent border-2 border-[#8DD6F7] rounded-lg hover:bg-[#8DD6F7] hover:text-[#070B14] transition-all duration-200"
                 >
                     點擊立刻報名
@@ -84,31 +84,8 @@ const pageContents = [
         <div className="w-full max-w-2xl">
             <h2 className="text-xl md:text-3xl font-bold text-white mb-4 md:mb-7">報名資訊</h2>
             <div className="flex flex-col gap-4 md:gap-7">
-                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">報名費用</h3>
-                    <span className="text-sm md:text-base font-bold" style={{color: "#8DD6F7"}}>7000元</span>
-                </div>
-                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">報名時程</h3>
-                    <ul className="list-disc list-inside">
-                        <li>報名期限：即日起~06/10 23:59</li>
-                        <li>公布錄取名單：06/15</li>
-                    </ul>
-                </div>
-                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">中低收補助申請</h3>
-                    <ul className="list-disc list-inside">
-                        <li>感謝 SYSTEX精誠資訊 的慷慨贊助，提供今年 IONCamp 三位全額補助的名額！</li>
-                        <li>請在 06/10 23:59 前填寫 <a href="https://forms.gle/JXH62eWjUXr7JosQ6" style={{color: "#8DD6F7"}} target="_blank" rel="noopener noreferrer">本表單（點我）</a>，會同錄取報名表單一同公布資格。</li>
-                    </ul>
-                </div>
-                <a 
-                href={REGISTRATION_LINK}
-                target="_blank" rel="noopener noreferrer"
-                className="mt-1 md:mt-1 px-6 md:px-8 py-2 md:py-3 text-base md:text-lg font-semibold text-white bg-transparent border-2 border-[#8DD6F7] rounded-lg hover:bg-[#8DD6F7] hover:text-[#070B14] transition-all duration-200"
-            >
-                點擊立刻報名
-            </a>
+                報名尚未開始，敬請期待！<br/>
+                營隊報名預計將於 2026 年 5 月開放，請密切關注我們的官方網站與社群媒體以獲取最新資訊。
             </div>
         </div>
     )

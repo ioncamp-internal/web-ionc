@@ -28,7 +28,7 @@ export default function Example() {
             </Head>
             <nav className="z-50 mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div className="flex lg:flex-1">
-                    <Link href="/" className="-m-1.5 p-1.5">
+                    <Link href="/2026" className="-m-1.5 p-1.5">
                         <span className="sr-only">Your Company</span>
                         <Image className="h-8 w-auto" src={IONCLogo} width={600} height={450} alt=""/>
 
@@ -53,8 +53,7 @@ export default function Example() {
                 </div>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                     <Link href="/2026/register"
-                          className="text-sm font-semibold leading-6 text-white border border-white rounded shadow p-1"
-                          target={"_blank"}>
+                          className="text-sm font-semibold leading-6 text-white border border-white rounded shadow p-1">
                         立即報名
                         <span aria-hidden="true">&rarr;</span>
                     </Link>
@@ -65,7 +64,7 @@ export default function Example() {
                 <Dialog.Panel
                     className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
                     <div className="flex items-center justify-between">
-                        <Link href="#" className="-m-1.5 p-1.5">
+                        <Link href="/2026" className="-m-1.5 p-1.5">
                             <span className="sr-only">IONC</span>
                             <Image
                                 className="h-8 w-auto"
