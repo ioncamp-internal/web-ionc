@@ -29,7 +29,7 @@ const pageContents = [
                 <h1 className="text-2xl md:text-5xl font-bold" style={{color: "#FFF"}}>2026 IONCamp</h1>
                 <div className="text-lg md:text-3xl font-semibold my-4 md:my-5" style={{color: "#FFF"}}>清大暑期程式競賽集訓營</div>
                 <p className="px-4 md:px-6 text-sm md:text-xl font-medium my-4 md:my-5 leading-6 md:leading-9" style={{color: "#8DD6F7"}}>
-                    對於初學程式設計感到迷惘嗎？或是在挑戰 APCS 或大大小小的程式設計比賽感到挫折呢？<br/>
+                    對於初學程式設計感到迷惘嗎？或是在挑戰大大小小的程式設計比賽感到挫折呢？<br/>
                     讓 IONCamp 透過連續五天密集且扎實的課程，帶領你突破目前的困境吧！
                 </p>
                 <a 
@@ -52,7 +52,7 @@ const pageContents = [
                 </div>
                 <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
                     <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">想在各大競賽中嶄露頭角</h3>
-                    <p className="text-sm md:text-base text-white">我們的課程涵蓋許多競程領域的重要範圍，對 APCS、各大競賽、資訊奧林匹亞都有很大的幫助。</p>
+                    <p className="text-sm md:text-base text-white">我們的課程涵蓋許多競程領域的重要範圍，對各大競賽、資訊奧林匹亞都有很大的幫助。</p>
                 </div>
                 <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
                     <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">想進一步提升實力</h3>
