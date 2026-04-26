@@ -3,6 +3,9 @@ import Header from '@/components/2026/Header'
 import Footer from '@/components/2026/Footer'
 import Background from "@/components/2026/Background";
 import Lecturer from "@/components/2026/Lecturer";
+import useEmblaCarousel from 'embla-carousel-react';
+import AutoScroll from 'embla-carousel-auto-scroll';
+import { useState, useCallback, useEffect } from 'react';
 
 const lecturers = [
     {
@@ -125,24 +128,101 @@ const lecturers = [
     }
 ];
 export default function Home() {
+    const [isPlaying, setIsPlaying] = useState(true);
+    
+    // 使用 Embla Carousel 與 AutoScroll 外掛
+    // playOnInit: 初次載入就播放
+    // stopOnInteraction: false -> 我們手動控制，這樣配合 stopOnMouseEnter/drag 才能自訂 2 秒恢復
+    // stopOnMouseEnter: false
+    const [emblaRef, emblaApi] = useEmblaCarousel(
+        { loop: true, dragFree: true },
+        [AutoScroll({ playOnInit: true, speed: 1.5, stopOnInteraction: false, stopOnMouseEnter: false })]
+    );
+
+    // 切換播放/暫停
+    const togglePlay = useCallback(() => {
+        const autoScroll = emblaApi?.plugins()?.autoScroll;
+        if (!autoScroll) return;
+
+        if (isPlaying) {
+            autoScroll.stop();
+        } else {
+            autoScroll.play();
+        }
+        setIsPlaying(!isPlaying);
+    }, [emblaApi, isPlaying]);
+
+    // 監聽使用者互動事件，實作「暫停動畫 -> 2秒後恢復」
+    useEffect(() => {
+        if (!emblaApi) return;
+        const autoScroll = emblaApi.plugins()?.autoScroll;
+        if (!autoScroll) return;
+
+        let resumeTimeout = null;
+
+        // 當使用者開始拖拉或點擊時，強制暫停動畫
+        const onInteract = () => {
+            if (resumeTimeout) clearTimeout(resumeTimeout);
+            autoScroll.stop();
+        };
+
+        // 當使用者結束互動時，設定 2 秒後重新啟動動畫（前提是按鈕處於 isPlaying 狀態）
+        const onInteractEnd = () => {
+            if (resumeTimeout) clearTimeout(resumeTimeout);
+            if (isPlaying) {
+                resumeTimeout = setTimeout(() => {
+                    autoScroll.play();
+                }, 2000); // 暫停 2 秒後恢復
+            }
+        };
+
+        emblaApi.on('pointerDown', onInteract);
+        emblaApi.on('pointerUp', onInteractEnd);
+
+        return () => {
+            if (resumeTimeout) clearTimeout(resumeTimeout);
+            emblaApi.off('pointerDown', onInteract);
+            emblaApi.off('pointerUp', onInteractEnd);
+        };
+    }, [emblaApi, isPlaying]);
+
     return (
         <>
             <Header/>
-            <main className="flex min-h-screen flex-col items-center justify-between px-4 py-10 md:p-20"
+            <main className="flex min-h-screen flex-col items-center justify-between px-0 py-10 md:pt-20 md:pb-10"
                   style={{backgroundColor: "#070B14"}}>
                 <Background/>
-                <div className="text-center z-10 mb-12 mt-8">
-                    <h1 className="text-5xl font-bold" style={{color: "#FFF"}}>師資陣容</h1>
+                
+                {/* 標題與控制按鈕區域 */}
+                <div className="text-center z-10 mb-8 mt-8 flex flex-col items-center">
+                    <h1 className="text-5xl font-bold mb-6" style={{color: "#FFF"}}>師資陣容</h1>
+                    
+                    <button 
+                        onClick={togglePlay}
+                        className={`flex items-center space-x-2 px-6 py-2 rounded-full font-bold text-sm tracking-widest transition-all duration-300 shadow-lg ${
+                            isPlaying 
+                            ? 'bg-blue-600/20 text-blue-400 border border-blue-500/50 hover:bg-blue-600/40' 
+                            : 'bg-red-600/20 text-red-400 border border-red-500/50 hover:bg-red-600/40'
+                        }`}
+                    >
+                        <span>{isPlaying ? 'PAUSE 暫停動畫' : 'PLAY 播放動畫'}</span>
+                        <div className={`w-2 h-2 rounded-full ${isPlaying ? 'bg-blue-400 animate-pulse' : 'bg-red-500'}`} />
+                    </button>
                 </div>
-                <div className="z-50 w-full max-w-7xl px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12 lg:gap-16">
-                    {lecturers.map((lecturer) => (
-                        <Lecturer key={lecturer.name} name={lecturer.name} id={lecturer.id} experiences={lecturer.experiences}
-                                  avatarUrl={lecturer.avatarUrl}/>
-                    ))}
+
+                {/* 輪播跑馬燈容器 */}
+                <div className="z-50 w-full overflow-hidden cursor-grab active:cursor-grabbing mb-20" ref={emblaRef}>
+                    <div className="flex backface-hidden touch-pan-y">
+                        {lecturers.map((lecturer, index) => (
+                            <div className="flex-[0_0_auto] min-w-0 px-4 md:px-6" key={index}>
+                                <Lecturer name={lecturer.name} id={lecturer.id} experiences={lecturer.experiences} avatarUrl={lecturer.avatarUrl}/>
+                            </div>
+                        ))}
+                    </div>
                 </div>
+
             </main>
             <Footer/>
         </>
-
     )
 }
