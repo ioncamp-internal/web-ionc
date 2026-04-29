@@ -10,7 +10,7 @@ import { useState, useCallback, useEffect } from 'react';
 const lecturers = [
     {
         name: "范釗維",
-        id: "SorahISA",
+        //id: "SorahISA",
         experiences: [
             "晉級 2025 ICPC World Finals",
             "APIO 2020 🥉 銅牌",
@@ -19,7 +19,7 @@ const lecturers = [
     },
     {
         name: "歐育淇",
-        id: "ub33",
+        //id: "ub33",
         experiences: [
             "2025 ICPC World Finalist",
             "2025 ICPC Asia Taichung Regional 🥇 金牌",
@@ -54,7 +54,7 @@ const lecturers = [
     },
     {
         name: "張晏誠",
-        id: "chyen",
+        //id: "chyen",
         experiences: [
             "2024, 2025 ICPC Asia Taichung Regional Programming Contest 🥈 銀牌",
             "114 NCPC 第三名",
@@ -64,7 +64,7 @@ const lecturers = [
     },
     {
         name: "李昕威",
-        id: "PolarisChiba",
+        //id: "PolarisChiba",
         experiences: [
             "晉級 2022 ICPC World Finals",
             "2022 ICPC Asia Taoyuan Regional 🥇 金牌 (Rk. 7)",
@@ -79,7 +79,7 @@ const lecturers = [
     },
     {
         name: "葉宥辰",
-        id: "littlepants",
+        //id: "littlepants",
         experiences: [
             "高中兩年 TOI 一階",
             "2022 ICPC Asia Taoyuan Regional 🥇 金牌",
@@ -129,6 +129,11 @@ const lecturers = [
 ];
 export default function Home() {
     const [isPlaying, setIsPlaying] = useState(true);
+    const [shuffledLecturers, setShuffledLecturers] = useState(lecturers);
+
+    useEffect(() => {
+        setShuffledLecturers([...lecturers].sort(() => Math.random() - 0.5));
+    }, []);
     
     // 使用 Embla Carousel 與 AutoScroll 外掛
     // playOnInit: 初次載入就播放
@@ -213,7 +218,7 @@ export default function Home() {
                 {/* 輪播跑馬燈容器 */}
                 <div className="z-50 w-full overflow-hidden cursor-grab active:cursor-grabbing mb-20" ref={emblaRef}>
                     <div className="flex backface-hidden touch-pan-y">
-                        {lecturers.map((lecturer, index) => (
+                        {shuffledLecturers.map((lecturer, index) => (
                             <div className="flex-[0_0_auto] min-w-0 px-4 md:px-6" key={index}>
                                 <Lecturer name={lecturer.name} id={lecturer.id} experiences={lecturer.experiences} avatarUrl={lecturer.avatarUrl}/>
                             </div>
