@@ -37,14 +37,14 @@ const courseDetails = {
     day: '7/20 (一)',
     instructor: '葉宥辰',
     prerequisites: '枚舉、Bitset',
-    content: '"時間減枝、折半枚舉、啟發式合併、Bitset 優化、Hash、根號算法"',
+    content: '時間減枝、折半枚舉、啟發式合併、Bitset 優化、Hash、根號算法',
   },
   '經驗分享': {
     time: '09:00 - 12:00',
     day: '7/21 (二)',
     instructor: '',
     prerequisites: '無',
-    content: '講師分享競程學習歷程、比賽心得與升學資訊。',
+    content: '講師分享競程學習歷程與比賽心得。',
   },
   '比賽': {
     time: '約 10:30 - 16:00',
@@ -357,11 +357,19 @@ export default function Courses() {
               )}
               <div>
                 <p className="text-xs font-bold uppercase tracking-wider text-white/30 mb-1">先備知識</p>
-                <p className="text-white/80">{selected.prerequisites}</p>
+                <div className="text-white/80">
+                  {selected.prerequisites.split('、').map((item, i) => (
+                    <div key={i}>{item}</div>
+                  ))}
+                </div>
               </div>
               <div>
                 <p className="text-xs font-bold uppercase tracking-wider text-white/30 mb-1">課程內容</p>
-                <p className="text-white/80">{selected.content}</p>
+                <div className="text-white/80">
+                  {selected.content.split('、').map((item, i) => (
+                    <div key={i}>{item}</div>
+                  ))}
+                </div>
               </div>
             </div>
 
