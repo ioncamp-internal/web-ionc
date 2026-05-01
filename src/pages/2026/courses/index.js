@@ -196,14 +196,14 @@ export default function Courses() {
                   </td>
                   {/* 7/17 covered */}
                   {/* 7/18: 基礎/進階資料結構，跨 2a+2b */}
-                  <td className={`${tdBase} ${COURSE_BG} p-0`} rowSpan={2} style={{ height: '1px' }}>
+                  <td className={`${tdBase} ${COURSE_BG} p-0`} rowSpan={2} style={{ height: '100%' }}>
                     <div className="flex flex-col divide-y divide-blue-500/20" style={{ height: '100%' }}>
                       <CourseCell name="基礎資料結構" onClick={() => openCourse('基礎資料結構')} className="flex-1" />
                       <CourseCell name="進階資料結構" onClick={() => openCourse('進階資料結構')} className="flex-1" />
                     </div>
                   </td>
                   {/* 7/19: 基礎/進階圖論，跨 2a+2b */}
-                  <td className={`${tdBase} ${COURSE_BG} p-0`} rowSpan={2} style={{ height: '1px' }}>
+                  <td className={`${tdBase} ${COURSE_BG} p-0`} rowSpan={2} style={{ height: '100%' }}>
                     <div className="flex flex-col divide-y divide-blue-500/20" style={{ height: '100%' }}>
                       <CourseCell name="基礎圖論" onClick={() => openCourse('基礎圖論')} className="flex-1" />
                       <CourseCell name="進階圖論" onClick={() => openCourse('進階圖論')} className="flex-1" />
@@ -259,7 +259,7 @@ export default function Courses() {
                     <CourseCell name="動態規劃" onClick={() => openCourse('動態規劃')} className="h-full" />
                   </td>
                   {/* 7/19: 數論，跨 4a+4b */}
-                  <td className={`${tdBase} ${COURSE_BG} p-0`} rowSpan={2} style={{ height: '1px' }}>
+                  <td className={`${tdBase} ${COURSE_BG} p-0`} rowSpan={2} style={{ height: '100%' }}>
                     <div className="flex flex-col divide-y divide-blue-500/20" style={{ height: '100%' }}>
                       <CourseCell name="基礎數學" onClick={() => openCourse('基礎數學')} className="flex-1" />
                       <CourseCell name="組合數學" onClick={() => openCourse('組合數學')} className="flex-1" />
@@ -276,7 +276,7 @@ export default function Courses() {
                 <tr>
                   {/* 時間 covered */}
                   {/* 7/17: 基本技巧（只佔 4b） */}
-                  <td className={`${tdBase} ${COURSE_BG} p-0`} rowSpan={1} style={{ height: '1px' }}>
+                  <td className={`${tdBase} ${COURSE_BG} p-0`} rowSpan={1} style={{ height: '100%' }}>
                     <div className="flex flex-col divide-y divide-blue-500/20" style={{ height: '100%' }}>
                       <CourseCell name="基礎技巧 Ⅰ" onClick={() => openCourse('基礎技巧 Ⅰ')} className="flex-1" />
                       <CourseCell name="基礎技巧 Ⅱ" onClick={() => openCourse('基礎技巧 Ⅱ')} className="flex-1" />
