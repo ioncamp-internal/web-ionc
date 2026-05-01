@@ -1,4 +1,11 @@
+'use client'
+import { useState, useRef, useEffect } from 'react'
 import Link from "next/link";
+
+const pastYears = [
+    { year: '2025', href: '/2025' },
+    { year: '2026', href: '/2026' },
+]
 
 const navigation = [
     {
@@ -74,17 +81,60 @@ const navigation = [
 ]
 
 export default function Example() {
+    const [open, setOpen] = useState(false)
+    const ref = useRef(null)
+
+    useEffect(() => {
+        function handleClickOutside(e) {
+            if (ref.current && !ref.current.contains(e.target)) {
+                setOpen(false)
+            }
+        }
+        document.addEventListener('mousedown', handleClickOutside)
+        return () => document.removeEventListener('mousedown', handleClickOutside)
+    }, [])
+
     return (
         <footer className="bg-gray-900">
             <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between lg:px-8">
                 <p className="text-xs leading-5 text-gray-500">
                     &copy; 2026 ION Camp. All rights reserved.
                 </p>
+                <div className="relative" ref={ref}>
+                    <button
+                        onClick={() => setOpen(!open)}
+                        className="flex items-center gap-1 text-xs text-gray-400 hover:text-gray-300 transition-colors"
+                    >
+                        歷年網站
+                        <svg
+                            className={`h-3 w-3 transition-transform ${open ? 'rotate-180' : ''}`}
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                        </svg>
+                    </button>
+                    {open && (
+                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-24 rounded-md bg-gray-800 shadow-lg ring-1 ring-white/10">
+                            <div className="py-1">
+                                {pastYears.map(({ year, href }) => (
+                                    <Link
+                                        key={year}
+                                        href={href}
+                                        onClick={() => setOpen(false)}
+                                        className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white text-center"
+                                    >
+                                        {year}
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                </div>
                 <div className="flex justify-center space-x-6">
                     {navigation.map((item) => (
-                        <Link 
-                            key={item.name} 
-                            href={item.href} 
+                        <Link
+                            key={item.name}
+                            href={item.href}
                             className="text-gray-400 hover:text-gray-500"
                             target="_blank"
                             rel="noopener noreferrer"
