@@ -6,91 +6,91 @@ import Footer from '../../../components/2026/Footer';
 const courseDetails = {
   '基礎資料結構': {
     time: '09:00 - 12:00',
-    day: '7/18 (二)',
+    day: '7/18 (六)',
     instructor: '林鼎陽',
     prerequisites: '遞迴',
     content: 'C++ 標準模板庫（STL）、併查集、稀疏表、Binary Indexed Tree、線段樹',
   },
   '進階資料結構': {
     time: '09:00 - 12:00',
-    day: '7/18 (二)',
+    day: '7/18 (六)',
     instructor: '黃頂軒',
     prerequisites: '線段樹、Binary Indexed Tree、C++ 標準模板庫、Pointer',
     content: 'Treap、動態開點、持久化、樹套樹、均攤分析、吉如一線段樹',
   },
   '基礎圖論': {
     time: '09:00 - 12:00',
-    day: '7/19 (三)',
+    day: '7/19 (日)',
     instructor: '何晏甫',
     prerequisites: 'C++ 標準模板庫、Disjoint Set Union',
     content: '圖論名詞、存圖方法、圖的遍歷、最短路徑、拓撲排序、最小生成樹、歐拉迴路',
   },
   '進階圖論': {
     time: '09:00 - 12:00',
-    day: '7/19 (三)',
+    day: '7/19 (日)',
     instructor: '張晏誠',
     prerequisites: '基礎圖論、基礎資料結構',
     content: '連通分量、最近共同祖先、樹序列化、輕重鏈剖分、重心剖分',
   },
   '其他解題技巧': {
     time: '09:00 - 12:00',
-    day: '7/20 (四)',
+    day: '7/20 (一)',
     instructor: '葉宥辰',
     prerequisites: '枚舉、Bitset',
     content: '"時間減枝、折半枚舉、啟發式合併、Bitset 優化、Hash、根號算法"',
   },
   '經驗分享': {
     time: '09:00 - 12:00',
-    day: '7/21 (五)',
+    day: '7/21 (二)',
     instructor: '',
     prerequisites: '無',
     content: '講師分享競程學習歷程、比賽心得與升學資訊。',
   },
   '比賽': {
     time: '約 10:30 - 16:00',
-    day: '7/21 (五)',
+    day: '7/21 (二)',
     instructor: '',
     prerequisites: '全部課程',
     content: '正式模擬競賽，測試這幾天的學習成果，排名計入最終評比。',
   },
   '基礎技巧 Ⅰ': {
     time: '14:00 - 17:30',
-    day: '7/17 (一)',
+    day: '7/17 (五)',
     instructor: '詹凱智',
     prerequisites: '時間複雜度',
     content: '程式除錯、遞迴、枚舉、前綴和、差分陣列、二分搜尋法、雙指針、滑動窗口',
   },
   '基礎技巧 Ⅱ': {
     time: '14:00 - 17:30',
-    day: '7/17 (一)',
+    day: '7/17 (五)',
     instructor: '范釗維',
     prerequisites: '基礎技巧 Ⅰ',
     content: 'C++ 語法糖、快速冪、位元運算技巧、枚舉與剪枝、隨機化演算法、出題方法',
   },
   '動態規劃': {
     time: '14:00 - 17:30',
-    day: '7/18 (二)',
+    day: '7/18 (六)',
     instructor: '李其樺',
     prerequisites: '遞迴',
     content: 'DP 介紹、一維 DP、LIS、LCS、背包問題、區間 DP、位元 DP、SOS DP、Digit DP、其他經典 DP',
   },
   '基礎數學': {
     time: '14:00 - 17:30',
-    day: '7/19 (三)',
+    day: '7/19 (日)',
     instructor: '李昕威',
     prerequisites: 'Log 運算、快速冪',
     content: '最大公因數、（擴展）歐幾里得演算法、模運算、線性同餘方程、中國剩餘定理、RSA 加解密、多項式乘法',
   },
   '組合數學': {
     time: '14:00 - 17:30',
-    day: '7/19 (三)',
+    day: '7/19 (日)',
     instructor: '張皓崴',
     prerequisites: '基礎 DP、高中排列組合、模逆元',
     content: '雙重計數法、等價條件、雙射法、排容原理、去權技巧、二項係數、卡特蘭數',
   },
   '賽局': {
     time: '14:00 - 17:30',
-    day: '7/20 (四)',
+    day: '7/20 (一)',
     instructor: '歐育淇',
     prerequisites: '基礎 DP、Xor 運算、基礎圖論',
     content: '賽局 DP、Nim、Sprague-Grundy theorem、經典賽局問題、Partisan game',
@@ -163,7 +163,7 @@ export default function Courses() {
                     style={{ minWidth: '100px' }}>
                     時間
                   </th>
-                  {['7/17 (一)', '7/18 (二)', '7/19 (三)', '7/20 (四)', '7/21 (五)'].map(d => (
+                  {['7/17 (五)', '7/18 (六)', '7/19 (日)', '7/20 (一)', '7/21 (二)'].map(d => (
                     <th key={d} className={`${tdBase} p-3 text-white font-bold text-center`}
                       style={{ minWidth: '110px' }}>
                       {d}
