@@ -118,6 +118,7 @@ const lecturers = [
     },
     {
         name: "詹凱智",
+        avatarUrl: "/images/2026/Lecturers/詹凱智.png",
         experiences: [
             "2023, 2024 台北市學科能力競賽資訊科 🥈 二等獎",
             "2024 TOI 一階",
@@ -157,7 +158,23 @@ export default function Home() {
         setIsPlaying(!isPlaying);
     }, [emblaApi, isPlaying]);
 
-    // 監聽使用者互動事件，實作「暫停動畫 -> 2秒後恢復」
+    // 狀態守衛：isPlaying = false 時，每 100ms 檢查外掛是否偷偷恢復播放，若是則強制 stop
+    useEffect(() => {
+        if (!emblaApi) return;
+        const autoScroll = emblaApi.plugins()?.autoScroll;
+        if (!autoScroll) return;
+        if (isPlaying) return;
+
+        const interval = setInterval(() => {
+            if (autoScroll.isPlaying()) {
+                autoScroll.stop();
+            }
+        }, 100);
+
+        return () => clearInterval(interval);
+    }, [emblaApi, isPlaying]);
+
+    // 監聽使用者互動事件，實作「拖動後 2 秒恢復」
     useEffect(() => {
         if (!emblaApi) return;
         const autoScroll = emblaApi.plugins()?.autoScroll;
@@ -165,19 +182,17 @@ export default function Home() {
 
         let resumeTimeout = null;
 
-        // 當使用者開始拖拉或點擊時，強制暫停動畫
         const onInteract = () => {
             if (resumeTimeout) clearTimeout(resumeTimeout);
             autoScroll.stop();
         };
 
-        // 當使用者結束互動時，設定 2 秒後重新啟動動畫（前提是按鈕處於 isPlaying 狀態）
         const onInteractEnd = () => {
             if (resumeTimeout) clearTimeout(resumeTimeout);
             if (isPlaying) {
                 resumeTimeout = setTimeout(() => {
                     autoScroll.play();
-                }, 2000); // 暫停 2 秒後恢復
+                }, 2000);
             }
         };
 
