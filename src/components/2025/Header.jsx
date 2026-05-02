@@ -22,6 +22,7 @@ export default function Example() {
     return (
         <header className="relative w-full bg-gray-900 z-10">
             <Head>
+                <meta name="google-site-verification" content="cW7ghsKSZm5nF4ATMBdl_EohHLSmRNxEbLAIkkCxRVw" />
                 {/* favicon */}
                 <link rel="icon" href="/favicon.ico"/>
                 <title>2025 IONC清大暑期程式競賽集訓營 </title>
