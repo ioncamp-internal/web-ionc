@@ -14,7 +14,7 @@ export default function Register() {
         <Background />
         
         <div className="flex-grow container w-full max-w-5xl z-10 z-[10]">
-          <div className="bg-gray-800/80 backdrop-blur-md rounded-3xl shadow-2xl relative overflow-hidden border border-gray-700">
+          <div className="bg-gray-900/95 rounded-3xl shadow-2xl relative overflow-hidden border border-gray-700">
             
             {/* 上方漸層裝飾條 */}
             <div className="absolute top-0 left-0 w-full h-3 bg-gradient-to-r from-blue-500 via-sky-400 to-indigo-600"></div>
