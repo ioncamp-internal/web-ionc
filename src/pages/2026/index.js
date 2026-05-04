@@ -84,8 +84,27 @@ const pageContents = [
         <div className="w-full max-w-2xl">
             <h2 className="text-xl md:text-3xl font-bold text-white mb-4 md:mb-7">報名資訊</h2>
             <div className="flex flex-col gap-4 md:gap-7">
-                報名尚未開始，敬請期待！<br/>
-                營隊報名預計將於 2026 年 5 月開放，請密切關注我們的官方網站與社群媒體以獲取最新資訊。
+                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
+                    <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">報名費用</h3>
+                    <span className="text-sm md:text-base font-bold" style={{color: "#8DD6F7"}}>個人報名：8000元</span> <br/>
+                    <span className="text-sm md:text-base font-bold" style={{color: "#8DD6F7"}}>兩人團報：7800元</span> <br/>
+                    <span className="text-sm md:text-base font-bold" style={{color: "#8DD6F7"}}>三人團報：7500元</span> <br/>
+                    <span className="text-sm md:text-base font-bold" style={{color: "#8DD6F7"}}>早鳥優惠：7500元</span> <br/>
+                </div>
+                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
+                    <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">報名時程</h3>
+                    <ul className="list-disc list-inside">
+                        <li>報名期限：即日起~05/31 23:59</li>
+                        <li>公布錄取名單：06/01</li>
+                    </ul>
+                </div>
+                <a 
+                href={REGISTRATION_LINK}
+                rel="noopener noreferrer"
+                className="mt-1 md:mt-1 px-6 md:px-8 py-2 md:py-3 text-base md:text-lg font-semibold text-white bg-transparent border-2 border-[#8DD6F7] rounded-lg hover:bg-[#8DD6F7] hover:text-[#070B14] transition-all duration-200"
+            >
+                點擊立刻報名
+            </a>
             </div>
         </div>
     )
