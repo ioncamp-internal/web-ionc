@@ -12,6 +12,90 @@ const inter = Inter({subsets: ['latin']})
 const FOOTER_HEIGHT = 64; // 假設footer高度為64px，可根據實際調整
 const REGISTRATION_LINK = "/2026/register"; // 報名表單連結
 
+const RegistrationFeeInfo = () => {
+    const [timeLeft, setTimeLeft] = useState(null);
+    const [isEarlyBird, setIsEarlyBird] = useState(true);
+
+    useEffect(() => {
+        const calculateTimeLeft = () => {
+            const deadline = new Date("2026-05-11T23:59:59+08:00").getTime();
+            const now = new Date().getTime();
+            const difference = deadline - now;
+
+            if (difference > 0) {
+                setIsEarlyBird(true);
+                return {
+                    days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+                    hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+                    minutes: Math.floor((difference / 1000 / 60) % 60),
+                    seconds: Math.floor((difference / 1000) % 60)
+                };
+            } else {
+                setIsEarlyBird(false);
+                return null;
+            }
+        };
+
+        setTimeLeft(calculateTimeLeft());
+        const timer = setInterval(() => {
+            setTimeLeft(calculateTimeLeft());
+        }, 1000);
+
+        return () => clearInterval(timer);
+    }, []);
+
+    return (
+        <div className="bg-gray-800 p-3 md:p-5 rounded-lg relative overflow-hidden">
+            <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">報名費用</h3>
+            {isEarlyBird ? (
+                <div className="flex flex-col gap-2">
+                    <div className="mb-2 p-3 md:p-4 bg-gradient-to-br from-slate-800/80 to-slate-700/80 rounded-lg border border-slate-600/50">
+                        <div className="text-sm md:text-base font-semibold text-sky-200 mb-3 flex items-center justify-between">
+                            <span>早鳥優惠 (5/11 23:59 前)</span>
+                            <span className="text-xs bg-slate-700/50 border border-slate-600/50 px-2 py-1 rounded-full text-sky-200 animate-pulse">限時優惠</span>
+                        </div>
+                        <div className="text-xl md:text-2xl font-bold text-gray-100 tracking-widest mb-3 text-center">
+                            早鳥報名：7500元
+                        </div>
+                        {timeLeft && (
+                            <div className="flex gap-2 justify-center items-center bg-black/20 p-2 rounded-lg backdrop-blur-sm">
+                                <div className="flex flex-col items-center bg-black/30 rounded w-11 md:w-14 p-1.5 font-mono text-sky-200 border border-slate-700/50">
+                                    <span className="text-lg md:text-xl font-medium">{timeLeft.days}</span>
+                                    <span className="text-[10px] md:text-xs text-slate-400">天</span>
+                                </div>
+                                <span className="text-slate-500 font-medium -mt-3 text-lg md:text-xl">:</span>
+                                <div className="flex flex-col items-center bg-black/30 rounded w-11 md:w-14 p-1.5 font-mono text-sky-200 border border-slate-700/50">
+                                    <span className="text-lg md:text-xl font-medium">{timeLeft.hours.toString().padStart(2, '0')}</span>
+                                    <span className="text-[10px] md:text-xs text-slate-400">時</span>
+                                </div>
+                                <span className="text-slate-500 font-medium -mt-3 text-lg md:text-xl">:</span>
+                                <div className="flex flex-col items-center bg-black/30 rounded w-11 md:w-14 p-1.5 font-mono text-sky-200 border border-slate-700/50">
+                                    <span className="text-lg md:text-xl font-medium">{timeLeft.minutes.toString().padStart(2, '0')}</span>
+                                    <span className="text-[10px] md:text-xs text-slate-400">分</span>
+                                </div>
+                                <span className="text-slate-500 font-medium -mt-3 text-lg md:text-xl animate-pulse">:</span>
+                                <div className="flex flex-col items-center bg-black/30 rounded w-11 md:w-14 p-1.5 font-mono text-sky-200 border border-slate-700/50">
+                                    <span className="text-lg md:text-xl font-medium">{timeLeft.seconds.toString().padStart(2, '0')}</span>
+                                    <span className="text-[10px] md:text-xs text-slate-400">秒</span>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                    <span className="text-sm md:text-base text-gray-400 line-through">個人報名：8000元</span>
+                    <span className="text-sm md:text-base font-bold" style={{color: "#8DD6F7"}}>兩人團報：7800元</span>
+                    <span className="text-sm md:text-base font-bold" style={{color: "#8DD6F7"}}>三人團報：7500元</span>
+                </div>
+            ) : (
+                <>
+                    <span className="text-sm md:text-base font-bold" style={{color: "#8DD6F7"}}>個人報名：8000元</span> <br/>
+                    <span className="text-sm md:text-base font-bold" style={{color: "#8DD6F7"}}>兩人團報：7800元</span> <br/>
+                    <span className="text-sm md:text-base font-bold" style={{color: "#8DD6F7"}}>三人團報：7500元</span> <br/>
+                </>
+            )}
+        </div>
+    );
+};
+
 const pageContents = [
     (
         <>
@@ -84,13 +168,7 @@ const pageContents = [
         <div className="w-full max-w-2xl">
             <h2 className="text-xl md:text-3xl font-bold text-white mb-4 md:mb-7">報名資訊</h2>
             <div className="flex flex-col gap-4 md:gap-7">
-                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">報名費用</h3>
-                    <span className="text-sm md:text-base font-bold" style={{color: "#8DD6F7"}}>個人報名：8000元</span> <br/>
-                    <span className="text-sm md:text-base font-bold" style={{color: "#8DD6F7"}}>兩人團報：7800元</span> <br/>
-                    <span className="text-sm md:text-base font-bold" style={{color: "#8DD6F7"}}>三人團報：7500元</span> <br/>
-                    <span className="text-sm md:text-base font-bold" style={{color: "#8DD6F7"}}>早鳥優惠：7500元</span> <br/>
-                </div>
+                <RegistrationFeeInfo />
                 <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
                     <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">報名時程</h3>
                     <ul className="list-disc list-inside">
