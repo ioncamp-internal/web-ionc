@@ -160,7 +160,7 @@ const pageContents = [
             <div className="flex flex-col gap-4 md:gap-7">
                 <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
                     <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">有提供住宿嗎？</h3>
-                    <p className="text-sm md:text-base text-white">我們會安排在清大校內住宿，需要住宿請在報名表單註明。</p>
+                    <p className="text-sm md:text-base text-white">我們會安排在清大校內住宿，住宿需求會在錄取確認後調查。</p>
                 </div>
                 <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
                     <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">有營隊參加證明嗎？</h3>
