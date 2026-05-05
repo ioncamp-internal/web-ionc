@@ -15,6 +15,32 @@ body {
   background: rgb(var(--background-rgb));
 }
 
+/* 自訂捲軸樣式 (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 8px; /* 垂直捲軸寬度 */
+  height: 8px; /* 水平捲軸高度 */
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(7, 11, 20, 0.8); /* 軌道背景色 */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(141, 214, 247, 0.4); /* 捲軸本體顏色 */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(141, 214, 247, 0.8); /* 滑鼠懸停時的捲軸顏色 */
+}
+
+/* 自訂捲軸樣式 (Firefox) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(141, 214, 247, 0.4) rgba(7, 11, 20, 0.8);
+}
+
 .border {
   border-color: rgb(141, 214, 247);
 }

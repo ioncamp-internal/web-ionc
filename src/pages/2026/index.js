@@ -46,7 +46,16 @@ const RegistrationFeeInfo = () => {
 
     return (
         <div className="bg-gray-800 p-3 md:p-5 rounded-lg relative overflow-hidden">
-            <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">報名費用</h3>
+            <div className="flex items-center justify-between mb-2 md:mb-3">
+                <h3 className="text-base md:text-xl font-semibold text-white">報名費用</h3>
+                <a 
+                    href={REGISTRATION_LINK}
+                    rel="noopener noreferrer"
+                    className="px-3 md:px-5 py-1 md:py-1.5 text-sm md:text-base font-semibold text-white bg-transparent border-2 border-[#8DD6F7] rounded-lg hover:bg-[#8DD6F7] hover:text-[#070B14] transition-all duration-200"
+                >
+                    點擊立刻報名
+                </a>
+            </div>
             {isEarlyBird ? (
                 <div className="flex flex-col gap-2">
                     <div className="mb-2 p-3 md:p-4 bg-gradient-to-br from-slate-800/80 to-slate-700/80 rounded-lg border border-slate-600/50">
@@ -176,13 +185,6 @@ const pageContents = [
                         <li>公布錄取名單：06/01</li>
                     </ul>
                 </div>
-                <a 
-                href={REGISTRATION_LINK}
-                rel="noopener noreferrer"
-                className="mt-1 md:mt-1 px-6 md:px-8 py-2 md:py-3 text-base md:text-lg font-semibold text-white bg-transparent border-2 border-[#8DD6F7] rounded-lg hover:bg-[#8DD6F7] hover:text-[#070B14] transition-all duration-200"
-            >
-                點擊立刻報名
-            </a>
             </div>
         </div>
     )
@@ -192,6 +194,7 @@ export default function Home() {
     const [currentPage, setCurrentPage] = useState(0);
     const isScrolling = useRef(false);
     const touchStartY = useRef(0);
+    const scrollRefs = useRef([]);
     const pageCount = pageContents.length;
 
     // 禁止body滾動
@@ -202,30 +205,42 @@ export default function Home() {
         };
     }, []);
 
+    // 換頁時將新頁捲回頂端
+    useEffect(() => {
+        const el = scrollRefs.current[currentPage];
+        if (el) el.scrollTop = 0;
+    }, [currentPage]);
+
+    const isAtBottom = (idx) => {
+        const el = scrollRefs.current[idx];
+        if (!el) return true;
+        return el.scrollHeight - el.scrollTop <= el.clientHeight + 2;
+    };
+
+    const isAtTop = (idx) => {
+        const el = scrollRefs.current[idx];
+        if (!el) return true;
+        return el.scrollTop <= 0;
+    };
+
     // 處理滾動事件
     const handleWheel = (e) => {
         if (isScrolling.current) return;
-        
-        // 防止連續觸發
-        isScrolling.current = true;
-        
-        // 增加最小滾動閾值
+
         const scrollThreshold = 50;
-        if (Math.abs(e.deltaY) < scrollThreshold) {
-            isScrolling.current = false;
-            return;
-        }
+        if (Math.abs(e.deltaY) < scrollThreshold) return;
 
         if (e.deltaY > 0 && currentPage < pageCount - 1) {
+            if (!isAtBottom(currentPage)) return;
+            isScrolling.current = true;
             setCurrentPage(prev => prev + 1);
+            setTimeout(() => { isScrolling.current = false; }, 1000);
         } else if (e.deltaY < 0 && currentPage > 0) {
+            if (!isAtTop(currentPage)) return;
+            isScrolling.current = true;
             setCurrentPage(prev => prev - 1);
+            setTimeout(() => { isScrolling.current = false; }, 1000);
         }
-        
-        // 增加防抖時間
-        setTimeout(() => {
-            isScrolling.current = false;
-        }, 1000);
     };
 
     // 處理觸控開始事件
@@ -240,23 +255,20 @@ export default function Home() {
         const touchEndY = e.changedTouches[0].clientY;
         const diff = touchStartY.current - touchEndY;
 
-        // 增加最小滑動閾值
         const touchThreshold = 50;
-        if (Math.abs(diff) < touchThreshold) {
-            return;
-        }
+        if (Math.abs(diff) < touchThreshold) return;
 
-        isScrolling.current = true;
         if (diff > 0 && currentPage < pageCount - 1) {
+            if (!isAtBottom(currentPage)) return;
+            isScrolling.current = true;
             setCurrentPage(prev => prev + 1);
+            setTimeout(() => { isScrolling.current = false; }, 1000);
         } else if (diff < 0 && currentPage > 0) {
+            if (!isAtTop(currentPage)) return;
+            isScrolling.current = true;
             setCurrentPage(prev => prev - 1);
+            setTimeout(() => { isScrolling.current = false; }, 1000);
         }
-        
-        // 增加防抖時間
-        setTimeout(() => {
-            isScrolling.current = false;
-        }, 1000);
     };
 
     useEffect(() => {
@@ -274,11 +286,11 @@ export default function Home() {
         <div className="h-screen w-screen flex flex-col overflow-hidden relative bg-[#070B14]">
             <Background/>
             <Header/>
-            <main className="flex-grow relative" style={{paddingBottom: `${FOOTER_HEIGHT}px`}}>
+            <main className="flex-grow relative overflow-hidden" style={{paddingBottom: `${FOOTER_HEIGHT}px`}}>
                 {pageContents.map((content, idx) => (
                     <div
                         key={idx}
-                        className="absolute inset-0 flex flex-col items-center justify-center p-3 md:p-20 transition-all duration-700 ease-in-out"
+                        className="absolute inset-0 transition-all duration-700 ease-in-out"
                         style={{
                             transform: `translateY(${(idx - currentPage) * 100}%)`,
                             opacity: idx === currentPage ? 1 : 0,
@@ -286,9 +298,13 @@ export default function Home() {
                             color: '#FFFFFF'
                         }}
                     >
-                        {content}
+                        <div className="h-full overflow-y-auto" ref={el => scrollRefs.current[idx] = el}>
+                            <div className="min-h-full flex flex-col items-center justify-center p-3 md:p-20">
+                                {content}
+                            </div>
+                        </div>
                         {idx !== pageContents.length - 1 && idx === currentPage && (
-                            <div 
+                            <div
                                 className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 select-none cursor-pointer"
                                 onClick={() => setCurrentPage(prev => prev + 1)}
                             >
@@ -300,6 +316,22 @@ export default function Home() {
                         )}
                     </div>
                 ))}
+
+                {/* 側邊導覽點 (Scroll Indicator) */}
+                <div className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-50">
+                    {pageContents.map((_, idx) => (
+                        <button
+                            key={idx}
+                            onClick={() => setCurrentPage(idx)}
+                            className={`w-2.5 md:w-3 rounded-full transition-all duration-300 ${
+                                currentPage === idx 
+                                    ? 'bg-[#8DD6F7] h-8 md:h-10' 
+                                    : 'bg-white/30 h-2.5 md:h-3 hover:bg-white/60'
+                            }`}
+                            aria-label={`Go to slide ${idx + 1}`}
+                        />
+                    ))}
+                </div>
             </main>
             <Footer className="fixed bottom-0 left-0 right-0 z-50"/>
         </div>
