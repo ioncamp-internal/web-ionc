@@ -113,7 +113,7 @@ const lecturers = [
         name: "詹凱智",
         avatarUrl: "/images/2026/Lecturers/詹凱智.png",
         experiences: [
-            "2023, 2024 台北市學科能力競賽資訊科 🥈 二等獎",
+            "2023, 2024 台北市學科能力競賽資訊科 🥉 三等獎",
             "2024 TOI 一階",
             "2024 ICPC Taichung Regional Contest 🥈 Silver Award",
             "2024 ICPC Jakarta Regional Contest 🥉 Bronze Award",
