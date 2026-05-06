@@ -95,8 +95,8 @@ function runHeroCanvas(canvas) {
     return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', onResize); };
 }
 
-// ── Content canvas: subtle grid + faint computer ─────────────────────────────
-function runContentCanvas(canvas, computerImg) {
+// ── Content canvas: subtle grid ──────────────────────────────────────────────
+function runContentCanvas(canvas) {
     const ctx = canvas.getContext('2d');
     const dpr = window.devicePixelRatio || 1;
     let raf;
@@ -125,15 +125,6 @@ function runContentCanvas(canvas, computerImg) {
         for (let x = 0; x <= W; x += g) { ctx.moveTo(x, 0); ctx.lineTo(x, H); }
         for (let y = 0; y <= H; y += g) { ctx.moveTo(0, y); ctx.lineTo(W, y); }
         ctx.stroke();
-
-        // ── Faint centered computer ──
-        if (computerImg.complete && computerImg.naturalWidth > 0) {
-            const cw = Math.min(300, W * 0.28);
-            const ch = cw * computerImg.naturalHeight / computerImg.naturalWidth;
-            ctx.globalAlpha = 0.07;
-            ctx.drawImage(computerImg, W / 2 - cw / 2, H / 2 - ch / 2 - 10, cw, ch);
-        }
-
         ctx.globalAlpha = 1;
     }
 
@@ -159,15 +150,11 @@ export default function Background({ currentPage }) {
         return runHeroCanvas(canvas);
     }, []);
 
-    // Content canvas — load computer image once
+    // Content canvas — grid only
     useEffect(() => {
         const canvas = contentRef.current;
         if (!canvas) return;
-
-        const cImg = new window.Image();
-        cImg.src = computerSrc.src;
-
-        return runContentCanvas(canvas, cImg);
+        return runContentCanvas(canvas);
     }, []);
 
     return (
@@ -192,23 +179,46 @@ export default function Background({ currentPage }) {
             {/* Halftone overlay — Hero 頁才顯示 */}
             <Halftone visible={isHero} />
 
-            {/* Hero overlay */}
-            <div
-                className="absolute inset-0"
-                style={{ opacity: isHero ? 1 : 0, transition: 'opacity 700ms ease-in-out' }}
-            >
-                {/* Computer: desktop only, vertically centered */}
-                <div className="absolute inset-0 hidden lg:flex items-center justify-center">
-                    <Image
-                        src={computerSrc}
-                        alt=""
-                        width={300}
-                        height={300}
-                        style={{ objectFit: 'contain' }}
-                        priority
-                        unoptimized
-                    />
-                </div>
+            {/* Computer — 手機：置中，無左偏 */}
+            <div className="absolute inset-0 pointer-events-none block lg:hidden">
+                <Image
+                    src={computerSrc}
+                    alt=""
+                    width={300}
+                    height={300}
+                    style={{
+                        objectFit: 'contain',
+                        position: 'absolute',
+                        left: '50%',
+                        top: '50%',
+                        transform: isHero ? 'translate(-50%, -50%)' : 'translate(-50%, -50%) scale(2)',
+                        opacity: isHero ? 0.5 : 0.07,
+                        transition: 'opacity 700ms ease-in-out, transform 700ms ease-in-out',
+                    }}
+                    priority
+                    unoptimized
+                />
+            </div>
+
+            {/* Computer — 桌面：hero 左偏，其他置中 */}
+            <div className="absolute inset-0 pointer-events-none hidden lg:block">
+                <Image
+                    src={computerSrc}
+                    alt=""
+                    width={300}
+                    height={300}
+                    style={{
+                        objectFit: 'contain',
+                        position: 'absolute',
+                        left: isHero ? '45%' : '50%',
+                        top: '50%',
+                        transform: isHero ? 'translate(-50%, -50%)' : 'translate(-50%, -50%) scale(2)',
+                        opacity: isHero ? 0.5 : 0.07,
+                        transition: 'left 700ms ease-in-out, opacity 700ms ease-in-out, transform 700ms ease-in-out',
+                    }}
+                    priority
+                    unoptimized
+                />
             </div>
         </div>
     );
