@@ -1,46 +1,265 @@
-import backgroundImage from "@/images/2026/background2.png";
 import Image from "next/image";
-import Meteor from "@/components/2026/Meteor";
-import { useMemo } from "react";
+import { useEffect, useRef } from "react";
+import penguinSrc from "@/images/2026/penguin.png";
+import computerSrc from "@/images/2026/computer.png";
+import scriptSrc from "@/images/2026/ioncamp-script.png";
 
-export default function Background() {
-    // Meteor 參數只初始化一次
-    const meteors = useMemo(
-        () =>
-            [...Array(30)].map(() => ({
-                duration: 2 + Math.random() * 2,
-                size: 2 + Math.random() * 2,
-                left: Math.random() * 100,
-                top: Math.random() * 100,
-                delay: Math.random() * 1.2,
-            })),
-        []
-    );
+const PAPER   = '#FCFCFE';
+const GRID_C  = 'rgba(77,91,218,0.13)'; // iris-deep faint
+
+// ── Hero canvas: expanding perspective grid ──────────────────────────────────
+function runHeroCanvas(canvas) {
+    const ctx = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio || 1;
+    let raf;
+    let offset = 0;
+
+    function resize() {
+        const r = canvas.getBoundingClientRect();
+        canvas.width  = r.width  * dpr;
+        canvas.height = r.height * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+
+    function draw() {
+        const W = canvas.width  / dpr;
+        const H = canvas.height / dpr;
+
+        ctx.fillStyle = PAPER;
+        ctx.fillRect(0, 0, W, H);
+
+        const vx = W / 2;
+        const vy = H * 0.40; // vanishing point at 40% height
+
+        ctx.strokeStyle = '#4D5BDA';
+        ctx.lineWidth = 1;
+
+        // ── Radial spokes from vanishing point (static) ──
+        const spokeCount = 24;
+        for (let i = 0; i < spokeCount; i++) {
+            const angle = (i / spokeCount) * Math.PI * 2;
+            const reach = Math.max(W, H) * 1.5;
+            ctx.globalAlpha = 0.09;
+            ctx.beginPath();
+            ctx.moveTo(vx, vy);
+            ctx.lineTo(vx + Math.cos(angle) * reach, vy + Math.sin(angle) * reach);
+            ctx.stroke();
+        }
+
+        // ── Expanding concentric frames (animated outward) ──
+        const frameCount = 14;
+        for (let i = 0; i < frameCount; i++) {
+            const t = ((i / frameCount) + offset) % 1; // 0=center, 1=edge
+            const scale = t;
+            // Max frame fits screen with some padding
+            const maxW = W * 1.8;
+            const maxH = H * 1.8;
+            const fw = maxW * scale;
+            const fh = maxH * scale;
+            const fx = vx - fw / 2;
+            const fy = vy - fh / 2;
+
+            ctx.globalAlpha = (1 - scale) * 0.22;
+            ctx.beginPath();
+            ctx.rect(fx, fy, fw, fh);
+            ctx.stroke();
+        }
+
+        // ── Perspective floor lines (horizontal, animated outward) ──
+        const hLineCount = 18;
+        for (let i = 0; i < hLineCount; i++) {
+            const t = ((i / hLineCount) + offset) % 1;
+            const y = vy + (H - vy) * t;
+            const halfW = (W * 0.8) * t + W * 0.02;
+
+            ctx.globalAlpha = t * 0.18;
+            ctx.beginPath();
+            ctx.moveTo(Math.max(0, vx - halfW), y);
+            ctx.lineTo(Math.min(W, vx + halfW), y);
+            ctx.stroke();
+        }
+
+        ctx.globalAlpha = 1;
+        offset = (offset + 0.0025) % 1;
+    }
+
+    function loop() { draw(); raf = requestAnimationFrame(loop); }
+    raf = requestAnimationFrame(loop);
+
+    const onResize = () => { resize(); };
+    window.addEventListener('resize', onResize);
+
+    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', onResize); };
+}
+
+// ── Content canvas: subtle grid + drifting penguins ─────────────────────────
+function runContentCanvas(canvas, penguinImg, computerImg) {
+    const ctx = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio || 1;
+    let raf;
+
+    function resize() {
+        const r = canvas.getBoundingClientRect();
+        canvas.width  = r.width  * dpr;
+        canvas.height = r.height * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+
+    // Penguins: 12 sprites with random positions, velocities, sizes, opacities
+    const penguins = Array.from({ length: 12 }, () => ({
+        x:  Math.random() * 100,
+        y:  Math.random() * 100,
+        vx: (Math.random() - 0.5) * 0.045,
+        vy: (Math.random() - 0.5) * 0.045,
+        size: 50 + Math.random() * 70,
+        alpha: 0.07 + Math.random() * 0.10,
+    }));
+
+    function draw() {
+        const W = canvas.width  / dpr;
+        const H = canvas.height / dpr;
+
+        ctx.fillStyle = PAPER;
+        ctx.fillRect(0, 0, W, H);
+
+        // ── Static grid ──
+        ctx.strokeStyle = GRID_C;
+        ctx.lineWidth = 1;
+        const g = 32;
+        ctx.globalAlpha = 1;
+        ctx.beginPath();
+        for (let x = 0; x <= W; x += g) { ctx.moveTo(x, 0); ctx.lineTo(x, H); }
+        for (let y = 0; y <= H; y += g) { ctx.moveTo(0, y); ctx.lineTo(W, y); }
+        ctx.stroke();
+
+        // ── Faint centered computer ──
+        if (computerImg.complete && computerImg.naturalWidth > 0) {
+            const cw = Math.min(300, W * 0.28);
+            const ch = cw * computerImg.naturalHeight / computerImg.naturalWidth;
+            ctx.globalAlpha = 0.07;
+            ctx.drawImage(computerImg, W / 2 - cw / 2, H / 2 - ch / 2 - 10, cw, ch);
+        }
+
+        // ── Animated penguins ──
+        for (const p of penguins) {
+            p.x += p.vx;
+            p.y += p.vy;
+
+            const pxW = (p.size / W) * 100;
+            const pxH = (p.size / H) * 100;
+            if (p.x < 0)         { p.x = 0;         p.vx =  Math.abs(p.vx); }
+            if (p.x + pxW > 100) { p.x = 100 - pxW; p.vx = -Math.abs(p.vx); }
+            if (p.y < 0)         { p.y = 0;         p.vy =  Math.abs(p.vy); }
+            if (p.y + pxH > 100) { p.y = 100 - pxH; p.vy = -Math.abs(p.vy); }
+
+            if (penguinImg.complete && penguinImg.naturalWidth > 0) {
+                ctx.globalAlpha = p.alpha;
+                ctx.drawImage(penguinImg, (p.x / 100) * W, (p.y / 100) * H, p.size, p.size);
+            }
+        }
+
+        ctx.globalAlpha = 1;
+    }
+
+    function loop() { draw(); raf = requestAnimationFrame(loop); }
+    raf = requestAnimationFrame(loop);
+
+    const onResize = () => { resize(); };
+    window.addEventListener('resize', onResize);
+
+    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', onResize); };
+}
+
+// ── Component ────────────────────────────────────────────────────────────────
+export default function Background({ currentPage }) {
+    const isHero    = currentPage === 0;
+    const heroRef   = useRef(null);
+    const contentRef= useRef(null);
+
+    // Hero canvas
+    useEffect(() => {
+        const canvas = heroRef.current;
+        if (!canvas) return;
+        return runHeroCanvas(canvas);
+    }, []);
+
+    // Content canvas — load images once
+    useEffect(() => {
+        const canvas = contentRef.current;
+        if (!canvas) return;
+
+        const pImg = new window.Image();
+        pImg.src = penguinSrc.src;
+        const cImg = new window.Image();
+        cImg.src = computerSrc.src;
+
+        let cleanup;
+        // Wait for images before starting (or start immediately — canvas handles incomplete images)
+        cleanup = runContentCanvas(canvas, pImg, cImg);
+        return cleanup;
+    }, []);
 
     return (
-        <div className="absolute inset-0 w-full h-full pointer-events-none z-0 text-center top-28">
-            <Image
-                src={backgroundImage}
-                alt=""
-                width={1000}
-                height={1200}
-                priority
-                unoptimized
-                onContextMenu={() => false}
-                onSelectStart={() => false}
-                className="inline-block"
+        <div
+            className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden"
+            style={{ background: PAPER }}
+        >
+            {/* Hero canvas — expanding grid */}
+            <canvas
+                ref={heroRef}
+                className="absolute inset-0 w-full h-full"
+                style={{ opacity: isHero ? 1 : 0, transition: 'opacity 700ms ease-in-out' }}
             />
-            {meteors.map((m, i) => (
-                <Meteor
-                    key={i}
-                    duration={m.duration}
-                    size={m.size}
-                    left={m.left}
-                    top={m.top}
-                    delay={m.delay}
-                    className="z-10"
-                />
-            ))}
+
+            {/* Content canvas — penguins + grid */}
+            <canvas
+                ref={contentRef}
+                className="absolute inset-0 w-full h-full"
+                style={{ opacity: isHero ? 0 : 1, transition: 'opacity 700ms ease-in-out' }}
+            />
+
+            {/* Hero overlay */}
+            <div
+                className="absolute inset-0"
+                style={{ opacity: isHero ? 1 : 0, transition: 'opacity 700ms ease-in-out' }}
+            >
+                {/* Computer + penguin: desktop only, vertically centered */}
+                <div className="absolute inset-0 hidden lg:flex items-center justify-center">
+                    <div className="flex items-end">
+                        <Image
+                            src={computerSrc}
+                            alt=""
+                            width={300}
+                            height={300}
+                            style={{ objectFit: 'contain' }}
+                            priority
+                            unoptimized
+                        />
+                        <Image
+                            src={penguinSrc}
+                            alt=""
+                            width={130}
+                            height={130}
+                            style={{ objectFit: 'contain', marginLeft: '-14px', marginBottom: '6px' }}
+                            unoptimized
+                        />
+                    </div>
+                </div>
+
+                {/* Script: desktop — below computer; mobile — above bottom safe area */}
+                <div className="absolute inset-x-0 flex justify-center bottom-24 lg:bottom-auto lg:top-1/2 lg:mt-[155px]">
+                    <Image
+                        src={scriptSrc}
+                        alt="IONCamp"
+                        width={300}
+                        height={90}
+                        style={{ objectFit: 'contain' }}
+                        unoptimized
+                    />
+                </div>
+            </div>
         </div>
     );
 }

@@ -1,4 +1,3 @@
-import {Inter} from 'next/font/google'
 import Header from '@/components/2026/Header'
 import Footer from '@/components/2026/Footer'
 import Background from "@/components/2026/Background";
@@ -10,7 +9,6 @@ import { useState, useCallback, useEffect } from 'react';
 const lecturers = [
     {
         name: "范釗維",
-        //id: "SorahISA",
         experiences: [
             "晉級 2025 ICPC World Finals",
             "APIO 2020 🥉 銅牌",
@@ -19,7 +17,6 @@ const lecturers = [
     },
     {
         name: "歐育淇",
-        //id: "ub33",
         experiences: [
             "2025 ICPC World Finalist",
             "2025 ICPC Asia Taichung Regional 🥇 金牌",
@@ -27,7 +24,7 @@ const lecturers = [
             "2025 TOPC 🥇 金牌",
             "109 學年度高中資訊學科能力競賽全國賽二等獎",
             "高中三年 TOI 一階",
-            "NPSC 第四名",  
+            "NPSC 第四名",
             "交大校內賽和個人賽第一名",
             "codeforces 1e8-th submission"
         ],
@@ -44,7 +41,6 @@ const lecturers = [
     },
     {
         name: "黃頂軒",
-        // avatarUrl: RAT,
         experiences: [
             "2022 ICPC Asia Taoyuan Regional Programming Contest 🥈 銀牌",
             "2023 ICPC Asia Taoyuan Regional Programming Contest 🥈 銀牌",
@@ -54,7 +50,6 @@ const lecturers = [
     },
     {
         name: "張晏誠",
-        //id: "chyen",
         experiences: [
             "2024, 2025 ICPC Asia Taichung Regional Programming Contest 🥈 銀牌",
             "114 NCPC 第三名",
@@ -64,7 +59,6 @@ const lecturers = [
     },
     {
         name: "李昕威",
-        //id: "PolarisChiba",
         experiences: [
             "晉級 2022 ICPC World Finals",
             "2022 ICPC Asia Taoyuan Regional 🥇 金牌 (Rk. 7)",
@@ -79,7 +73,6 @@ const lecturers = [
     },
     {
         name: "葉宥辰",
-        //id: "littlepants",
         experiences: [
             "高中兩年 TOI 一階",
             "2022 ICPC Asia Taoyuan Regional 🥇 金牌",
@@ -94,7 +87,7 @@ const lecturers = [
             "2023 ICPC World Finalist",
             "2025 ICPC Asia Pacific Championship 🥈 銀牌 (Rk. 15)",
             "2022 ICPC Asia Taoyuan Regional 🥇 金牌 (Rk. 8)",
-            "2025 ICPC Asia Jakarta Regional 🥇 金牌 (Rk. 3)",
+            "2025 ICPC Jakarta Regional 🥇 金牌 (Rk. 3)",
             "2025 ICPC Asia Taichung Regional 🥇 金牌 (Rk. 10)"
         ],
     },
@@ -103,7 +96,7 @@ const lecturers = [
         experiences: [
             "2024 ICPC Asia Taichung Regional Programming Contest 🥉 Bronze Award",
             "2025 ICPC Asia Taichung Regional Programming Contest 🥉 Bronze Award",
-            "2025 ICPC Jakarta Regional  Contest 🥉 Bronze Award (Rk. 9)"
+            "2025 ICPC Jakarta Regional Contest 🥉 Bronze Award (Rk. 9)"
         ],
     },
     {
@@ -128,28 +121,23 @@ const lecturers = [
         ],
     }
 ];
-export default function Home() {
+
+export default function Lecturers() {
     const [isPlaying, setIsPlaying] = useState(true);
     const [shuffledLecturers, setShuffledLecturers] = useState(lecturers);
 
     useEffect(() => {
         setShuffledLecturers([...lecturers].sort(() => Math.random() - 0.5));
     }, []);
-    
-    // 使用 Embla Carousel 與 AutoScroll 外掛
-    // playOnInit: 初次載入就播放
-    // stopOnInteraction: false -> 我們手動控制，這樣配合 stopOnMouseEnter/drag 才能自訂 2 秒恢復
-    // stopOnMouseEnter: false
+
     const [emblaRef, emblaApi] = useEmblaCarousel(
         { loop: true, dragFree: true },
         [AutoScroll({ playOnInit: true, speed: 1.5, stopOnInteraction: false, stopOnMouseEnter: false })]
     );
 
-    // 切換播放/暫停
     const togglePlay = useCallback(() => {
         const autoScroll = emblaApi?.plugins()?.autoScroll;
         if (!autoScroll) return;
-
         if (isPlaying) {
             autoScroll.stop();
         } else {
@@ -158,7 +146,6 @@ export default function Home() {
         setIsPlaying(!isPlaying);
     }, [emblaApi, isPlaying]);
 
-    // 狀態守衛：isPlaying = false 時，每 100ms 檢查外掛是否偷偷恢復播放，若是則強制 stop
     useEffect(() => {
         if (!emblaApi) return;
         const autoScroll = emblaApi.plugins()?.autoScroll;
@@ -166,15 +153,12 @@ export default function Home() {
         if (isPlaying) return;
 
         const interval = setInterval(() => {
-            if (autoScroll.isPlaying()) {
-                autoScroll.stop();
-            }
+            if (autoScroll.isPlaying()) autoScroll.stop();
         }, 100);
 
         return () => clearInterval(interval);
     }, [emblaApi, isPlaying]);
 
-    // 監聽使用者互動事件，實作「拖動後 2 秒恢復」
     useEffect(() => {
         if (!emblaApi) return;
         const autoScroll = emblaApi.plugins()?.autoScroll;
@@ -190,9 +174,7 @@ export default function Home() {
         const onInteractEnd = () => {
             if (resumeTimeout) clearTimeout(resumeTimeout);
             if (isPlaying) {
-                resumeTimeout = setTimeout(() => {
-                    autoScroll.play();
-                }, 2000);
+                resumeTimeout = setTimeout(() => { autoScroll.play(); }, 2000);
             }
         };
 
@@ -207,42 +189,50 @@ export default function Home() {
     }, [emblaApi, isPlaying]);
 
     return (
-        <>
-            <Header/>
-            <main className="flex min-h-screen flex-col items-center justify-between px-0 py-10 md:pt-20 md:pb-10"
-                  style={{backgroundColor: "#070B14"}}>
-                <Background/>
-                
-                {/* 標題與控制按鈕區域 */}
-                <div className="text-center z-10 mb-8 mt-8 flex flex-col items-center">
-                    <h1 className="text-5xl font-bold mb-6" style={{color: "#FFF"}}>師資陣容</h1>
-                    
-                    <button 
+        <div className="min-h-screen flex flex-col relative" style={{ background: '#FCFCFE' }}>
+            <Background currentPage={1} />
+            <Header />
+
+            <main className="flex-grow relative z-10 flex flex-col items-center py-10">
+                {/* Title + controls */}
+                <div className="text-center mb-8 mt-4 flex flex-col items-center">
+                    <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#1D03F1' }}>師資陣容</h1>
+
+                    <button
                         onClick={togglePlay}
-                        className={`flex items-center space-x-2 px-6 py-2 rounded-full font-bold text-sm tracking-widest transition-all duration-300 shadow-lg ${
-                            isPlaying 
-                            ? 'bg-blue-600/20 text-blue-400 border border-blue-500/50 hover:bg-blue-600/40' 
-                            : 'bg-red-600/20 text-red-400 border border-red-500/50 hover:bg-red-600/40'
-                        }`}
+                        className="flex items-center gap-2 px-5 py-2 rounded-full font-bold text-sm tracking-widest transition-all duration-200"
+                        style={{
+                            color: isPlaying ? '#A361DD' : '#4D5BDA',
+                            border: `1.5px solid ${isPlaying ? '#A361DD' : '#4D5BDA'}`,
+                            background: isPlaying ? 'rgba(163,97,221,0.08)' : 'rgba(77,91,218,0.08)',
+                        }}
                     >
                         <span>{isPlaying ? 'PAUSE 暫停動畫' : 'PLAY 播放動畫'}</span>
-                        <div className={`w-2 h-2 rounded-full ${isPlaying ? 'bg-blue-400 animate-pulse' : 'bg-red-500'}`} />
+                        <div
+                            className={`w-2 h-2 rounded-full ${isPlaying ? 'animate-pulse' : ''}`}
+                            style={{ background: isPlaying ? '#A361DD' : '#4D5BDA' }}
+                        />
                     </button>
                 </div>
 
-                {/* 輪播跑馬燈容器 */}
-                <div className="z-50 w-full overflow-hidden cursor-grab active:cursor-grabbing mb-20" ref={emblaRef}>
+                {/* Carousel */}
+                <div className="w-full overflow-hidden cursor-grab active:cursor-grabbing mb-10" ref={emblaRef}>
                     <div className="flex backface-hidden touch-pan-y">
                         {shuffledLecturers.map((lecturer, index) => (
                             <div className="flex-[0_0_auto] min-w-0 px-4 md:px-6" key={index}>
-                                <Lecturer name={lecturer.name} id={lecturer.id} experiences={lecturer.experiences} avatarUrl={lecturer.avatarUrl}/>
+                                <Lecturer
+                                    name={lecturer.name}
+                                    id={lecturer.id}
+                                    experiences={lecturer.experiences}
+                                    avatarUrl={lecturer.avatarUrl}
+                                />
                             </div>
                         ))}
                     </div>
                 </div>
-
             </main>
-            <Footer/>
-        </>
-    )
+
+            <Footer />
+        </div>
+    );
 }

@@ -1,195 +1,217 @@
-import Image from 'next/image'
-import {Inter} from 'next/font/google'
-import Header from '@/components/2026/Header'
-import Footer from '@/components/2026/Footer'
-import ioncTS from "@/images/2026/ionc-re.png";
-import Background from "@/components/2026/Background";
 import Head from "next/head";
 import { useEffect, useRef, useState } from 'react';
+import Header from '@/components/2026/Header';
+import Footer from '@/components/2026/Footer';
+import Background from "@/components/2026/Background";
 
-const inter = Inter({subsets: ['latin']})
+const REGISTRATION_LINK = "/2026/register";
+const FOOTER_HEIGHT = 64;
 
-const FOOTER_HEIGHT = 64; // 假設footer高度為64px，可根據實際調整
-const REGISTRATION_LINK = "/2026/register"; // 報名表單連結
-
-const RegistrationFeeInfo = () => {
+// ── Early-bird countdown ─────────────────────────────────────────────────────
+function RegistrationFeeInfo() {
     const [timeLeft, setTimeLeft] = useState(null);
     const [isEarlyBird, setIsEarlyBird] = useState(true);
 
     useEffect(() => {
-        const calculateTimeLeft = () => {
-            const deadline = new Date("2026-05-11T23:59:59+08:00").getTime();
-            const now = new Date().getTime();
-            const difference = deadline - now;
-
-            if (difference > 0) {
+        const calculate = () => {
+            const diff = new Date("2026-05-11T23:59:59+08:00").getTime() - Date.now();
+            if (diff > 0) {
                 setIsEarlyBird(true);
                 return {
-                    days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-                    hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-                    minutes: Math.floor((difference / 1000 / 60) % 60),
-                    seconds: Math.floor((difference / 1000) % 60)
+                    days:    Math.floor(diff / 86400000),
+                    hours:   Math.floor((diff / 3600000) % 24),
+                    minutes: Math.floor((diff / 60000) % 60),
+                    seconds: Math.floor((diff / 1000)  % 60),
                 };
-            } else {
-                setIsEarlyBird(false);
-                return null;
             }
+            setIsEarlyBird(false);
+            return null;
         };
-
-        setTimeLeft(calculateTimeLeft());
-        const timer = setInterval(() => {
-            setTimeLeft(calculateTimeLeft());
-        }, 1000);
-
-        return () => clearInterval(timer);
+        setTimeLeft(calculate());
+        const t = setInterval(() => setTimeLeft(calculate()), 1000);
+        return () => clearInterval(t);
     }, []);
 
     return (
-        <div className="bg-gray-800 p-3 md:p-5 rounded-lg relative overflow-hidden">
-            <div className="flex items-center justify-between mb-2 md:mb-3">
-                <h3 className="text-base md:text-xl font-semibold text-white">報名費用</h3>
-                <a 
-                    href={REGISTRATION_LINK}
-                    rel="noopener noreferrer"
-                    className="px-3 md:px-5 py-1 md:py-1.5 text-sm md:text-base font-semibold text-white bg-transparent border-2 border-[#8DD6F7] rounded-lg hover:bg-[#8DD6F7] hover:text-[#070B14] transition-all duration-200"
+        <div className="p-4 md:p-5 rounded-xl relative overflow-hidden"
+            style={{ background: '#fff', border: '1.5px solid #1D03F1', boxShadow: '3px 3px 0 #1D03F1' }}>
+            <div className="flex items-center justify-between mb-3">
+                <h3 className="text-base md:text-lg font-bold" style={{ color: '#1D03F1' }}>報名費用</h3>
+                <a href={REGISTRATION_LINK}
+                    className="px-3 py-1 text-sm font-bold rounded-lg transition-all duration-200"
+                    style={{ color: '#1D03F1', border: '1.5px solid #1D03F1' }}
+                    onMouseEnter={e => { e.currentTarget.style.background = '#1D03F1'; e.currentTarget.style.color = '#FCFCFE'; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#1D03F1'; }}
                 >
                     點擊立刻報名
                 </a>
             </div>
+
             {isEarlyBird ? (
                 <div className="flex flex-col gap-2">
-                    <div className="mb-2 p-3 md:p-4 bg-gradient-to-br from-slate-800/80 to-slate-700/80 rounded-lg border border-slate-600/50">
-                        <div className="text-sm md:text-base font-semibold text-sky-200 mb-3 flex items-center justify-between">
+                    <div className="p-3 rounded-lg" style={{ background: 'rgba(163,97,221,0.08)', border: '1px solid rgba(163,97,221,0.3)' }}>
+                        <div className="flex items-center justify-between text-sm font-semibold mb-3" style={{ color: '#A361DD' }}>
                             <span>早鳥優惠 (5/11 23:59 前)</span>
-                            <span className="text-xs bg-slate-700/50 border border-slate-600/50 px-2 py-1 rounded-full text-sky-200 animate-pulse">限時優惠</span>
+                            <span className="text-xs px-2 py-0.5 rounded-full" style={{ background: 'rgba(163,97,221,0.15)', color: '#A361DD' }}>限時優惠</span>
                         </div>
-                        <div className="text-xl md:text-2xl font-bold text-gray-100 tracking-widest mb-3 text-center">
+                        <div className="text-xl md:text-2xl font-bold tracking-widest mb-3 text-center" style={{ color: '#1D03F1' }}>
                             早鳥報名：7500元
                         </div>
                         {timeLeft && (
-                            <div className="flex gap-2 justify-center items-center bg-black/20 p-2 rounded-lg backdrop-blur-sm">
-                                <div className="flex flex-col items-center bg-black/30 rounded w-11 md:w-14 p-1.5 font-mono text-sky-200 border border-slate-700/50">
-                                    <span className="text-lg md:text-xl font-medium">{timeLeft.days}</span>
-                                    <span className="text-[10px] md:text-xs text-slate-400">天</span>
-                                </div>
-                                <span className="text-slate-500 font-medium -mt-3 text-lg md:text-xl">:</span>
-                                <div className="flex flex-col items-center bg-black/30 rounded w-11 md:w-14 p-1.5 font-mono text-sky-200 border border-slate-700/50">
-                                    <span className="text-lg md:text-xl font-medium">{timeLeft.hours.toString().padStart(2, '0')}</span>
-                                    <span className="text-[10px] md:text-xs text-slate-400">時</span>
-                                </div>
-                                <span className="text-slate-500 font-medium -mt-3 text-lg md:text-xl">:</span>
-                                <div className="flex flex-col items-center bg-black/30 rounded w-11 md:w-14 p-1.5 font-mono text-sky-200 border border-slate-700/50">
-                                    <span className="text-lg md:text-xl font-medium">{timeLeft.minutes.toString().padStart(2, '0')}</span>
-                                    <span className="text-[10px] md:text-xs text-slate-400">分</span>
-                                </div>
-                                <span className="text-slate-500 font-medium -mt-3 text-lg md:text-xl animate-pulse">:</span>
-                                <div className="flex flex-col items-center bg-black/30 rounded w-11 md:w-14 p-1.5 font-mono text-sky-200 border border-slate-700/50">
-                                    <span className="text-lg md:text-xl font-medium">{timeLeft.seconds.toString().padStart(2, '0')}</span>
-                                    <span className="text-[10px] md:text-xs text-slate-400">秒</span>
-                                </div>
+                            <div className="flex gap-2 justify-center items-center p-2 rounded-lg" style={{ background: 'rgba(77,91,218,0.06)' }}>
+                                {[['days','天'],['hours','時'],['minutes','分'],['seconds','秒']].map(([k, label], i) => (
+                                    <>
+                                        {i > 0 && <span key={`sep-${i}`} className="font-bold text-lg" style={{ color: 'rgba(29,3,241,0.4)' }}>:</span>}
+                                        <div key={k} className="flex flex-col items-center rounded w-11 md:w-14 p-1.5 font-mono"
+                                            style={{ background: 'rgba(163,97,221,0.12)', border: '1px solid rgba(163,97,221,0.3)' }}>
+                                            <span className="text-lg md:text-xl font-semibold" style={{ color: '#A361DD' }}>
+                                                {String(timeLeft[k]).padStart(2, '0')}
+                                            </span>
+                                            <span className="text-[10px]" style={{ color: 'rgba(29,3,241,0.5)' }}>{label}</span>
+                                        </div>
+                                    </>
+                                ))}
                             </div>
                         )}
                     </div>
-                    <span className="text-sm md:text-base text-gray-400 line-through">個人報名：8000元</span>
-                    <span className="text-sm md:text-base font-bold" style={{color: "#8DD6F7"}}>兩人團報：7800元</span>
-                    <span className="text-sm md:text-base font-bold" style={{color: "#8DD6F7"}}>三人團報：7500元</span>
+                    <span className="text-sm" style={{ color: 'rgba(29,3,241,0.45)', textDecoration: 'line-through' }}>個人報名：8000元</span>
+                    <span className="text-sm font-bold" style={{ color: '#4D5BDA' }}>兩人團報：7800元</span>
+                    <span className="text-sm font-bold" style={{ color: '#4D5BDA' }}>三人團報：7500元</span>
                 </div>
             ) : (
-                <>
-                    <span className="text-sm md:text-base font-bold" style={{color: "#8DD6F7"}}>個人報名：8000元</span> <br/>
-                    <span className="text-sm md:text-base font-bold" style={{color: "#8DD6F7"}}>兩人團報：7800元</span> <br/>
-                    <span className="text-sm md:text-base font-bold" style={{color: "#8DD6F7"}}>三人團報：7500元</span> <br/>
-                </>
+                <div className="flex flex-col gap-1">
+                    <span className="text-sm font-bold" style={{ color: '#4D5BDA' }}>個人報名：8000元</span>
+                    <span className="text-sm font-bold" style={{ color: '#4D5BDA' }}>兩人團報：7800元</span>
+                    <span className="text-sm font-bold" style={{ color: '#4D5BDA' }}>三人團報：7500元</span>
+                </div>
             )}
         </div>
     );
-};
+}
 
+// ── Info card ────────────────────────────────────────────────────────────────
+function InfoCard({ title, children }) {
+    return (
+        <div className="p-4 md:p-5 rounded-xl"
+            style={{ background: '#fff', border: '1.5px solid #1D03F1', boxShadow: '3px 3px 0 #1D03F1' }}>
+            <h3 className="text-base md:text-lg font-bold mb-2" style={{ color: '#1D03F1' }}>{title}</h3>
+            <div className="text-sm md:text-base leading-relaxed" style={{ color: '#4D5BDA' }}>{children}</div>
+        </div>
+    );
+}
+
+// ── Page content sections ────────────────────────────────────────────────────
 const pageContents = [
+    /* Page 0 — Hero */
     (
-        <>
-            <Image
-                className="z-10"
-                style={{marginTop: "-15px"}}
-                src={ioncTS}
-                alt=""
-                width={200}
-                height={400}
-                priority
-                unoptimized
-            />
-            <div className="text-center z-10">
-                <h1 className="text-2xl md:text-5xl font-bold" style={{color: "#FFF"}}>2026 IONCamp</h1>
-                <div className="text-lg md:text-3xl font-semibold my-4 md:my-5" style={{color: "#FFF"}}>清大暑期程式競賽集訓營</div>
-                <p className="px-4 md:px-6 text-sm md:text-xl font-medium my-4 md:my-5 leading-6 md:leading-9" style={{color: "#8DD6F7"}}>
-                    對於初學程式設計感到迷惘嗎？或是在挑戰大大小小的程式設計比賽感到挫折呢？<br/>
+        <div className="w-full max-w-6xl z-10 px-6 md:px-12">
+            {/* Desktop: three-column layout */}
+            <div className="hidden lg:flex items-center justify-between">
+                {/* Left: title + subtitle + CTA */}
+                <div className="flex flex-col items-start text-left" style={{ width: 'clamp(200px, 22vw, 280px)' }}>
+                    <h1 className="text-3xl xl:text-4xl font-black mb-2" style={{ color: '#1D03F1' }}>2026 IONCamp</h1>
+                    <div className="text-base xl:text-xl font-bold mb-5" style={{ color: '#A361DD' }}>清大暑期程式競賽集訓營</div>
+                    <a href={REGISTRATION_LINK}
+                        className="px-6 py-2.5 text-base font-bold rounded-xl transition-all duration-200"
+                        style={{ color: '#1D03F1', border: '2px solid #1D03F1', background: 'transparent' }}
+                        onMouseEnter={e => { e.currentTarget.style.background = '#1D03F1'; e.currentTarget.style.color = '#FCFCFE'; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#1D03F1'; }}
+                    >
+                        點擊立刻報名
+                    </a>
+                </div>
+
+                {/* Center spacer — background computer+script live here */}
+                <div style={{ width: 'clamp(300px, 36vw, 460px)', flexShrink: 0 }} />
+
+                {/* Right: description */}
+                <div className="flex flex-col items-end text-right" style={{ width: 'clamp(200px, 22vw, 280px)' }}>
+                    <p className="text-base font-medium leading-relaxed" style={{ color: '#4D5BDA' }}>
+                        對於初學程式設計感到迷惘嗎？<br />
+                        或是在挑戰大大小小的程式設計比賽感到挫折呢？<br />
+                        讓 IONCamp 透過連續五天密集且扎實的課程，<br />
+                        帶領你突破目前的困境吧！
+                    </p>
+                </div>
+            </div>
+
+            {/* Mobile: stacked, pushed to upper area so script at bottom shows clear */}
+            <div className="flex lg:hidden flex-col items-center text-center gap-4" style={{ marginTop: '-10vh' }}>
+                <h1 className="text-3xl font-black" style={{ color: '#1D03F1' }}>2026 IONCamp</h1>
+                <div className="text-base font-bold" style={{ color: '#A361DD' }}>清大暑期程式競賽集訓營</div>
+                <p className="text-sm font-medium leading-relaxed max-w-xs" style={{ color: '#4D5BDA' }}>
+                    對於初學程式設計感到迷惘嗎？或是在挑戰大大小小的程式設計比賽感到挫折呢？
                     讓 IONCamp 透過連續五天密集且扎實的課程，帶領你突破目前的困境吧！
                 </p>
-                <a 
-                    href={REGISTRATION_LINK}
-                    rel="noopener noreferrer"
-                    className="mt-8 md:mt-16 px-6 md:px-8 py-2 md:py-3 text-base md:text-lg font-semibold text-white bg-transparent border-2 border-[#8DD6F7] rounded-lg hover:bg-[#8DD6F7] hover:text-[#070B14] transition-all duration-200"
+                <a href={REGISTRATION_LINK}
+                    className="px-6 py-2.5 text-base font-bold rounded-xl transition-all duration-200"
+                    style={{ color: '#1D03F1', border: '2px solid #1D03F1', background: 'transparent' }}
+                    onMouseEnter={e => { e.currentTarget.style.background = '#1D03F1'; e.currentTarget.style.color = '#FCFCFE'; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#1D03F1'; }}
                 >
                     點擊立刻報名
                 </a>
             </div>
-        </>
+        </div>
     ),
+
+    /* Page 1 — Audience */
     (
         <div className="w-full max-w-2xl">
-            <h2 className="text-xl md:text-3xl font-bold text-white mb-4 md:mb-7">誰適合這個營隊</h2>
-            <div className="flex flex-col gap-4 md:gap-7">
-                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">競程新手</h3>
-                    <p className="text-sm md:text-base text-white">不管你是國中生、高中生還是大學生，只要你具備 <span className="font-bold" style={{color: "#8DD6F7"}}>C++ 語法基礎</span>，想踏入競程世界，就適合我們的營隊！</p>
-                </div>
-                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">想在各大競賽中嶄露頭角</h3>
-                    <p className="text-sm md:text-base text-white">我們的課程涵蓋許多競程領域的重要範圍，對各大競賽、資訊奧林匹亞都有很大的幫助。</p>
-                </div>
-                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">想進一步提升實力</h3>
-                    <p className="text-sm md:text-base text-white">希望透過密集的課程，精進演算法實力、學習進階競程技巧，並從講師身上學習<span className="font-bold " style={{color: "#8DD6F7"}}>實用經驗</span>與<span className="font-bold " style={{color: "#8DD6F7"}}>學習心法</span>。</p>
-                </div>
+            <h2 className="text-xl md:text-3xl font-black mb-4 md:mb-6" style={{ color: '#1D03F1' }}>誰適合這個營隊</h2>
+            <div className="flex flex-col gap-4">
+                <InfoCard title="競程新手">
+                    不管你是國中生、高中生還是大學生，只要你具備{' '}
+                    <strong style={{ color: '#A361DD' }}>C++ 語法基礎</strong>
+                    ，想踏入競程世界，就適合我們的營隊！
+                </InfoCard>
+                <InfoCard title="想在各大競賽中嶄露頭角">
+                    我們的課程涵蓋許多競程領域的重要範圍，對各大競賽、資訊奧林匹亞都有很大的幫助。
+                </InfoCard>
+                <InfoCard title="想進一步提升實力">
+                    希望透過密集的課程，精進演算法實力、學習進階競程技巧，並從講師身上學習{' '}
+                    <strong style={{ color: '#A361DD' }}>實用經驗</strong>與<strong style={{ color: '#A361DD' }}>學習心法</strong>。
+                </InfoCard>
             </div>
         </div>
     ),
+
+    /* Page 2 — Q&A */
     (
         <div className="w-full max-w-2xl">
-            <h2 className="text-xl md:text-3xl font-bold text-white mb-4 md:mb-7">Q&A</h2>
-            <div className="flex flex-col gap-4 md:gap-7">
-                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">有提供住宿嗎？</h3>
-                    <p className="text-sm md:text-base text-white">我們會安排在清大校內住宿，住宿需求會在錄取確認後調查。</p>
-                </div>
-                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">有營隊參加證明嗎？</h3>
-                    <p className="text-sm md:text-base text-white">因應教育部規定，營隊將不會提供參加證明，請確認可接受此規定後再報名。</p>
-                </div>
-                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">需要自備筆電嗎？</h3>
-                    <p className="text-sm md:text-base text-white">營隊課程不會需要用到筆電，但建議同學們可以自備筆電，以便練習題目。</p>
-                </div>
+            <h2 className="text-xl md:text-3xl font-black mb-4 md:mb-6" style={{ color: '#1D03F1' }}>Q&amp;A</h2>
+            <div className="flex flex-col gap-4">
+                <InfoCard title="有提供住宿嗎？">
+                    我們會安排在清大校內住宿，住宿需求會在錄取確認後調查。
+                </InfoCard>
+                <InfoCard title="有營隊參加證明嗎？">
+                    因應教育部規定，營隊將不會提供參加證明，請確認可接受此規定後再報名。
+                </InfoCard>
+                <InfoCard title="需要自備筆電嗎？">
+                    營隊課程不會需要用到筆電，但建議同學們可以自備筆電，以便練習題目。
+                </InfoCard>
             </div>
         </div>
     ),
+
+    /* Page 3 — Registration */
     (
         <div className="w-full max-w-2xl">
-            <h2 className="text-xl md:text-3xl font-bold text-white mb-4 md:mb-7">報名資訊</h2>
-            <div className="flex flex-col gap-4 md:gap-7">
+            <h2 className="text-xl md:text-3xl font-black mb-4 md:mb-6" style={{ color: '#1D03F1' }}>報名資訊</h2>
+            <div className="flex flex-col gap-4">
                 <RegistrationFeeInfo />
-                <div className="bg-gray-800 p-3 md:p-5 rounded-lg">
-                    <h3 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">報名時程</h3>
-                    <ul className="list-disc list-inside">
-                        <li>報名期限：即日起~05/31 23:59</li>
+                <InfoCard title="報名時程">
+                    <ul className="list-disc list-inside space-y-1">
+                        <li>報名期限：即日起～05/31 23:59</li>
                         <li>公布錄取名單：06/01</li>
                     </ul>
-                </div>
+                </InfoCard>
             </div>
         </div>
-    )
+    ),
 ];
 
+// ── Page ─────────────────────────────────────────────────────────────────────
 export default function Home() {
     const [currentPage, setCurrentPage] = useState(0);
     const isScrolling = useRef(false);
@@ -197,76 +219,42 @@ export default function Home() {
     const scrollRefs = useRef([]);
     const pageCount = pageContents.length;
 
-    // 禁止body滾動
-    useEffect(() => {
-        document.body.style.overflow = 'hidden';
-        return () => {
-            document.body.style.overflow = '';
-        };
-    }, []);
+    useEffect(() => { document.body.style.overflow = 'hidden'; return () => { document.body.style.overflow = ''; }; }, []);
+    useEffect(() => { const el = scrollRefs.current[currentPage]; if (el) el.scrollTop = 0; }, [currentPage]);
 
-    // 換頁時將新頁捲回頂端
-    useEffect(() => {
-        const el = scrollRefs.current[currentPage];
-        if (el) el.scrollTop = 0;
-    }, [currentPage]);
+    const isAtBottom = (idx) => { const el = scrollRefs.current[idx]; if (!el) return true; return el.scrollHeight - el.scrollTop <= el.clientHeight + 2; };
+    const isAtTop    = (idx) => { const el = scrollRefs.current[idx]; if (!el) return true; return el.scrollTop <= 0; };
 
-    const isAtBottom = (idx) => {
-        const el = scrollRefs.current[idx];
-        if (!el) return true;
-        return el.scrollHeight - el.scrollTop <= el.clientHeight + 2;
-    };
-
-    const isAtTop = (idx) => {
-        const el = scrollRefs.current[idx];
-        if (!el) return true;
-        return el.scrollTop <= 0;
-    };
-
-    // 處理滾動事件
     const handleWheel = (e) => {
         if (isScrolling.current) return;
-
-        const scrollThreshold = 50;
-        if (Math.abs(e.deltaY) < scrollThreshold) return;
-
+        if (Math.abs(e.deltaY) < 50) return;
         if (e.deltaY > 0 && currentPage < pageCount - 1) {
             if (!isAtBottom(currentPage)) return;
             isScrolling.current = true;
-            setCurrentPage(prev => prev + 1);
+            setCurrentPage(p => p + 1);
             setTimeout(() => { isScrolling.current = false; }, 1000);
         } else if (e.deltaY < 0 && currentPage > 0) {
             if (!isAtTop(currentPage)) return;
             isScrolling.current = true;
-            setCurrentPage(prev => prev - 1);
+            setCurrentPage(p => p - 1);
             setTimeout(() => { isScrolling.current = false; }, 1000);
         }
     };
 
-    // 處理觸控開始事件
-    const handleTouchStart = (e) => {
+    const handleTouchStart = (e) => { if (isScrolling.current) return; touchStartY.current = e.touches[0].clientY; };
+    const handleTouchEnd   = (e) => {
         if (isScrolling.current) return;
-        touchStartY.current = e.touches[0].clientY;
-    };
-
-    // 處理觸控結束事件
-    const handleTouchEnd = (e) => {
-        if (isScrolling.current) return;
-        const touchEndY = e.changedTouches[0].clientY;
-        const diff = touchStartY.current - touchEndY;
-
-        const touchThreshold = 50;
-        if (Math.abs(diff) < touchThreshold) return;
-
+        const diff = touchStartY.current - e.changedTouches[0].clientY;
+        if (Math.abs(diff) < 50) return;
         if (diff > 0 && currentPage < pageCount - 1) {
             if (!isAtBottom(currentPage)) return;
             isScrolling.current = true;
-            setCurrentPage(prev => prev + 1);
+            setCurrentPage(p => p + 1);
             setTimeout(() => { isScrolling.current = false; }, 1000);
         } else if (diff < 0 && currentPage > 0) {
             if (!isAtTop(currentPage)) return;
             isScrolling.current = true;
-            setCurrentPage(prev => prev - 1);
+            setCurrentPage(p => p - 1);
             setTimeout(() => { isScrolling.current = false; }, 1000);
         }
     };
@@ -283,57 +271,65 @@ export default function Home() {
     }, [currentPage]);
 
     return (
-        <div className="h-screen w-screen flex flex-col overflow-hidden relative bg-[#070B14]">
-            <Background/>
-            <Header/>
-            <main className="flex-grow relative overflow-hidden" style={{paddingBottom: `${FOOTER_HEIGHT}px`}}>
-                {pageContents.map((content, idx) => (
-                    <div
-                        key={idx}
-                        className="absolute inset-0 transition-all duration-700 ease-in-out"
-                        style={{
-                            transform: `translateY(${(idx - currentPage) * 100}%)`,
-                            opacity: idx === currentPage ? 1 : 0,
-                            pointerEvents: idx === currentPage ? 'auto' : 'none',
-                            color: '#FFFFFF'
-                        }}
-                    >
-                        <div className="h-full overflow-y-auto" ref={el => scrollRefs.current[idx] = el}>
-                            <div className="min-h-full flex flex-col items-center justify-center p-3 md:p-20">
-                                {content}
-                            </div>
-                        </div>
-                        {idx !== pageContents.length - 1 && idx === currentPage && (
-                            <div
-                                className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 select-none cursor-pointer"
-                                onClick={() => setCurrentPage(prev => prev + 1)}
-                            >
-                                <span className="text-white text-base md:text-lg">向下滑動</span>
-                                <svg className="w-10 h-10 md:w-12 md:h-12 text-white animate-bounce" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                                </svg>
-                            </div>
-                        )}
-                    </div>
-                ))}
-
-                {/* 側邊導覽點 (Scroll Indicator) */}
-                <div className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-50">
-                    {pageContents.map((_, idx) => (
-                        <button
+        <>
+            <Head><title>2026 IONCamp 清大暑期程式競賽集訓營</title></Head>
+            <div className="h-screen w-screen flex flex-col overflow-hidden relative" style={{ background: '#FCFCFE' }}>
+                <Background currentPage={currentPage} />
+                <Header />
+                <main className="flex-grow relative overflow-hidden" style={{ paddingBottom: `${FOOTER_HEIGHT}px` }}>
+                    {pageContents.map((content, idx) => (
+                        <div
                             key={idx}
-                            onClick={() => setCurrentPage(idx)}
-                            className={`w-2.5 md:w-3 rounded-full transition-all duration-300 ${
-                                currentPage === idx 
-                                    ? 'bg-[#8DD6F7] h-8 md:h-10' 
-                                    : 'bg-white/30 h-2.5 md:h-3 hover:bg-white/60'
-                            }`}
-                            aria-label={`Go to slide ${idx + 1}`}
-                        />
+                            className="absolute inset-0 transition-all duration-700 ease-in-out"
+                            style={{
+                                transform: `translateY(${(idx - currentPage) * 100}%)`,
+                                opacity: idx === currentPage ? 1 : 0,
+                                pointerEvents: idx === currentPage ? 'auto' : 'none',
+                            }}
+                        >
+                            <div className="h-full overflow-y-auto" ref={el => scrollRefs.current[idx] = el}>
+                                <div className="min-h-full flex flex-col items-center justify-center p-4 md:p-20">
+                                    {content}
+                                </div>
+                            </div>
+
+                            {/* Scroll hint */}
+                            {idx !== pageContents.length - 1 && idx === currentPage && (
+                                <div
+                                    className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-1.5 cursor-pointer select-none"
+                                    onClick={() => setCurrentPage(p => p + 1)}
+                                    style={{ color: '#A361DD' }}
+                                >
+                                    <span className="text-sm font-medium">向下滑動</span>
+                                    <svg className="w-8 h-8 animate-bounce" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </div>
+                            )}
+                        </div>
                     ))}
-                </div>
-            </main>
-            <Footer className="fixed bottom-0 left-0 right-0 z-50"/>
-        </div>
-    )
+
+                    {/* Scroll indicator dots */}
+                    <div className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-50">
+                        {pageContents.map((_, idx) => (
+                            <button
+                                key={idx}
+                                onClick={() => setCurrentPage(idx)}
+                                className="rounded-full transition-all duration-300"
+                                style={{
+                                    width: '10px',
+                                    height: idx === currentPage ? '36px' : '10px',
+                                    background: idx === currentPage ? '#A361DD' : 'rgba(29,3,241,0.2)',
+                                    border: 'none',
+                                    cursor: 'pointer',
+                                }}
+                                aria-label={`Go to slide ${idx + 1}`}
+                            />
+                        ))}
+                    </div>
+                </main>
+                <Footer />
+            </div>
+        </>
+    );
 }
