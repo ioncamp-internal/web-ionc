@@ -116,12 +116,16 @@ const pageContents = [
                 <div style={{ width: 'clamp(280px, 34vw, 440px)', flexShrink: 0 }} />
 
                 {/* Right: title + description + CTA */}
-                <div className="flex flex-col items-end text-right" style={{ width: 'clamp(210px, 26vw, 340px)' }}>
+                <div className="flex flex-col items-end text-right">
                     <h1 className="leading-none"
                         style={{ fontFamily: "'AKONY', sans-serif", fontSize: 'clamp(4.5rem, 8vw, 7.5rem)', color: '#ffffff', letterSpacing: '-0.03em', lineHeight: 0.88 }}>
                         IONC
                     </h1>
-                    <p className="text-2xl leading-relaxed mb-7"
+                    <div className="mb-6 mt-1 font-bold text-3xl"
+                        style={{ color: 'rgba(255,255,255)', letterSpacing: '0.2em' }}>
+                        清大暑期程式競賽集訓營
+                    </div>
+                    <p className="text-xl leading-relaxed mb-7"
                         style={{ color: 'rgba(255,255,255,0.72)' }}>
                         對於初學程式設計感到迷惘嗎？<br />
                         或是在各大比賽感到挫折呢？<br />
@@ -144,6 +148,10 @@ const pageContents = [
                     style={{ fontFamily: "'AKONY', sans-serif", fontSize: 'clamp(4rem, 20vw, 7rem)', color: '#ffffff', letterSpacing: '-0.03em' }}>
                     IONC
                 </h1>
+                <div className="mb-6 font-bold text-2xl"
+                    style={{ color: 'rgba(255,255,255)', letterSpacing: '0.2em', marginTop: '-0.5rem' }}>
+                    清大暑期程式競賽集訓營
+                </div>
                 <p className="text-xl leading-relaxed max-w-xs"
                     style={{ color: 'rgba(255,255,255,0.72)' }}>
                     對於初學程式設計感到迷惘嗎？<br/>
