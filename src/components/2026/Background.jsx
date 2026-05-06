@@ -1,13 +1,12 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import penguinSrc from "@/images/2026/penguin.png";
 import computerSrc from "@/images/2026/computer.png";
 import scriptSrc from "@/images/2026/ioncamp-script.png";
 
 const PAPER   = '#FCFCFE';
 const GRID_C  = 'rgba(77,91,218,0.13)'; // iris-deep faint
 
-// ── Hero canvas: expanding perspective grid ──────────────────────────────────
+// ── Hero canvas: expanding perspective grid (dark gradient bg) ───────────────
 function runHeroCanvas(canvas) {
     const ctx = canvas.getContext('2d');
     const dpr = window.devicePixelRatio || 1;
@@ -26,13 +25,17 @@ function runHeroCanvas(canvas) {
         const W = canvas.width  / dpr;
         const H = canvas.height / dpr;
 
-        ctx.fillStyle = PAPER;
+        // Deep blue → purple gradient background
+        const grad = ctx.createLinearGradient(0, 0, W, H);
+        grad.addColorStop(0, '#1D03F1');
+        grad.addColorStop(1, '#A361DD');
+        ctx.fillStyle = grad;
         ctx.fillRect(0, 0, W, H);
 
         const vx = W / 2;
         const vy = H * 0.40; // vanishing point at 40% height
 
-        ctx.strokeStyle = '#4D5BDA';
+        ctx.strokeStyle = 'rgba(255,255,255,0.9)';
         ctx.lineWidth = 1;
 
         // ── Radial spokes from vanishing point (static) ──
@@ -40,7 +43,7 @@ function runHeroCanvas(canvas) {
         for (let i = 0; i < spokeCount; i++) {
             const angle = (i / spokeCount) * Math.PI * 2;
             const reach = Math.max(W, H) * 1.5;
-            ctx.globalAlpha = 0.09;
+            ctx.globalAlpha = 0.07;
             ctx.beginPath();
             ctx.moveTo(vx, vy);
             ctx.lineTo(vx + Math.cos(angle) * reach, vy + Math.sin(angle) * reach);
@@ -52,7 +55,6 @@ function runHeroCanvas(canvas) {
         for (let i = 0; i < frameCount; i++) {
             const t = ((i / frameCount) + offset) % 1; // 0=center, 1=edge
             const scale = t;
-            // Max frame fits screen with some padding
             const maxW = W * 1.8;
             const maxH = H * 1.8;
             const fw = maxW * scale;
@@ -60,7 +62,7 @@ function runHeroCanvas(canvas) {
             const fx = vx - fw / 2;
             const fy = vy - fh / 2;
 
-            ctx.globalAlpha = (1 - scale) * 0.22;
+            ctx.globalAlpha = (1 - scale) * 0.18;
             ctx.beginPath();
             ctx.rect(fx, fy, fw, fh);
             ctx.stroke();
@@ -73,7 +75,7 @@ function runHeroCanvas(canvas) {
             const y = vy + (H - vy) * t;
             const halfW = (W * 0.8) * t + W * 0.02;
 
-            ctx.globalAlpha = t * 0.18;
+            ctx.globalAlpha = t * 0.14;
             ctx.beginPath();
             ctx.moveTo(Math.max(0, vx - halfW), y);
             ctx.lineTo(Math.min(W, vx + halfW), y);
@@ -93,8 +95,8 @@ function runHeroCanvas(canvas) {
     return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', onResize); };
 }
 
-// ── Content canvas: subtle grid + drifting penguins ─────────────────────────
-function runContentCanvas(canvas, penguinImg, computerImg) {
+// ── Content canvas: subtle grid + faint computer ─────────────────────────────
+function runContentCanvas(canvas, computerImg) {
     const ctx = canvas.getContext('2d');
     const dpr = window.devicePixelRatio || 1;
     let raf;
@@ -106,16 +108,6 @@ function runContentCanvas(canvas, penguinImg, computerImg) {
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
     resize();
-
-    // Penguins: 12 sprites with random positions, velocities, sizes, opacities
-    const penguins = Array.from({ length: 12 }, () => ({
-        x:  Math.random() * 100,
-        y:  Math.random() * 100,
-        vx: (Math.random() - 0.5) * 0.045,
-        vy: (Math.random() - 0.5) * 0.045,
-        size: 50 + Math.random() * 70,
-        alpha: 0.07 + Math.random() * 0.10,
-    }));
 
     function draw() {
         const W = canvas.width  / dpr;
@@ -142,24 +134,6 @@ function runContentCanvas(canvas, penguinImg, computerImg) {
             ctx.drawImage(computerImg, W / 2 - cw / 2, H / 2 - ch / 2 - 10, cw, ch);
         }
 
-        // ── Animated penguins ──
-        for (const p of penguins) {
-            p.x += p.vx;
-            p.y += p.vy;
-
-            const pxW = (p.size / W) * 100;
-            const pxH = (p.size / H) * 100;
-            if (p.x < 0)         { p.x = 0;         p.vx =  Math.abs(p.vx); }
-            if (p.x + pxW > 100) { p.x = 100 - pxW; p.vx = -Math.abs(p.vx); }
-            if (p.y < 0)         { p.y = 0;         p.vy =  Math.abs(p.vy); }
-            if (p.y + pxH > 100) { p.y = 100 - pxH; p.vy = -Math.abs(p.vy); }
-
-            if (penguinImg.complete && penguinImg.naturalWidth > 0) {
-                ctx.globalAlpha = p.alpha;
-                ctx.drawImage(penguinImg, (p.x / 100) * W, (p.y / 100) * H, p.size, p.size);
-            }
-        }
-
         ctx.globalAlpha = 1;
     }
 
@@ -178,27 +152,22 @@ export default function Background({ currentPage }) {
     const heroRef   = useRef(null);
     const contentRef= useRef(null);
 
-    // Hero canvas
+    // Hero canvas (gradient + animated grid)
     useEffect(() => {
         const canvas = heroRef.current;
         if (!canvas) return;
         return runHeroCanvas(canvas);
     }, []);
 
-    // Content canvas — load images once
+    // Content canvas — load computer image once
     useEffect(() => {
         const canvas = contentRef.current;
         if (!canvas) return;
 
-        const pImg = new window.Image();
-        pImg.src = penguinSrc.src;
         const cImg = new window.Image();
         cImg.src = computerSrc.src;
 
-        let cleanup;
-        // Wait for images before starting (or start immediately — canvas handles incomplete images)
-        cleanup = runContentCanvas(canvas, pImg, cImg);
-        return cleanup;
+        return runContentCanvas(canvas, cImg);
     }, []);
 
     return (
@@ -213,7 +182,7 @@ export default function Background({ currentPage }) {
                 style={{ opacity: isHero ? 1 : 0, transition: 'opacity 700ms ease-in-out' }}
             />
 
-            {/* Content canvas — penguins + grid */}
+            {/* Content canvas — grid + computer */}
             <canvas
                 ref={contentRef}
                 className="absolute inset-0 w-full h-full"
@@ -225,27 +194,17 @@ export default function Background({ currentPage }) {
                 className="absolute inset-0"
                 style={{ opacity: isHero ? 1 : 0, transition: 'opacity 700ms ease-in-out' }}
             >
-                {/* Computer + penguin: desktop only, vertically centered */}
+                {/* Computer: desktop only, vertically centered */}
                 <div className="absolute inset-0 hidden lg:flex items-center justify-center">
-                    <div className="flex items-end">
-                        <Image
-                            src={computerSrc}
-                            alt=""
-                            width={300}
-                            height={300}
-                            style={{ objectFit: 'contain' }}
-                            priority
-                            unoptimized
-                        />
-                        <Image
-                            src={penguinSrc}
-                            alt=""
-                            width={130}
-                            height={130}
-                            style={{ objectFit: 'contain', marginLeft: '-14px', marginBottom: '6px' }}
-                            unoptimized
-                        />
-                    </div>
+                    <Image
+                        src={computerSrc}
+                        alt=""
+                        width={300}
+                        height={300}
+                        style={{ objectFit: 'contain' }}
+                        priority
+                        unoptimized
+                    />
                 </div>
 
                 {/* Script: desktop — below computer; mobile — above bottom safe area */}
@@ -255,7 +214,7 @@ export default function Background({ currentPage }) {
                         alt="IONCamp"
                         width={300}
                         height={90}
-                        style={{ objectFit: 'contain' }}
+                        style={{ objectFit: 'contain', filter: 'brightness(0) invert(1)' }}
                         unoptimized
                     />
                 </div>

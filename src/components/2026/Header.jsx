@@ -14,15 +14,22 @@ const navigation = [
     { name: '贊助單位', href: '/2026/sponsers' },
 ]
 
-export default function Header() {
+export default function Header({ isHero = false }) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+    const fg      = isHero ? '#ffffff'               : '#1D03F1';
+    const fgHover = isHero ? 'rgba(255,255,255,0.7)' : '#A361DD';
+    const logoFilter = isHero
+        ? 'brightness(0) invert(1)'
+        : 'invert(9%) sepia(96%) saturate(7483%) hue-rotate(243deg) brightness(96%) contrast(101%)';
 
     return (
         <header
             className="relative w-full z-10"
             style={{
-                background: '#FCFCFE',
-                borderBottom: '1.5px solid #1D03F1',
+                background: isHero ? 'transparent' : '#FCFCFE',
+                borderBottom: `1.5px solid ${isHero ? 'rgba(255,255,255,0.2)' : '#1D03F1'}`,
+                transition: 'background 700ms ease-in-out, border-color 700ms ease-in-out',
             }}
         >
             <Head>
@@ -40,7 +47,7 @@ export default function Header() {
                             width={120}
                             height={40}
                             alt="IONCamp"
-                            style={{ filter: 'invert(9%) sepia(96%) saturate(7483%) hue-rotate(243deg) brightness(96%) contrast(101%)' }}
+                            style={{ filter: logoFilter, transition: 'filter 700ms ease-in-out' }}
                         />
                     </Link>
                 </div>
@@ -50,7 +57,7 @@ export default function Header() {
                     <button
                         type="button"
                         className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5"
-                        style={{ color: '#1D03F1' }}
+                        style={{ color: fg, transition: 'color 700ms ease-in-out' }}
                         onClick={() => setMobileMenuOpen(true)}
                     >
                         <span className="sr-only">Open main menu</span>
@@ -65,9 +72,9 @@ export default function Header() {
                             key={item.name}
                             href={item.href}
                             className="text-sm font-semibold leading-6 transition-colors duration-150"
-                            style={{ color: '#1D03F1' }}
-                            onMouseEnter={e => e.currentTarget.style.color = '#A361DD'}
-                            onMouseLeave={e => e.currentTarget.style.color = '#1D03F1'}
+                            style={{ color: fg }}
+                            onMouseEnter={e => e.currentTarget.style.color = fgHover}
+                            onMouseLeave={e => e.currentTarget.style.color = fg}
                         >
                             {item.name}
                         </Link>
@@ -80,16 +87,16 @@ export default function Header() {
                         href="/2026/register"
                         className="text-sm font-semibold leading-6 px-4 py-1.5 rounded-lg transition-all duration-200"
                         style={{
-                            color: '#1D03F1',
-                            border: '1.5px solid #1D03F1',
+                            color: fg,
+                            border: `1.5px solid ${fg}`,
                         }}
                         onMouseEnter={e => {
-                            e.currentTarget.style.background = '#1D03F1';
-                            e.currentTarget.style.color = '#FCFCFE';
+                            e.currentTarget.style.background = fg;
+                            e.currentTarget.style.color = isHero ? '#1D03F1' : '#FCFCFE';
                         }}
                         onMouseLeave={e => {
                             e.currentTarget.style.background = 'transparent';
-                            e.currentTarget.style.color = '#1D03F1';
+                            e.currentTarget.style.color = fg;
                         }}
                     >
                         立即報名 →

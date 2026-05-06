@@ -102,52 +102,80 @@ function InfoCard({ title, children }) {
 
 // ── Page content sections ────────────────────────────────────────────────────
 const pageContents = [
-    /* Page 0 — Hero */
+    /* Page 0 — Hero (Plan A: dark gradient) */
     (
-        <div className="w-full max-w-6xl z-10 px-6 md:px-12">
+        <div className="w-full max-w-6xl z-10 px-6 md:px-12 relative">
             {/* Desktop: three-column layout */}
             <div className="hidden lg:flex items-center justify-between">
-                {/* Left: title + subtitle + CTA */}
-                <div className="flex flex-col items-start text-left" style={{ width: 'clamp(200px, 22vw, 280px)' }}>
-                    <h1 className="text-3xl xl:text-4xl font-black mb-2" style={{ color: '#1D03F1' }}>2026 IONCamp</h1>
-                    <div className="text-base xl:text-xl font-bold mb-5" style={{ color: '#A361DD' }}>清大暑期程式競賽集訓營</div>
+                {/* Left: stacked IONCamp watermark */}
+                <div className="flex flex-col gap-1 select-none pointer-events-none overflow-hidden"
+                    style={{ width: 'clamp(120px, 15vw, 180px)' }}>
+                    {[...Array(8)].map((_, i) => (
+                        <span key={i} className="font-black italic"
+                            style={{ fontSize: 'clamp(13px, 1.3vw, 18px)', color: 'rgba(255,255,255,0.11)', letterSpacing: '-0.01em' }}>
+                            IONCamp
+                        </span>
+                    ))}
+                </div>
+
+                {/* Center spacer — background computer+script live here */}
+                <div style={{ width: 'clamp(280px, 34vw, 440px)', flexShrink: 0 }} />
+
+                {/* Right: title + description + CTA */}
+                <div className="flex flex-col items-end text-right" style={{ width: 'clamp(210px, 26vw, 340px)' }}>
+                    <div className="mb-4 px-3 py-1 rounded-full text-xs font-bold tracking-[0.15em]"
+                        style={{ background: 'rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.9)', border: '1px solid rgba(255,255,255,0.25)' }}>
+                        2026 JULY
+                    </div>
+                    <h1 className="font-black leading-none"
+                        style={{ fontSize: 'clamp(4.5rem, 8vw, 7.5rem)', color: '#ffffff', letterSpacing: '-0.03em', lineHeight: 0.88 }}>
+                        IONC
+                    </h1>
+                    <div className="font-black mb-5"
+                        style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.8rem)', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.1em' }}>
+                        Camp
+                    </div>
+                    <p className="text-sm leading-relaxed mb-7"
+                        style={{ color: 'rgba(255,255,255,0.72)' }}>
+                        對於初學程式設計感到迷惘嗎？<br />
+                        或是在各大比賽感到挫折呢？<br />
+                        讓 IONCamp 帶你突破困境！
+                    </p>
                     <a href={REGISTRATION_LINK}
-                        className="px-6 py-2.5 text-base font-bold rounded-xl transition-all duration-200"
-                        style={{ color: '#1D03F1', border: '2px solid #1D03F1', background: 'transparent' }}
-                        onMouseEnter={e => { e.currentTarget.style.background = '#1D03F1'; e.currentTarget.style.color = '#FCFCFE'; }}
-                        onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#1D03F1'; }}
+                        className="px-7 py-3 text-base font-bold rounded-xl transition-all duration-200"
+                        style={{ color: '#1D03F1', background: '#ffffff' }}
+                        onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.85)'; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = '#ffffff'; }}
                     >
                         點擊立刻報名
                     </a>
                 </div>
-
-                {/* Center spacer — background computer+script live here */}
-                <div style={{ width: 'clamp(300px, 36vw, 460px)', flexShrink: 0 }} />
-
-                {/* Right: description */}
-                <div className="flex flex-col items-end text-right" style={{ width: 'clamp(200px, 22vw, 280px)' }}>
-                    <p className="text-base font-medium leading-relaxed" style={{ color: '#4D5BDA' }}>
-                        對於初學程式設計感到迷惘嗎？<br />
-                        或是在挑戰大大小小的程式設計比賽感到挫折呢？<br />
-                        讓 IONCamp 透過連續五天密集且扎實的課程，<br />
-                        帶領你突破目前的困境吧！
-                    </p>
-                </div>
             </div>
 
-            {/* Mobile: stacked, pushed to upper area so script at bottom shows clear */}
-            <div className="flex lg:hidden flex-col items-center text-center gap-4" style={{ marginTop: '-10vh' }}>
-                <h1 className="text-3xl font-black" style={{ color: '#1D03F1' }}>2026 IONCamp</h1>
-                <div className="text-base font-bold" style={{ color: '#A361DD' }}>清大暑期程式競賽集訓營</div>
-                <p className="text-sm font-medium leading-relaxed max-w-xs" style={{ color: '#4D5BDA' }}>
-                    對於初學程式設計感到迷惘嗎？或是在挑戰大大小小的程式設計比賽感到挫折呢？
-                    讓 IONCamp 透過連續五天密集且扎實的課程，帶領你突破目前的困境吧！
+            {/* Mobile */}
+            <div className="flex lg:hidden flex-col items-center text-center gap-4" style={{ marginTop: '-8vh' }}>
+                <div className="px-3 py-1 rounded-full text-xs font-bold tracking-[0.15em]"
+                    style={{ background: 'rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.9)', border: '1px solid rgba(255,255,255,0.25)' }}>
+                    2026 JULY
+                </div>
+                <h1 className="font-black leading-none"
+                    style={{ fontSize: 'clamp(4rem, 20vw, 7rem)', color: '#ffffff', letterSpacing: '-0.03em' }}>
+                    IONC
+                </h1>
+                <div className="font-black"
+                    style={{ fontSize: 'clamp(1.3rem, 7vw, 2.5rem)', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.1em', marginTop: '-0.5rem' }}>
+                    Camp
+                </div>
+                <p className="text-sm leading-relaxed max-w-xs"
+                    style={{ color: 'rgba(255,255,255,0.72)' }}>
+                    對於初學程式設計感到迷惘嗎？或是在各大比賽感到挫折呢？
+                    讓 IONCamp 帶你突破困境！
                 </p>
                 <a href={REGISTRATION_LINK}
-                    className="px-6 py-2.5 text-base font-bold rounded-xl transition-all duration-200"
-                    style={{ color: '#1D03F1', border: '2px solid #1D03F1', background: 'transparent' }}
-                    onMouseEnter={e => { e.currentTarget.style.background = '#1D03F1'; e.currentTarget.style.color = '#FCFCFE'; }}
-                    onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#1D03F1'; }}
+                    className="px-7 py-3 text-base font-bold rounded-xl transition-all duration-200"
+                    style={{ color: '#1D03F1', background: '#ffffff' }}
+                    onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.85)'; }}
+                    onMouseLeave={e => { e.currentTarget.style.background = '#ffffff'; }}
                 >
                     點擊立刻報名
                 </a>
@@ -275,7 +303,7 @@ export default function Home() {
             <Head><title>2026 IONCamp 清大暑期程式競賽集訓營</title></Head>
             <div className="h-screen w-screen flex flex-col overflow-hidden relative" style={{ background: '#FCFCFE' }}>
                 <Background currentPage={currentPage} />
-                <Header />
+                <Header isHero={currentPage === 0} />
                 <main className="flex-grow relative overflow-hidden" style={{ paddingBottom: `${FOOTER_HEIGHT}px` }}>
                     {pageContents.map((content, idx) => (
                         <div
@@ -298,7 +326,7 @@ export default function Home() {
                                 <div
                                     className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-1.5 cursor-pointer select-none"
                                     onClick={() => setCurrentPage(p => p + 1)}
-                                    style={{ color: '#A361DD' }}
+                                    style={{ color: currentPage === 0 ? 'rgba(255,255,255,0.7)' : '#A361DD' }}
                                 >
                                     <span className="text-sm font-medium">向下滑動</span>
                                     <svg className="w-8 h-8 animate-bounce" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -319,7 +347,9 @@ export default function Home() {
                                 style={{
                                     width: '10px',
                                     height: idx === currentPage ? '36px' : '10px',
-                                    background: idx === currentPage ? '#A361DD' : 'rgba(29,3,241,0.2)',
+                                    background: idx === currentPage
+                                        ? (currentPage === 0 ? '#ffffff' : '#A361DD')
+                                        : (currentPage === 0 ? 'rgba(255,255,255,0.3)' : 'rgba(29,3,241,0.2)'),
                                     border: 'none',
                                     cursor: 'pointer',
                                 }}
