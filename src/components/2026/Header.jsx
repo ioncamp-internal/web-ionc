@@ -25,7 +25,7 @@ export default function Header({ isHero = false }) {
 
     return (
         <header
-            className="relative w-full z-10"
+            className="relative w-full z-30"
             style={{
                 background: isHero ? 'transparent' : '#FCFCFE',
                 borderBottom: `1.5px solid ${isHero ? 'rgba(255,255,255,0.2)' : '#1D03F1'}`,

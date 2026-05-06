@@ -117,15 +117,11 @@ const pageContents = [
 
                 {/* Right: title + description + CTA */}
                 <div className="flex flex-col items-end text-right" style={{ width: 'clamp(210px, 26vw, 340px)' }}>
-                    <div className="mb-4 px-3 py-1 rounded-full text-xs font-bold tracking-[0.15em]"
-                        style={{ background: 'rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.9)', border: '1px solid rgba(255,255,255,0.25)' }}>
-                        2026 JULY
-                    </div>
                     <h1 className="leading-none"
                         style={{ fontFamily: "'AKONY', sans-serif", fontSize: 'clamp(4.5rem, 8vw, 7.5rem)', color: '#ffffff', letterSpacing: '-0.03em', lineHeight: 0.88 }}>
                         IONC
                     </h1>
-                    <p className="text-sm leading-relaxed mb-7"
+                    <p className="text-2xl leading-relaxed mb-7"
                         style={{ color: 'rgba(255,255,255,0.72)' }}>
                         對於初學程式設計感到迷惘嗎？<br />
                         或是在各大比賽感到挫折呢？<br />
@@ -144,17 +140,14 @@ const pageContents = [
 
             {/* Mobile */}
             <div className="flex lg:hidden flex-col items-center text-center gap-4" style={{ marginTop: '-8vh' }}>
-                <div className="px-3 py-1 rounded-full text-xs font-bold tracking-[0.15em]"
-                    style={{ background: 'rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.9)', border: '1px solid rgba(255,255,255,0.25)' }}>
-                    2026 JULY
-                </div>
                 <h1 className="leading-none"
                     style={{ fontFamily: "'AKONY', sans-serif", fontSize: 'clamp(4rem, 20vw, 7rem)', color: '#ffffff', letterSpacing: '-0.03em' }}>
                     IONC
                 </h1>
-                <p className="text-sm leading-relaxed max-w-xs"
+                <p className="text-xl leading-relaxed max-w-xs"
                     style={{ color: 'rgba(255,255,255,0.72)' }}>
-                    對於初學程式設計感到迷惘嗎？或是在各大比賽感到挫折呢？
+                    對於初學程式設計感到迷惘嗎？<br/>
+                    或是在各大比賽感到挫折呢？<br/>
                     讓 IONCamp 帶你突破困境！
                 </p>
                 <a href={REGISTRATION_LINK}

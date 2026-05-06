@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import computerSrc from "@/images/2026/computer.png";
+import Halftone from "@/components/2026/Halftone";
 
 const PAPER   = '#FCFCFE';
 const GRID_C  = 'rgba(77,91,218,0.13)'; // iris-deep faint
@@ -187,6 +188,9 @@ export default function Background({ currentPage }) {
                 className="absolute inset-0 w-full h-full"
                 style={{ opacity: isHero ? 0 : 1, transition: 'opacity 700ms ease-in-out' }}
             />
+
+            {/* Halftone overlay — Hero 頁才顯示 */}
+            <Halftone visible={isHero} />
 
             {/* Hero overlay */}
             <div
