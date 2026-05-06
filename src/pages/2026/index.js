@@ -127,14 +127,10 @@ const pageContents = [
                         style={{ background: 'rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.9)', border: '1px solid rgba(255,255,255,0.25)' }}>
                         2026 JULY
                     </div>
-                    <h1 className="font-black leading-none"
-                        style={{ fontSize: 'clamp(4.5rem, 8vw, 7.5rem)', color: '#ffffff', letterSpacing: '-0.03em', lineHeight: 0.88 }}>
+                    <h1 className="leading-none"
+                        style={{ fontFamily: "'AKONY', sans-serif", fontSize: 'clamp(4.5rem, 8vw, 7.5rem)', color: '#ffffff', letterSpacing: '-0.03em', lineHeight: 0.88 }}>
                         IONC
                     </h1>
-                    <div className="font-black mb-5"
-                        style={{ fontSize: 'clamp(1.6rem, 2.8vw, 2.8rem)', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.1em' }}>
-                        Camp
-                    </div>
                     <p className="text-sm leading-relaxed mb-7"
                         style={{ color: 'rgba(255,255,255,0.72)' }}>
                         對於初學程式設計感到迷惘嗎？<br />
@@ -158,14 +154,10 @@ const pageContents = [
                     style={{ background: 'rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.9)', border: '1px solid rgba(255,255,255,0.25)' }}>
                     2026 JULY
                 </div>
-                <h1 className="font-black leading-none"
-                    style={{ fontSize: 'clamp(4rem, 20vw, 7rem)', color: '#ffffff', letterSpacing: '-0.03em' }}>
+                <h1 className="leading-none"
+                    style={{ fontFamily: "'AKONY', sans-serif", fontSize: 'clamp(4rem, 20vw, 7rem)', color: '#ffffff', letterSpacing: '-0.03em' }}>
                     IONC
                 </h1>
-                <div className="font-black"
-                    style={{ fontSize: 'clamp(1.3rem, 7vw, 2.5rem)', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.1em', marginTop: '-0.5rem' }}>
-                    Camp
-                </div>
                 <p className="text-sm leading-relaxed max-w-xs"
                     style={{ color: 'rgba(255,255,255,0.72)' }}>
                     對於初學程式設計感到迷惘嗎？或是在各大比賽感到挫折呢？
