@@ -89,6 +89,38 @@ function RegistrationFeeInfo() {
     );
 }
 
+// ── Q&A 可收合問答項目 ────────────────────────────────────────────────────────
+function QAItem({ question, children }) {
+    const [open, setOpen] = useState(false);
+    return (
+        <div className="rounded-xl overflow-hidden"
+            style={{ border: '1.5px solid #1D03F1', boxShadow: '3px 3px 0 #1D03F1' }}>
+            <button
+                className="w-full flex items-center justify-between px-4 md:px-5 py-4 text-left font-bold text-base md:text-lg transition-colors duration-200"
+                style={{ background: open ? '#1D03F1' : '#fff', color: open ? '#fff' : '#1D03F1' }}
+                onClick={() => setOpen(o => !o)}
+            >
+                <span className="tracking-wider">{question}</span>
+                <svg
+                    className="w-5 h-5 flex-shrink-0 ml-3 transition-transform duration-300"
+                    style={{ transform: open ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                    fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"
+                >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+            <div
+                className="overflow-hidden transition-all duration-300"
+                style={{ maxHeight: open ? '300px' : '0px' }}
+            >
+                <div className="px-4 md:px-5 py-4 text-sm md:text-base leading-relaxed tracking-wide" style={{ color: '#4D5BDA', background: '#fff' }}>
+                    {children}
+                </div>
+            </div>
+        </div>
+    );
+}
+
 // ── Info card ────────────────────────────────────────────────────────────────
 function InfoCard({ title, children }) {
     return (
@@ -195,16 +227,22 @@ const pageContents = [
     (
         <div className="w-full max-w-2xl">
             <h2 className="text-xl md:text-3xl font-black mb-4 md:mb-6" style={{ color: '#1D03F1' }}>Q&amp;A</h2>
-            <div className="flex flex-col gap-4">
-                <InfoCard title="有提供住宿嗎？">
+            <div className="flex flex-col gap-5">
+                <QAItem question="有提供住宿嗎？">
                     我們會安排在清大校內住宿，住宿需求會在錄取確認後調查。
-                </InfoCard>
-                <InfoCard title="有營隊參加證明嗎？">
+                </QAItem>
+                <QAItem question="住宿可以跟認識的人同房嗎？">
+                    可以，待錄取後會開放讓各位申請。
+                </QAItem>
+                <QAItem question="若我不會 C++，但會其他程式語言是否也可以報名？">
+                    可以，多數課程內容將專注在演算法本身，與語言並無直接關連；但部分課程內容（例如：STL、C++ 語法糖）是專門為 C++ 語言設計，並且課程講義、投影片也多為使用 C++，請自行評估是否可以接受，也歡迎到 FB 粉專私訊詢問。
+                </QAItem>
+                <QAItem question="有營隊參加證明嗎？">
                     因應教育部規定，營隊將不會提供參加證明，請確認可接受此規定後再報名。
-                </InfoCard>
-                <InfoCard title="需要自備筆電嗎？">
+                </QAItem>
+                <QAItem question="需要自備筆電嗎？">
                     營隊課程不會需要用到筆電，但建議同學們可以自備筆電，以便練習題目。
-                </InfoCard>
+                </QAItem>
             </div>
         </div>
     ),
