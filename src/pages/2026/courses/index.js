@@ -193,31 +193,31 @@ export default function Courses() {
                     <td className={tdBase} style={{ borderColor: BORDER_COLOR, background: TIME_BG, padding: '12px', color: 'rgba(29,3,241,0.5)', fontSize: '12px', textAlign: 'center', whiteSpace: 'nowrap' }} rowSpan={2}>
                       09:00 ~ 12:00
                     </td>
-                    <td className={tdBase} style={{ borderColor: BORDER_COLOR, background: COURSE_BG, padding: 0 }} rowSpan={2}>
+                    <td className={tdBase} style={{ borderColor: BORDER_COLOR, background: COURSE_BG, padding: 0, height: '1px' }} rowSpan={2}>
                       <div className="flex flex-col" style={{ height: '100%', divideColor: BORDER_COLOR }}>
                         <CourseCell name="基礎資料結構" onClick={() => openCourse('基礎資料結構')} className="flex-1" />
-                        <div style={{ height: '1px', background: BORDER_COLOR }} />
+                        <div style={{ borderTop: `1px dashed ${BORDER_COLOR}` }} />
                         <CourseCell name="進階資料結構" onClick={() => openCourse('進階資料結構')} className="flex-1" />
                       </div>
                     </td>
-                    <td className={tdBase} style={{ borderColor: BORDER_COLOR, background: COURSE_BG, padding: 0 }} rowSpan={2}>
+                    <td className={tdBase} style={{ borderColor: BORDER_COLOR, background: COURSE_BG, padding: 0, height: '1px' }} rowSpan={2}>
                       <div className="flex flex-col" style={{ height: '100%' }}>
                         <CourseCell name="基礎圖論" onClick={() => openCourse('基礎圖論')} className="flex-1" />
-                        <div style={{ height: '1px', background: BORDER_COLOR }} />
+                        <div style={{ borderTop: `1px dashed ${BORDER_COLOR}` }} />
                         <CourseCell name="進階圖論" onClick={() => openCourse('進階圖論')} className="flex-1" />
                       </div>
                     </td>
-                    <td className={tdBase} style={{ borderColor: BORDER_COLOR, background: COURSE_BG, padding: 0 }} rowSpan={2}>
+                    <td className={tdBase} style={{ borderColor: BORDER_COLOR, background: COURSE_BG, padding: 0, height: '1px' }} rowSpan={2}>
                       <CourseCell name="其他解題技巧" onClick={() => openCourse('其他解題技巧')} className="h-full" />
                     </td>
-                    <td className={tdBase} style={{ borderColor: BORDER_COLOR, background: COURSE_BG, padding: 0 }}>
+                    <td className={tdBase} style={{ borderColor: BORDER_COLOR, background: COURSE_BG, padding: 0, height: '1px' }}>
                       <CourseCell name="經驗分享" onClick={() => openCourse('經驗分享')} className="h-full" />
                     </td>
                   </tr>
 
                   {/* Row 2b */}
                   <tr>
-                    <td className={tdBase} style={{ borderColor: BORDER_COLOR, background: COURSE_BG, padding: 0 }} rowSpan={3}>
+                    <td className={tdBase} style={{ borderColor: BORDER_COLOR, background: COURSE_BG, padding: 0, height: '1px' }} rowSpan={3}>
                       <CourseCell name="比賽" onClick={() => openCourse('比賽')} className="h-full" />
                     </td>
                   </tr>
@@ -243,27 +243,27 @@ export default function Courses() {
                     <td className={tdBase} style={{ borderColor: BORDER_COLOR, background: MEAL_BG }}>
                       <UtilCell>營長時間</UtilCell>
                     </td>
-                    <td className={tdBase} style={{ borderColor: BORDER_COLOR, background: COURSE_BG, padding: 0 }} rowSpan={2}>
+                    <td className={tdBase} style={{ borderColor: BORDER_COLOR, background: COURSE_BG, padding: 0, height: '1px' }} rowSpan={2}>
                       <CourseCell name="動態規劃" onClick={() => openCourse('動態規劃')} className="h-full" />
                     </td>
-                    <td className={tdBase} style={{ borderColor: BORDER_COLOR, background: COURSE_BG, padding: 0 }} rowSpan={2}>
+                    <td className={tdBase} style={{ borderColor: BORDER_COLOR, background: COURSE_BG, padding: 0, height: '1px' }} rowSpan={2}>
                       <div className="flex flex-col" style={{ height: '100%' }}>
                         <CourseCell name="基礎數學" onClick={() => openCourse('基礎數學')} className="flex-1" />
-                        <div style={{ height: '1px', background: BORDER_COLOR }} />
+                        <div style={{ borderTop: `1px dashed ${BORDER_COLOR}` }} />
                         <CourseCell name="組合數學" onClick={() => openCourse('組合數學')} className="flex-1" />
                       </div>
                     </td>
-                    <td className={tdBase} style={{ borderColor: BORDER_COLOR, background: COURSE_BG, padding: 0 }} rowSpan={2}>
+                    <td className={tdBase} style={{ borderColor: BORDER_COLOR, background: COURSE_BG, padding: 0, height: '1px' }} rowSpan={2}>
                       <CourseCell name="賽局" onClick={() => openCourse('賽局')} className="h-full" />
                     </td>
                   </tr>
 
                   {/* Row 4b */}
                   <tr>
-                    <td className={tdBase} style={{ borderColor: BORDER_COLOR, background: COURSE_BG, padding: 0 }}>
+                    <td className={tdBase} style={{ borderColor: BORDER_COLOR, background: COURSE_BG, padding: 0, height: '1px' }}>
                       <div className="flex flex-col" style={{ height: '100%' }}>
                         <CourseCell name="基礎技巧 Ⅰ" onClick={() => openCourse('基礎技巧 Ⅰ')} className="flex-1" />
-                        <div style={{ height: '1px', background: BORDER_COLOR }} />
+                        <div style={{ borderTop: `1px dashed ${BORDER_COLOR}` }} />
                         <CourseCell name="基礎技巧 Ⅱ" onClick={() => openCourse('基礎技巧 Ⅱ')} className="flex-1" />
                       </div>
                     </td>
