@@ -223,7 +223,30 @@ const pageContents = [
         </div>
     ),
 
-    /* Page 2 — Registration */
+    /* Page 2 — 你會帶走什麼 */
+    (
+        <div className="w-full max-w-2xl">
+            <h2 className="text-xl md:text-3xl font-black mb-4 md:mb-6" style={{ color: '#1D03F1' }}>你會帶走什麼</h2>
+            <div className="grid grid-cols-3 gap-3 md:gap-4">
+                {[
+                    { num: '40+', unit: '道', label: '實際競賽題目' },
+                    { num: '100+', unit: '道', label: '精選練習題' },
+                    { num: '300+', unit: '頁', label: '十年精華講義' },
+                ].map(({ num, unit, label }) => (
+                    <div key={label} className="rounded-xl p-4 md:p-6 flex flex-col justify-between aspect-square"
+                        style={{ background: '#fff', border: '1.5px solid #1D03F1', boxShadow: '3px 3px 0 #1D03F1' }}>
+                        <div className="flex items-end leading-none">
+                            <span className="font-black" style={{ fontSize: 'clamp(2rem, 6vw, 3.5rem)', color: '#1D03F1' }}>{num}</span>
+                            <span className="font-bold mb-1 ml-0.5" style={{ fontSize: 'clamp(0.75rem, 1.5vw, 1rem)', color: '#1D03F1' }}>{unit}</span>
+                        </div>
+                        <div className="font-semibold" style={{ fontSize: 'clamp(0.75rem, 1.8vw, 1rem)', color: '#4D5BDA' }}>{label}</div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    ),
+
+    /* Page 3 — Registration */
     (
         <div className="w-full max-w-2xl">
             <h2 className="text-xl md:text-3xl font-black mb-4 md:mb-6" style={{ color: '#1D03F1' }}>報名資訊</h2>
