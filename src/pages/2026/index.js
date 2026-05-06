@@ -223,7 +223,23 @@ const pageContents = [
         </div>
     ),
 
-    /* Page 2 — Q&A */
+    /* Page 2 — Registration */
+    (
+        <div className="w-full max-w-2xl">
+            <h2 className="text-xl md:text-3xl font-black mb-4 md:mb-6" style={{ color: '#1D03F1' }}>報名資訊</h2>
+            <div className="flex flex-col gap-4">
+                <RegistrationFeeInfo />
+                <InfoCard title="報名時程">
+                    <ul className="list-disc list-inside space-y-1">
+                        <li>報名期限：即日起～05/31 23:59</li>
+                        <li>公布錄取名單：06/01</li>
+                    </ul>
+                </InfoCard>
+            </div>
+        </div>
+    ),
+
+    /* Page 3 — Q&A */
     (
         <div className="w-full max-w-2xl">
             <h2 className="text-xl md:text-3xl font-black mb-4 md:mb-6" style={{ color: '#1D03F1' }}>Q&amp;A</h2>
@@ -243,22 +259,6 @@ const pageContents = [
                 <QAItem question="需要自備筆電嗎？">
                     營隊課程不會需要用到筆電，但建議同學們可以自備筆電，以便練習題目。
                 </QAItem>
-            </div>
-        </div>
-    ),
-
-    /* Page 3 — Registration */
-    (
-        <div className="w-full max-w-2xl">
-            <h2 className="text-xl md:text-3xl font-black mb-4 md:mb-6" style={{ color: '#1D03F1' }}>報名資訊</h2>
-            <div className="flex flex-col gap-4">
-                <RegistrationFeeInfo />
-                <InfoCard title="報名時程">
-                    <ul className="list-disc list-inside space-y-1">
-                        <li>報名期限：即日起～05/31 23:59</li>
-                        <li>公布錄取名單：06/01</li>
-                    </ul>
-                </InfoCard>
             </div>
         </div>
     ),
