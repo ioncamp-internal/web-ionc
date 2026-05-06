@@ -110,12 +110,6 @@ const pageContents = [
                 {/* Left: stacked IONCamp watermark */}
                 <div className="flex flex-col gap-1 select-none pointer-events-none overflow-hidden"
                     style={{ width: 'clamp(120px, 15vw, 180px)' }}>
-                    {[...Array(8)].map((_, i) => (
-                        <span key={i} className="font-black italic"
-                            style={{ fontSize: 'clamp(13px, 1.3vw, 18px)', color: 'rgba(255,255,255,0.11)', letterSpacing: '-0.01em' }}>
-                            IONCamp
-                        </span>
-                    ))}
                 </div>
 
                 {/* Center spacer — background computer+script live here */}

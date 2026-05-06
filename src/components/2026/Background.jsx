@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import computerSrc from "@/images/2026/computer.png";
-import scriptSrc from "@/images/2026/ioncamp-script.png";
 
 const PAPER   = '#FCFCFE';
 const GRID_C  = 'rgba(77,91,218,0.13)'; // iris-deep faint
@@ -203,18 +202,6 @@ export default function Background({ currentPage }) {
                         height={300}
                         style={{ objectFit: 'contain' }}
                         priority
-                        unoptimized
-                    />
-                </div>
-
-                {/* Script: desktop — below computer; mobile — above bottom safe area */}
-                <div className="absolute inset-x-0 flex justify-center bottom-24 lg:bottom-auto lg:top-1/2 lg:mt-[155px]">
-                    <Image
-                        src={scriptSrc}
-                        alt="IONCamp"
-                        width={300}
-                        height={90}
-                        style={{ objectFit: 'contain', filter: 'brightness(0) invert(1)' }}
                         unoptimized
                     />
                 </div>
