@@ -213,7 +213,7 @@ export default function Background({ currentPage }) {
                         left: isHero ? '45%' : '50%',
                         top: '50%',
                         transform: isHero ? 'translate(-50%, -50%)' : 'translate(-50%, -50%) scale(2)',
-                        opacity: isHero ? 0.5 : 0.07,
+                        opacity: isHero ? 1.0 : 0.07,
                         transition: 'left 700ms ease-in-out, opacity 700ms ease-in-out, transform 700ms ease-in-out',
                     }}
                     priority

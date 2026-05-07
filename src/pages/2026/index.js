@@ -223,10 +223,10 @@ const pageContents = [
         </div>
     ),
 
-    /* Page 2 — 你會帶走什麼 */
+    /* Page 2 — 你會得到什麼 */
     (
         <div className="w-full max-w-2xl">
-            <h2 className="text-xl md:text-3xl font-black mb-4 md:mb-6" style={{ color: '#1D03F1' }}>你會帶走什麼</h2>
+            <h2 className="text-xl md:text-3xl font-black mb-4 md:mb-6" style={{ color: '#1D03F1' }}>你會得到什麼</h2>
             <div className="grid grid-cols-3 gap-3 md:gap-4">
                 {[
                     { num: '40+', unit: '道', label: '實際競賽題目' },
