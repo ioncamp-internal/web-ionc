@@ -83,7 +83,7 @@ function runHeroCanvas(canvas) {
         }
 
         ctx.globalAlpha = 1;
-        offset = (offset + 0.0025) % 1;
+        offset = (offset + 0.001) % 1;
     }
 
     function loop() { draw(); raf = requestAnimationFrame(loop); }
