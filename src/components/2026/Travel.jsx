@@ -1,16 +1,16 @@
 import Link from "next/link";
 
-const busRoutes = ['藍線 1 區', '5608', '182', '1', '2', '83', '31'];
+const busRoutes = ['藍線 1 區', '先導公車', '5608', '182', '1', '2', '83', '31'];
 
 const intercityBuses = [
-    { name: '亞聯客運（行駛北二高路線）', href: 'https://www.ubus.com.tw/' },
+    { name: '統聯客運',                  href: 'https://www.ubus.com.tw/' },
     { name: '新竹三重客運聯營',           href: 'https://www.hcbus.com.tw/' },
-    { name: '國光客運',                   href: 'https://www.kingbus.com.tw/' },
-    { name: '飛狗巴士',                   href: 'https://www.flixbus.com.tw/' },
-    { name: '豪泰客運',                   href: 'https://www.houtaibus.com.tw/' },
-    { name: '統聯客運',                   href: 'https://www.tongyebus.com.tw/' },
-    { name: '阿羅哈客運',                 href: 'https://www.aloha168.com.tw/' },
+    { name: '國光客運',                  href: 'https://www.kingbus.com.tw/' },
+    { name: '豪泰客運',                  href: 'https://www.houtaibus.com.tw/' },
     { name: '新竹台中客運聯營',           href: 'http://www.hcbus.com.tw/' },
+    { name: '日豪客運',                  href: 'https://www.rihaobus.com/service.html' },
+    { name: '和欣客運',                  href: 'https://www.ebus.com.tw/' },
+    { name: '台中客運',                  href: 'https://www.tcbus.com.tw/' },
 ];
 
 const BORDER = 'rgba(29,3,241,0.18)';
@@ -54,7 +54,8 @@ export default function Travel() {
                     </thead>
                     <tbody>
                         <TravelRow label="高鐵">
-                            請於高鐵新竹站下車，下車後可轉搭其他交通工具，轉乘資訊請見&nbsp;
+                            請於高鐵新竹站下車，下車後可轉搭計程車、182公車或先導公車至校門口，轉乘資訊請見&nbsp;
+                            <br/>
                             <a href="http://www.thsrc.com.tw/" target="_blank" rel="noreferrer"
                                 className="font-semibold underline underline-offset-2 transition-colors"
                                 style={{ color: '#A361DD' }}>
@@ -63,7 +64,8 @@ export default function Travel() {
                         </TravelRow>
 
                         <TravelRow label="火車">
-                            西部幹線新竹站下車，下車後需轉搭其他交通工具。&nbsp;
+                            西部幹線新竹站下車，下車後可轉搭計程車或藍線1區、182、5608等市區公車至校門口。&nbsp;
+                            <br/>
                             <a href="http://www.railway.gov.tw/tw/" target="_blank" rel="noreferrer"
                                 className="font-semibold underline underline-offset-2 transition-colors"
                                 style={{ color: '#A361DD' }}>
