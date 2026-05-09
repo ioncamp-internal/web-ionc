@@ -8,116 +8,120 @@ import { useState, useCallback, useEffect } from 'react';
 
 const lecturers = [
     {
-        name: "范釗維",
+        name: "詹凱智",
+        avatarUrl: "/images/2026/Lecturers/詹凱智.png",
         experiences: [
-            "晉級 2025 ICPC World Finals",
-            "APIO 2020 🥉 銅牌",
-            "2023、2024 IONCamp 講師",
+            "2022, 2023 臺北市資訊學科能力競賽 🥉 三等獎",
+            "2024 TOI 一階 🎖️",
+            "2024 ICPC Asia Taichung Regional Programming Contest 🥈 Silver Award",
+            "2024 ICPC Asia Jakarta Regional Programming Contest 🥉 Bronze Award",
+            "2025 ICPC Asia Taichung Regional Programming Contest 🥈 Silver Award"
         ],
     },
     {
-        name: "歐育淇",
+        name: "范釗維",
         experiences: [
             "2025 ICPC World Finalist",
-            "2025 ICPC Asia Taichung Regional 🥇 金牌",
-            "2025 NCPC 第二名",
-            "2025 TOPC 🥇 金牌",
-            "109 學年度高中資訊學科能力競賽全國賽二等獎",
-            "高中三年 TOI 一階",
-            "NPSC 第四名",
-            "交大校內賽和個人賽第一名",
-            "codeforces 1e8-th submission"
+            "2020 APIO 🥉 Bronze Award",
+            "2023 ~ 2025 IONCamp 講師"
         ],
     },
     {
         name: "林鼎陽",
         experiences: [
-            "2024 ICPC Taichung Regional Contest 🥈 Silver Award",
-            "2024 ICPC Jakarta Regional Contest 🥉 Bronze Award",
+            "2024 ICPC Asia Taichung Regional Programming Contest 🥈 Silver Award",
+            "2024 ICPC Asia Jakarta Regional Programming Contest 🥉 Bronze Award",
             "2025 ICPC Asia Pacific Championship Participant",
-            "全國高中資訊能力競賽 🥉 三等獎",
-            "台北市學科能力競賽資訊科 🥈 二等獎",
+            "2023 全國資訊學科能力競賽 🥉 三等獎",
+            "2023 臺北市資訊學科能力競賽 🥈 二等獎"
         ],
     },
     {
         name: "黃頂軒",
+        avatarUrl: "/images/2026/Lecturers/黃頂軒.jpg",
         experiences: [
-            "2022 ICPC Asia Taoyuan Regional Programming Contest 🥈 銀牌",
-            "2023 ICPC Asia Taoyuan Regional Programming Contest 🥈 銀牌",
-            "2025 ICPC Asia Taichung Regional Programming Contest 🥈 銀牌",
+            "2022 ICPC Asia Taoyuan Regional Programming Contest 🥈 Silver Award",
+            "2023 ICPC Asia Taoyuan Regional Programming Contest 🥈 Silver Award",
+            "2025 ICPC Asia Taichung Regional Programming Contest 🥈 Silver Award",
             "2023 ~ 2025 IONCamp 進階資料結構 講師"
         ],
     },
     {
-        name: "張晏誠",
-        experiences: [
-            "2024, 2025 ICPC Asia Taichung Regional Programming Contest 🥈 銀牌",
-            "114 NCPC 第三名",
-            "2024 ~ 2025 IONCamp 進階資料結構 講師",
-            "清大演算法、資料結構助教"
-        ]
-    },
-    {
-        name: "李昕威",
-        experiences: [
-            "晉級 2022 ICPC World Finals",
-            "2022 ICPC Asia Taoyuan Regional 🥇 金牌 (Rk. 7)",
-            "2022 National Collegiate Programming Contest 第三名 (Rk. 8)",
-            "2022 Google Code Jam Round 3 第 266 名",
-            "2022 HP CodeWars Taiwan University Edition 第二名",
-            "107 學年度高中資訊學科能力競賽全國賽二等獎",
-            "高中三年 TOI 一階",
-            "2020、2022~2025 IONCamp 講師 ；資訊之芽竹區講師",
-            "清大計算機程式設計、計算方法設計、競技程式設計課程助教"
-        ],
-    },
-    {
-        name: "葉宥辰",
-        experiences: [
-            "高中兩年 TOI 一階",
-            "2022 ICPC Asia Taoyuan Regional 🥇 金牌",
-            "2025 National Collegiate Programming Contest 第三名",
-            "2023~2025 IONCamp",
-            "清大演算法、資料結構、作業系統助教"
-        ],
-    },
-    {
-        name: "張皓崴",
-        experiences: [
-            "2023 ICPC World Finalist",
-            "2025 ICPC Asia Pacific Championship 🥈 銀牌 (Rk. 15)",
-            "2022 ICPC Asia Taoyuan Regional 🥇 金牌 (Rk. 8)",
-            "2025 ICPC Jakarta Regional 🥇 金牌 (Rk. 3)",
-            "2025 ICPC Asia Taichung Regional 🥇 金牌 (Rk. 10)"
-        ],
-    },
-    {
-        name: "何晏甫",
-        experiences: [
-            "2024 ICPC Asia Taichung Regional Programming Contest 🥉 Bronze Award",
-            "2025 ICPC Asia Taichung Regional Programming Contest 🥉 Bronze Award",
-            "2025 ICPC Jakarta Regional Contest 🥉 Bronze Award (Rk. 9)"
-        ],
-    },
-    {
         name: "李其樺",
+        avatarUrl: "/images/2026/Lecturers/李其樺.png",
         experiences: [
-            "2022 NPSC 第三名",
-            "2022 ISSC 第二名",
+            "2022 NPSC 🥉 第三名",
+            "2022 ISSC 🥈 第二名",
             "2023 ICPC Asia Taoyuan Regional Programming Contest 🥉 Bronze Award",
             "2024 ICPC Asia Taichung Regional Programming Contest 🥉 Bronze Award",
             "2025 ICPC Asia Taichung Regional Programming Contest 🥉 Bronze Award"
         ],
     },
     {
-        name: "詹凱智",
-        avatarUrl: "/images/2026/Lecturers/詹凱智.png",
+        name: "何晏甫",
+        avatarUrl: "/images/2026/Lecturers/何晏甫.jpg",
         experiences: [
-            "2023, 2024 台北市學科能力競賽資訊科 🥉 三等獎",
-            "2024 TOI 一階",
-            "2024 ICPC Taichung Regional Contest 🥈 Silver Award",
-            "2024 ICPC Jakarta Regional Contest 🥉 Bronze Award",
-            "2025 ICPC Asia Taichung Regional Contest 🥈 Silver Award"
+            "2024 ICPC Asia Taichung Regional Programming Contest 🥉 Bronze Award",
+            "2025 ICPC Asia Taichung Regional Programming Contest 🥉 Bronze Award",
+            "2025 ICPC Asia Jakarta Regional Programming Contest 🥉 Bronze Award (Rk. 9)"
+        ],
+    },
+    {
+        name: "張晏誠",
+        experiences: [
+            "2024, 2025 ICPC Asia Taichung Regional Programming Contest 🥈 Silver Award",
+            "2025 National Collegiate Programming Contest 🥉 第三名",
+            "2024 ~ 2025 IONCamp 進階圖論 講師",
+            "清大演算法、資料結構助教"
+        ]
+    },
+    {
+        name: "李昕威",
+        avatarUrl: "/images/2026/Lecturers/李昕威.jpg",
+        experiences: [
+            "2022 ICPC World Finalist",
+            "2022 ICPC Asia Taoyuan Regional Programming Contest 🥇 Gold Award (Rk. 7)",
+            "2022 National Collegiate Programming Contest 🥉 第三名 (Rk. 8)",
+            "2022 Google Code Jam Round 3 第 266 名",
+            "2022 HP CodeWars Taiwan University Edition 🥈 第二名",
+            "2018 全國資訊學科能力競賽 🥈 二等獎",
+            "2018 ~ 2020 TOI 一階 🎖️",
+            "2020, 2022 ~ 2025 IONCamp 講師；資訊之芽竹區講師",
+            "清大計算機程式設計、計算方法設計、競技程式設計助教"
+        ],
+    },
+    {
+        name: "張皓崴",
+        experiences: [
+            "2023 ICPC World Finalist",
+            "2025 ICPC Asia Pacific Championship 🥈 Silver Award (Rk. 15)",
+            "2022 ICPC Asia Taoyuan Regional Programming Contest 🥇 Gold Award (Rk. 8)",
+            "2025 ICPC Asia Jakarta Regional Programming Contest 🥇 Gold Award (Rk. 3)",
+            "2025 ICPC Asia Taichung Regional Programming Contest 🥇 Gold Award (Rk. 10)"
+        ],
+    },
+    {
+        name: "葉宥辰",
+        experiences: [
+            "2021 ~ 2022 TOI 一階 🎖️",
+            "2022 ICPC Asia Taoyuan Regional Programming Contest 🥇 Gold Award",
+            "2025 National Collegiate Programming Contest 🥉 第三名",
+            "2023 ~ 2025 IONCamp 講師",
+            "清大演算法、資料結構、作業系統助教"
+        ],
+    },
+    {
+        name: "歐育淇",
+        avatarUrl: "/images/2026/Lecturers/歐育淇.jpg",
+        experiences: [
+            "2025 ICPC World Finalist",
+            "2025 ICPC Asia Taichung Regional Programming Contest 🥇 Gold Award",
+            "2025 National Collegiate Programming Contest 🥈 第二名",
+            "2025 TOPC 🥇 Gold Award",
+            "2020 全國資訊學科能力競賽 🥈 二等獎",
+            "2019 ~ 2021 TOI 一階 🎖️",
+            "2019 NPSC 第四名",
+            "2025 交大校內賽、個人賽 🥇 第一名"
         ],
     }
 ];
