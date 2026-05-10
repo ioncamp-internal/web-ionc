@@ -82,7 +82,7 @@ const courseDetails = {
     prerequisites: 'Log 運算、快速冪',
     content: '最大公因數、（擴展）歐幾里得演算法、模運算、線性同餘方程、中國剩餘定理、RSA 加解密、多項式乘法',
   },
-  '組合數學': {
+  '組合計數': {
     time: '14:00 - 17:30',
     day: '7/19 (日)',
     instructor: '張皓崴',
@@ -250,7 +250,7 @@ export default function Courses() {
                       <div className="flex flex-col" style={{ height: '100%' }}>
                         <CourseCell name="基礎數學" onClick={() => openCourse('基礎數學')} className="flex-1" />
                         <div style={{ borderTop: `1px dashed ${BORDER_COLOR}` }} />
-                        <CourseCell name="組合數學" onClick={() => openCourse('組合數學')} className="flex-1" />
+                        <CourseCell name="組合計數" onClick={() => openCourse('組合計數')} className="flex-1" />
                       </div>
                     </td>
                     <td className={tdBase} style={{ borderColor: BORDER_COLOR, background: COURSE_BG, padding: 0, height: '1px' }} rowSpan={2}>
