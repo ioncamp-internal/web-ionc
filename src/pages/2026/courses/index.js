@@ -41,14 +41,14 @@ const courseDetails = {
     content: '時間減枝、折半枚舉、啟發式合併、Bitset 優化、Hash、根號算法',
   },
   '經驗分享': {
-    time: '09:00 - 12:00',
+    time: '09:00 - 10:00',
     day: '7/21 (二)',
     instructor: '',
     prerequisites: '無',
     content: '講師分享競程學習歷程與比賽心得。',
   },
   '比賽': {
-    time: '約 10:30 - 16:00',
+    time: '約 10:00 - 14:00',
     day: '7/21 (二)',
     instructor: '',
     prerequisites: '全部課程',
@@ -217,7 +217,7 @@ export default function Courses() {
 
                   {/* Row 2b */}
                   <tr>
-                    <td className={tdBase} style={{ borderColor: BORDER_COLOR, background: COURSE_BG, padding: 0, height: '1px' }} rowSpan={3}>
+                    <td className={tdBase} style={{ borderColor: BORDER_COLOR, background: COURSE_BG, padding: 0, height: '1px' }} rowSpan={2}>
                       <CourseCell name="比賽" onClick={() => openCourse('比賽')} className="h-full" />
                     </td>
                   </tr>
@@ -256,6 +256,13 @@ export default function Courses() {
                     <td className={tdBase} style={{ borderColor: BORDER_COLOR, background: COURSE_BG, padding: 0, height: '1px' }} rowSpan={2}>
                       <CourseCell name="賽局" onClick={() => openCourse('賽局')} className="h-full" />
                     </td>
+                    
+                    <td className={tdBase} style={{ borderColor: BORDER_COLOR, background: MEAL_BG }} rowSpan={2}>
+                      <UtilCell className="flex-col gap-1">
+                        <span>頒獎 / 賦歸</span>
+                        <span className="text-xs" style={{ color: 'rgba(29,3,241,0.4)' }}>(16:00 結束)</span>
+                      </UtilCell>
+                    </td>
                   </tr>
 
                   {/* Row 4b */}
@@ -266,12 +273,6 @@ export default function Courses() {
                         <div style={{ borderTop: `1px dashed ${BORDER_COLOR}` }} />
                         <CourseCell name="基礎技巧 Ⅱ" onClick={() => openCourse('基礎技巧 Ⅱ')} className="flex-1" />
                       </div>
-                    </td>
-                    <td className={tdBase} style={{ borderColor: BORDER_COLOR, background: MEAL_BG }}>
-                      <UtilCell className="flex-col gap-1">
-                        <span>頒獎 / 賦歸</span>
-                        <span className="text-xs" style={{ color: 'rgba(29,3,241,0.4)' }}>(16:00 結束)</span>
-                      </UtilCell>
                     </td>
                   </tr>
 
