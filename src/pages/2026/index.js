@@ -254,8 +254,8 @@ const pageContents = [
                 <RegistrationFeeInfo />
                 <InfoCard title="報名時程">
                     <ul className="list-disc list-inside space-y-1">
-                        <li>報名期限：即日起～05/31 23:59</li>
-                        <li>公布錄取名單：06/01</li>
+                        <li>報名期限：即日起～<del className="opacity-60">05/31 23:59</del> <span className="font-bold" style={{ color: '#A361DD' }}>(延長至 06/07 23:59)</span></li>
+                        <li>公布錄取名單：<del className="opacity-60">06/01</del> <span className="font-bold" style={{ color: '#A361DD' }}>(變更為 06/08)</span></li>
                     </ul>
                 </InfoCard>
             </div>
