@@ -260,7 +260,7 @@ export default function Courses() {
                     <td className={tdBase} style={{ borderColor: BORDER_COLOR, background: MEAL_BG }} rowSpan={2}>
                       <UtilCell className="flex-col gap-1">
                         <span>頒獎 / 賦歸</span>
-                        <span className="text-xs" style={{ color: 'rgba(29,3,241,0.4)' }}>(16:00 結束)</span>
+                        <span className="text-xs" style={{ color: 'rgba(29,3,241,0.4)' }}>(16:30 結束)</span>
                       </UtilCell>
                     </td>
                   </tr>
