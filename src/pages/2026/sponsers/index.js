@@ -3,9 +3,33 @@ import Footer from '@/components/2026/Footer'
 import Background from "@/components/2026/Background";
 import Image from 'next/image'
 import Link from "next/link";
+import YTPLogo from "@/images/2026/YTP.jpg"
+import TrendMicroLogo from "@/images/2026/TrendMicroLogo.png"
+import NTHU_Souvenirs from "@/images/2026/NTHU_Souvenirs.jpg"
 
 const people = [
     // Sponsors will be added here when confirmed
+    {
+        name: 'YTP 少年圖靈計畫（精誠集團）',
+        role: 'Senior Designer',
+        imageUrl: YTPLogo,
+        link: 'https://www.tw-ytp.org/',
+        bio: '「YTP少年圖靈計畫」是精誠集團培養軟體人才的公益計畫，提供國/高中同學透過程式競賽、專題實做以及海外參訪機會，精進自己的程式能力並且與各方程式好手交流！提供台中以南同學交通補助費用，競賽獎金以及免費點心，報名參加「YTP少年圖靈計畫」就是今年暑假最重要的事啦！！立即報名！ <a href="https://www.tw-ytp.org/" class="text-[#8DD6F7] hover:underline" target="_blank" rel="noopener noreferrer">https://www.tw-ytp.org/</a>',
+    },
+    {
+        name: '趨勢科技 Trend Micro',
+        role: 'Sponsor',
+        imageUrl: TrendMicroLogo,
+        link: 'https://www.trendmicro.com/zh_tw/',
+        bio: '趨勢科技是全球網路資安解決方案領導廠商，深耕資安領域逾 35 年，致力於保護企業、政府及消費者免受網路威脅。趨勢科技在台灣深耕多年，持續投入資安人才培育，為台灣資安生態圈的重要推手。立即了解更多！ <a href="https://www.trendmicro.com/zh_tw/" class="text-[#8DD6F7] hover:underline" target="_blank" rel="noopener noreferrer">https://www.trendmicro.com/zh_tw/</a>',
+    },
+    {
+        name: '紫荊小舖 清華酷樂網',
+        role: 'Sponsor',
+        imageUrl: NTHU_Souvenirs,
+        link: 'https://nthugift.colaz.com.tw/',
+        bio: '紫荊小舖為國立清華大學校園紀念品專賣店，清華酷樂網則為官方授權線上購物平台，提供棒球外套、清華吉祥物熊貓系列商品、文具用品、馬克杯及各式校園紀念商品。</br>致力於推廣清華品牌與校園文化，提供師生、校友及訪客最完整的清華授權商品，讓每一件商品都成為珍藏校園的回憶。</br>無論是在紫荊小舖實體門市尋找心儀商品，或於清華酷樂網線上選購，都能將屬於清華的青春回憶與校園精神帶回生活之中。<a href="https://nthugift.colaz.com.tw/" class="text-[#8DD6F7] hover:underline" target="_blank" rel="noopener noreferrer">https://nthugift.colaz.com.tw/</a>',
+    },
 ]
 
 export default function Sponsers() {
@@ -20,43 +44,42 @@ export default function Sponsers() {
                 </div>
 
                 {people.length > 0 ? (
-                    <div
-                        className="w-full max-w-4xl rounded-xl p-8 md:p-12 mb-10"
-                        style={{ background: '#fff', border: '1.5px solid #1D03F1', boxShadow: '4px 4px 0 #1D03F1' }}
-                    >
-                        <ul role="list" className="flex flex-col gap-12">
-                            {people.map((person) => (
-                                <li key={person.name} className="flex flex-col items-center lg:items-start gap-6 lg:flex-row">
-                                    <div className="flex items-center justify-center lg:self-center">
-                                        <Image
-                                            className="w-40 sm:w-52 flex-none rounded-xl object-contain"
-                                            src={person.imageUrl} alt={person.name} width={400} height={400}
-                                            style={{ border: '1.5px solid rgba(29,3,241,0.2)' }}
-                                        />
+                    <div className="w-full max-w-4xl flex flex-col gap-6 mb-10">
+                        {people.map((person) => (
+                            <div
+                                key={person.name}
+                                className="rounded-xl p-8 md:p-12 flex flex-col items-center lg:items-start gap-6 lg:flex-row"
+                                style={{ background: '#fff', border: '1.5px solid #1D03F1', boxShadow: '4px 4px 0 #1D03F1' }}
+                            >
+                                <div className="flex items-center justify-center lg:self-center">
+                                    <Image
+                                        className="w-40 sm:w-52 flex-none rounded-xl object-contain"
+                                        src={person.imageUrl} alt={person.name} width={400} height={400}
+                                        style={{ border: '1.5px solid rgba(29,3,241,0.2)' }}
+                                    />
+                                </div>
+                                <div className="flex-auto">
+                                    <div className="flex flex-col sm:flex-row items-center gap-4 mb-4">
+                                        <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center sm:text-left" style={{ color: '#1D03F1' }}>
+                                            {person.name}
+                                        </h3>
+                                        <Link
+                                            href={person.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="px-4 py-1.5 text-sm font-semibold rounded-lg transition-all duration-200"
+                                            style={{ color: '#1D03F1', border: '1.5px solid #1D03F1', background: 'transparent' }}
+                                            onMouseEnter={e => { e.currentTarget.style.background = '#1D03F1'; e.currentTarget.style.color = '#FCFCFE'; }}
+                                            onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#1D03F1'; }}
+                                        >
+                                            官網連結
+                                        </Link>
                                     </div>
-                                    <div className="flex-auto">
-                                        <div className="flex flex-col sm:flex-row items-center gap-4 mb-4">
-                                            <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center sm:text-left" style={{ color: '#1D03F1' }}>
-                                                {person.name}
-                                            </h3>
-                                            <Link
-                                                href={person.link}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="px-4 py-1.5 text-sm font-semibold rounded-lg transition-all duration-200"
-                                                style={{ color: '#1D03F1', border: '1.5px solid #1D03F1', background: 'transparent' }}
-                                                onMouseEnter={e => { e.currentTarget.style.background = '#1D03F1'; e.currentTarget.style.color = '#FCFCFE'; }}
-                                                onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#1D03F1'; }}
-                                            >
-                                                官網連結
-                                            </Link>
-                                        </div>
-                                        <div className="text-sm leading-relaxed" style={{ color: '#4D5BDA' }}
-                                            dangerouslySetInnerHTML={{ __html: person.bio }} />
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
+                                    <div className="text-sm leading-relaxed" style={{ color: '#4D5BDA' }}
+                                        dangerouslySetInnerHTML={{ __html: person.bio }} />
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 ) : (
                     <div
