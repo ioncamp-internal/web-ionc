@@ -21,7 +21,7 @@ const people = [
         role: 'Sponsor',
         imageUrl: TrendMicroLogo,
         link: 'https://www.trendmicro.com/zh_tw/about/careers.html',
-        bio: '作為全球 AI 資安領導廠商，趨勢科技致力於開發專為 AI 設計的資安防護方案，強化內部技術實力，構建外部資安生態系，幫助企業與消費者應對資訊及詐騙威脅，成為 AI 世代的資安典範，更獲得多項技術權威機構及 Mitre Engenuity 評估高度認可。\n\n全球超過 7000 名員工，據點遍及 73+ 國家與地區，台灣是趨勢科技最大研發基地。我們專注於核心技術突破，從雲端防護領域排名全球第一，到與國際執法機構合作打擊網路犯罪，每一步來自於長期累積的大數據分析與 AI 能力。\n\n想學習最新技術？想接觸大型軟體產品開發？想與跨國團隊交流合作?\n\n一起守護全球數位安全，加入趨勢科技 ‧ 創造 AI 新勢力！ <a href="https://www.trendmicro.com/zh_tw/about/careers.html" class="text-[#8DD6F7] hover:underline" target="_blank" rel="noopener noreferrer">https://www.trendmicro.com/zh_tw/about/careers.html</a>',
+        bio: '作為全球 AI 資安領導廠商，趨勢科技致力於開發專為 AI 設計的資安防護方案，強化內部技術實力，構建外部資安生態系，幫助企業與消費者應對資訊及詐騙威脅，成為 AI 世代的資安典範，更獲得多項技術權威機構及 Mitre Engenuity 評估高度認可。</br></br>全球超過 7000 名員工，據點遍及 73+ 國家與地區，台灣是趨勢科技最大研發基地。我們專注於核心技術突破，從雲端防護領域排名全球第一，到與國際執法機構合作打擊網路犯罪，每一步來自於長期累積的大數據分析與 AI 能力。</br></br>想學習最新技術？想接觸大型軟體產品開發？想與跨國團隊交流合作?</br></br>一起守護全球數位安全，加入趨勢科技 ‧ 創造 AI 新勢力！ <a href="https://www.trendmicro.com/zh_tw/about/careers.html" class="text-[#8DD6F7] hover:underline" target="_blank" rel="noopener noreferrer">https://www.trendmicro.com/zh_tw/about/careers.html</a>',
     },
     {
         name: '紫荊小舖 清華酷樂網',
