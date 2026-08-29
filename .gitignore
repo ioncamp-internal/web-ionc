@@ -36,3 +36,5 @@ next-env.d.ts
 課程大綱.txt
 
 .claude
+# 相簿原始檔（攝影組交付的高解析度照片，不進 repo）
+/photos-src

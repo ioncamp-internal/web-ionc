@@ -12,6 +12,7 @@ const navigation = [
     { name: '師資團隊', href: '/2026/lecturers' },
     { name: '交通資訊', href: '/2026/travel' },
     { name: '贊助單位', href: '/2026/sponsers' },
+    { name: '營隊回顧', href: '/2026/gallery' },
 ]
 
 export default function Header({ isHero = false }) {

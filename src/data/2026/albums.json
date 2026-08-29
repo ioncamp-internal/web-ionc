@@ -1,0 +1,44 @@
+[
+  {
+    "id": "group",
+    "dir": "大合照",
+    "title": "大合照",
+    "band": "營期紀錄"
+  },
+  {
+    "id": "lecturers",
+    "dir": "講師",
+    "title": "講師與課堂",
+    "band": "營期紀錄"
+  },
+  {
+    "id": "practice",
+    "dir": "上機照",
+    "title": "上機練習",
+    "band": "營期紀錄"
+  },
+  {
+    "id": "daily",
+    "dir": "日常照",
+    "title": "營隊日常",
+    "band": "營期紀錄"
+  },
+  {
+    "id": "award",
+    "dir": "頒獎",
+    "title": "頒獎",
+    "band": "營期紀錄"
+  },
+  {
+    "id": "staff",
+    "dir": "工人",
+    "title": "工作人員",
+    "band": "幕後與夥伴"
+  },
+  {
+    "id": "sponsors",
+    "dir": "贊助商",
+    "title": "贊助夥伴",
+    "band": "幕後與夥伴"
+  }
+]
