@@ -1,7 +1,9 @@
 import { Html, Head, Main, NextScript } from 'next/document'
 export default function Document() {
   return (
-    <Html lang="zh">
+    // 標成 zh-TW 而非 zh：只寫 zh 時 Chrome 會當成簡體，
+    // 設了「簡體一律翻成繁體」的使用者會被自動翻譯，翻譯後 React 的動態文字會卡住不更新
+    <Html lang="zh-TW">
       <Head>
         {/* Google tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HEMZZRGT1"></script>

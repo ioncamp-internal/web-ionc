@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "photos": "node scripts/build-photos.mjs"
+    "photos": "node scripts/build-photos.mjs",
+    "photos:drive": "node scripts/build-photos-drive.mjs"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.13",

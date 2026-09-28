@@ -1,5 +1,5 @@
 import { useEffect, useCallback, useRef } from 'react';
-import { photoUrl } from '@/data/2026/gallery';
+import { photoUrl, driveFileUrl } from '@/data/2026/gallery';
 
 const PAPER  = '#FCFCFE';
 const VIOLET = '#A361DD';
@@ -39,6 +39,7 @@ export default function Lightbox({ photos, index, album, onClose, onPrev, onNext
     if (!isOpen) return null;
 
     const photo = photos[index];
+    const originalUrl = driveFileUrl(photo);
 
     return (
         <div
@@ -63,7 +64,8 @@ export default function Lightbox({ photos, index, album, onClose, onPrev, onNext
                         className="text-xs tabular-nums flex-shrink-0"
                         style={{ color: 'rgba(255,255,255,0.6)', fontFamily: 'ui-monospace, monospace' }}
                     >
-                        {String(index + 1).padStart(3, '0')} / {String(photos.length).padStart(3, '0')}
+                        {/* 單一字串，理由同相簿頁的計數：避免被瀏覽器翻譯卡住不更新 */}
+                        {`${String(index + 1).padStart(3, '0')} / ${String(photos.length).padStart(3, '0')}`}
                     </span>
                 </div>
                 <button
@@ -82,7 +84,7 @@ export default function Lightbox({ photos, index, album, onClose, onPrev, onNext
             {/* 照片 */}
             <div className="flex-grow flex items-center justify-center relative px-2 md:px-16 py-4 min-h-0">
                 <NavButton side="left"  onClick={onPrev} disabled={photos.length < 2} />
-                {/* 用原生 img：縮圖與大圖都已在 build-photos.mjs 預先壓好，
+                {/* 用原生 img：縮圖與大圖都已由來源（Drive 或 build-photos.mjs）壓好，
                     走 next/image 只會多消耗 Vercel 的圖片最佳化額度。 */}
                 <img
                     src={photoUrl(photo, 'full')}
@@ -96,8 +98,22 @@ export default function Lightbox({ photos, index, album, onClose, onPrev, onNext
                 <NavButton side="right" onClick={onNext} disabled={photos.length < 2} />
             </div>
 
-            {/* 下方提示 */}
-            <div className="flex-shrink-0 text-center pb-4 px-4">
+            {/* 下方列：原圖連結 + 操作提示 */}
+            <div className="flex-shrink-0 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 pb-4 px-4">
+                {originalUrl && (
+                    <a
+                        href={originalUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={e => e.stopPropagation()}
+                        className="text-xs underline underline-offset-2 transition-opacity duration-150"
+                        style={{ color: PAPER, opacity: 0.8 }}
+                        onMouseEnter={e => { e.currentTarget.style.opacity = '1'; }}
+                        onMouseLeave={e => { e.currentTarget.style.opacity = '0.8'; }}
+                    >
+                        在 Google Drive 開啟原圖 ↗
+                    </a>
+                )}
                 <span
                     className="text-xs hidden md:inline"
                     style={{ color: 'rgba(255,255,255,0.45)', fontFamily: 'ui-monospace, monospace' }}
