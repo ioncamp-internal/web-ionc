@@ -15,7 +15,7 @@ import manifest from './photos.json';
 //
 // 注意：lh3.googleusercontent.com 不是 Google 公開文件記載的介面。
 // 若哪天失效，改用 build-photos.mjs 把照片下載壓縮、SOURCE 切回 'local' 即可。
-const SOURCE      = 'local';           // 'drive' | 'local' | 'remote'
+const SOURCE      = 'drive';           // 'drive' | 'local' | 'remote'
 const LOCAL_BASE  = '/photos/2026';
 const REMOTE_BASE = '';                // 例如 'https://photos.ioncamp.org/2026'
 
@@ -38,7 +38,7 @@ export function photoUrl(photo, size = 'thumb') {
 }
 
 // 攝影組的公開 Drive 資料夾，放全部原始高解析照片
-const DRIVE_FOLDER = '';
+const DRIVE_FOLDER = '1GJ56UQhHnZclYSLqYQubbTqrQCsLO_-E';
 
 /** 整個相簿在 Drive 上的資料夾網址；照片不在 Drive 時回傳 null。 */
 export const driveFolderUrl =
